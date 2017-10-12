@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour {
     public CanvasGroup IN_GAME_CG;
     public CanvasGroup PAUSE_CG;
     public CanvasGroup SHOP_CG;
+	public CanvasGroup SECOND_MENU_CG;
     
 
     [Header("Ball & Box Containers")]
@@ -32,6 +33,9 @@ public class GameManager : MonoBehaviour {
     public Text gameOverScoreText;
     public Text gameOverBestText;
 
+
+	const string BLOCKSMASH_ID_IOS = "";   //need add when game create on AppStore
+	const string BLOCKSMASH_URL_ANDROID = "https://www.google.com"; //need add when game create on GooglePlay
 
     private PlayerPrefsManager PPM;
 
@@ -55,6 +59,7 @@ public class GameManager : MonoBehaviour {
         Time.timeScale = 1;
 
         EnableCG(MAIN_MENU_CG);
+		DisableCG (SECOND_MENU_CG);
         DisableCG(GAME_OVER_CG);
         DisableCG(PAUSE_CG);
         DisableCG(IN_GAME_CG);
@@ -107,6 +112,7 @@ public class GameManager : MonoBehaviour {
 
             //Display the GameOverCanvas
             EnableCG(GAME_OVER_CG);
+			DisableCG (SECOND_MENU_CG);
             DisableCG(MAIN_MENU_CG);
             DisableCG(IN_GAME_CG);
             DisableCG(SHOP_CG);
@@ -171,6 +177,7 @@ public class GameManager : MonoBehaviour {
         Time.timeScale = 1;
 
         EnableCG(IN_GAME_CG);
+		DisableCG (SECOND_MENU_CG);
         DisableCG(MAIN_MENU_CG);
         DisableCG(PAUSE_CG);
         DisableCG(GAME_OVER_CG);
@@ -193,6 +200,7 @@ public class GameManager : MonoBehaviour {
         Time.timeScale = 1;
 
         EnableCG(MAIN_MENU_CG);
+		DisableCG (SECOND_MENU_CG);
         DisableCG(GAME_OVER_CG);
         DisableCG(PAUSE_CG);
         DisableCG(IN_GAME_CG);
@@ -203,13 +211,32 @@ public class GameManager : MonoBehaviour {
 
     }
 
+	public void SecondMenu(){
+	
+		GameState = State.MENU;
+		Time.timeScale = 1;
+
+		EnableCG (SECOND_MENU_CG);
+		DisableCG (PAUSE_CG);
+		DisableCG (GAME_OVER_CG);
+		DisableCG (IN_GAME_CG);
+		DisableCG (MAIN_MENU_CG);
+		DisableCG (SHOP_CG);
+
+		BallSpawner.SetActive (false);
+		BlocksManager.SetActive (false);
+
+
+	}
+
     public void Pause()
     {
         Time.timeScale = 0;
 
         PPM.SaveCoins(score);
 
-        EnableCG(PAUSE_CG);
+        EnableCG(SECOND_MENU_CG);
+		DisableCG (PAUSE_CG);
         DisableCG(GAME_OVER_CG);
         DisableCG(IN_GAME_CG);
         DisableCG(MAIN_MENU_CG);
@@ -224,6 +251,7 @@ public class GameManager : MonoBehaviour {
         Time.timeScale = 1;
 
         EnableCG(IN_GAME_CG);
+		DisableCG (SECOND_MENU_CG);
         DisableCG(GAME_OVER_CG);
         DisableCG(PAUSE_CG);
         DisableCG(MAIN_MENU_CG);
@@ -237,6 +265,7 @@ public class GameManager : MonoBehaviour {
         shopScoreText.text = "" + score;
 
         EnableCG(SHOP_CG);
+		DisableCG (SECOND_MENU_CG);
         DisableCG(GAME_OVER_CG);
         DisableCG(PAUSE_CG);
         DisableCG(MAIN_MENU_CG);
@@ -248,8 +277,21 @@ public class GameManager : MonoBehaviour {
         Time.timeScale = 3;
     }
 
-    public void RateGame()
+    public void OpenBlockSmashReview()
     {
-        Application.OpenURL("https://play.google.com/store/apps/details?id=com.yourComp.yourGameName");
+		
+		#if UNITY_IPHONE
+			IOSNativeUtility.RedirectToAppStoreRatingPage(BLOCKSMASH_ID_IOS);
+		#elif UNITY_ANDROID
+			AndroidNativeUtility.RedirectToGooglePlayRatingPage(BLOCKSMASH_URL_ANDROID);
+		#endif
+		Debug.Log ("OpenBlockSmashReview");
+
+      //  Application.OpenURL("https://play.google.com/store/apps/details?id=com.yourComp.yourGameName");
     }
+
+	public void OnAboutUsClick(){
+	
+		Application.OpenURL ("https://campaign.beetheswarm.com/feed");
+	}
 }
