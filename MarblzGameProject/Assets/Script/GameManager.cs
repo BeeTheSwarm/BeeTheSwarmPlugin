@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour {
     public Text gameOverScoreText;
     public Text gameOverBestText;
 
+	[SerializeField]Animator _menusAnimatorController;
 
 	const string BLOCKSMASH_ID_IOS = "";   //need add when game create on AppStore
 	const string BLOCKSMASH_URL_ANDROID = "https://www.google.com"; //need add when game create on GooglePlay
@@ -59,7 +60,7 @@ public class GameManager : MonoBehaviour {
         Time.timeScale = 1;
 
         EnableCG(MAIN_MENU_CG);
-		DisableCG (SECOND_MENU_CG);
+		//DisableCG (SECOND_MENU_CG);
         DisableCG(GAME_OVER_CG);
         DisableCG(PAUSE_CG);
         DisableCG(IN_GAME_CG);
@@ -155,6 +156,14 @@ public class GameManager : MonoBehaviour {
     {
         GameState = State.GAME;
 
+		if (GameState == State.MENU)
+			_menusAnimatorController.SetTrigger ("ShowMainMenu");
+		else
+			_menusAnimatorController.SetTrigger ("HideMenu");
+
+
+
+
         BallSpawner.GetComponent<BallControl>().ResetSettings();
 
         //Reset the number of lines too
@@ -177,8 +186,8 @@ public class GameManager : MonoBehaviour {
         Time.timeScale = 1;
 
         EnableCG(IN_GAME_CG);
-		DisableCG (SECOND_MENU_CG);
-        DisableCG(MAIN_MENU_CG);
+		//DisableCG (SECOND_MENU_CG);
+       // DisableCG(MAIN_MENU_CG);
         DisableCG(PAUSE_CG);
         DisableCG(GAME_OVER_CG);
         DisableCG(SHOP_CG);
@@ -211,7 +220,7 @@ public class GameManager : MonoBehaviour {
 
     }
 
-	public void SecondMenu(){
+	/*public void SecondMenu(){
 	
 		GameState = State.MENU;
 		Time.timeScale = 1;
@@ -227,11 +236,26 @@ public class GameManager : MonoBehaviour {
 		BlocksManager.SetActive (false);
 
 
-	}
+	}*/
 
     public void Pause()
     {
-        Time.timeScale = 0;
+
+		if (GameState == State.GAME) {
+			
+			_menusAnimatorController.SetTrigger ("ShowAdditionalMenu");
+			GameState = State.PAUSE;
+
+		} else {
+			_menusAnimatorController.SetTrigger ("HideMenu");
+
+
+		}
+
+        
+		Time.timeScale = 0;
+
+
 
         PPM.SaveCoins(score);
 
@@ -248,7 +272,17 @@ public class GameManager : MonoBehaviour {
 
     public void ContinueGame()
     {
-        Time.timeScale = 1;
+		
+		if (GameState == State.PAUSE) {
+			_menusAnimatorController.SetTrigger ("HideMenu");
+			GameState = State.GAME;
+		} else {
+			Debug.Log (GameState);
+			_menusAnimatorController.SetTrigger ("ShowAdditionalMenu");
+
+		}
+
+		Time.timeScale = 1;
 
         EnableCG(IN_GAME_CG);
 		DisableCG (SECOND_MENU_CG);
