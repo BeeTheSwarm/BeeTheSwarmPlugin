@@ -60,9 +60,9 @@ public class GameManager : MonoBehaviour {
         Time.timeScale = 1;
 
         EnableCG(MAIN_MENU_CG);
-		//DisableCG (SECOND_MENU_CG);
+	  //DisableCG (SECOND_MENU_CG);
         DisableCG(GAME_OVER_CG);
-        DisableCG(PAUSE_CG);
+     // DisableCG(PAUSE_CG);
         DisableCG(IN_GAME_CG);
         DisableCG(SHOP_CG);
 
@@ -88,8 +88,22 @@ public class GameManager : MonoBehaviour {
 
     public void SetGameOver()
     {
+		Debug.Log (GameState);
+
+
         if (GameState != State.GAMEOVER)
         {
+
+			if (GameState == State.GAME) {
+
+				_menusAnimatorController.SetTrigger ("ShowGameOver");
+				GameState = State.GAMEOVER;
+
+			} else {
+				_menusAnimatorController.SetTrigger ("HideGameOver");
+
+			}
+
 
             int linesAmount = BlocksManager.GetComponent<BlocksManager>().linesAmount;
 
@@ -112,10 +126,10 @@ public class GameManager : MonoBehaviour {
             PPM.SaveBestScore(bestScore);
 
             //Display the GameOverCanvas
-            EnableCG(GAME_OVER_CG);
+          //  EnableCG(GAME_OVER_CG);
 			DisableCG (SECOND_MENU_CG);
             DisableCG(MAIN_MENU_CG);
-            DisableCG(IN_GAME_CG);
+         //   DisableCG(IN_GAME_CG);
             DisableCG(SHOP_CG);
 
             BallSpawner.SetActive(false);
@@ -154,17 +168,26 @@ public class GameManager : MonoBehaviour {
 
     public void StartGame()
     {
-        GameState = State.GAME;
+		
+
+
+		if (GameState == State.GAMEOVER) {
+			_menusAnimatorController.SetTrigger ("HideGameOver");
+		}
+		if (GameState == State.PAUSE)
+			_menusAnimatorController.SetTrigger ("HideAdditionalMenu");
+
+		GameState = State.GAME;
+
 
 		if (GameState == State.MENU)
 			_menusAnimatorController.SetTrigger ("ShowMainMenu");
-		else
+		else 
 			_menusAnimatorController.SetTrigger ("HideMenu");
 
 
 
-
-        BallSpawner.GetComponent<BallControl>().ResetSettings();
+		BallSpawner.GetComponent<BallControl>().ResetSettings();
 
         //Reset the number of lines too
         BlocksManager.GetComponent<BlocksManager>().linesAmount = 1;
@@ -186,10 +209,10 @@ public class GameManager : MonoBehaviour {
         Time.timeScale = 1;
 
         EnableCG(IN_GAME_CG);
-		//DisableCG (SECOND_MENU_CG);
-       // DisableCG(MAIN_MENU_CG);
-        DisableCG(PAUSE_CG);
-        DisableCG(GAME_OVER_CG);
+	  //DisableCG (SECOND_MENU_CG);
+     // DisableCG(MAIN_MENU_CG);
+    //  DisableCG(PAUSE_CG);
+     // DisableCG(GAME_OVER_CG);
         DisableCG(SHOP_CG);
     }
 
@@ -274,7 +297,7 @@ public class GameManager : MonoBehaviour {
     {
 		
 		if (GameState == State.PAUSE) {
-			_menusAnimatorController.SetTrigger ("HideMenu");
+			_menusAnimatorController.SetTrigger ("HideAdditionalMenu");
 			GameState = State.GAME;
 		} else {
 			Debug.Log (GameState);
@@ -284,10 +307,10 @@ public class GameManager : MonoBehaviour {
 
 		Time.timeScale = 1;
 
-        EnableCG(IN_GAME_CG);
-		DisableCG (SECOND_MENU_CG);
+    //  EnableCG(IN_GAME_CG);
+	//	DisableCG (SECOND_MENU_CG);
         DisableCG(GAME_OVER_CG);
-        DisableCG(PAUSE_CG);
+  //    DisableCG(PAUSE_CG);
         DisableCG(MAIN_MENU_CG);
         DisableCG(SHOP_CG);
     }
