@@ -3,11 +3,14 @@ using UnityEngine.UI;
 
 public class BoxCollidedScript : MonoBehaviour {
 
-    private Text thisText;
+    //private Text thisText;
     public float raqem;
 
     Color boxColor;
     SpriteRenderer thisSpriteRenderer;
+	[SerializeField] Text text;
+	[SerializeField] ParticleSystem ps;
+	[SerializeField] SpriteRenderer srTemplate;
 
     private bool canDestroy;
 
@@ -16,9 +19,10 @@ public class BoxCollidedScript : MonoBehaviour {
 
         canDestroy = false;
 
-        thisText = transform.GetChild(0).GetComponent<Text>();
+        //thisText = transform.GetChild(0).GetComponent<Text>();
  
-        thisText.text = "" + raqem;
+
+		text.text = "" + raqem;
 
         //Initialize the sprite Renderer
         thisSpriteRenderer = this.GetComponent<SpriteRenderer>();
@@ -32,8 +36,9 @@ public class BoxCollidedScript : MonoBehaviour {
 		
         if(canDestroy)
         {
-            if (transform.GetChild(1).GetComponent<ParticleSystem>().isStopped)
-            {
+            //if (transform.GetChild(1).GetComponent<ParticleSystem>().isStopped)
+			if (ps.isStopped)
+			{
                 Destroy(this.gameObject);
             }
         }
@@ -43,17 +48,19 @@ public class BoxCollidedScript : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D collision)
     {
         raqem = raqem - 1;
-        thisText.text = "" + raqem;
+		text.text = "" + raqem;
 
         SetBoxColor();
 
         if (raqem == 0)
         {
             //Hide the text
-            thisText.enabled = false;
+			text.enabled = false;
 
-            this.GetComponent<SpriteRenderer>().enabled = false;
-            transform.GetChild(1).GetComponent<ParticleSystem>().Play();
+			thisSpriteRenderer.enabled = false;
+			srTemplate.enabled = false;
+//            transform.GetChild(1).GetComponent<ParticleSystem>().Play();
+			ps.Play();
 
             //Disable the box collider
             this.GetComponent<Collider2D>().enabled = false;
