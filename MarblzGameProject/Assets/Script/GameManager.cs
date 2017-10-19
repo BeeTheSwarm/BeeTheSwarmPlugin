@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System;
+using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
@@ -42,7 +44,7 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		PlayerPrefs.DeleteAll ();
         // Screen doesn't sleep ! A monster !! 
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
@@ -168,9 +170,7 @@ public class GameManager : MonoBehaviour {
 
     public void StartGame()
     {
-		
-
-
+		StartCoroutine (PlayBTSPromoCoroutine());
 		if (GameState == State.GAMEOVER) {
 			_menusAnimatorController.SetTrigger ("HideGameOver");
 		}
@@ -185,9 +185,8 @@ public class GameManager : MonoBehaviour {
 		else 
 			_menusAnimatorController.SetTrigger ("HideMenu");
 
-
-
-		BallSpawner.GetComponent<BallControl>().ResetSettings();
+													//BallSpawner.GetComponent<BallControl>().ResetSettings();
+		BallSpawner.SetActive(false);
 
         //Reset the number of lines too
         BlocksManager.GetComponent<BlocksManager>().linesAmount = 1;
@@ -205,6 +204,7 @@ public class GameManager : MonoBehaviour {
 
         BallSpawner.SetActive(true);
         BlocksManager.SetActive(true);
+		BallSpawner.GetComponent<BallControl>().ResetSettings();
 
         Time.timeScale = 1;
 
@@ -263,11 +263,11 @@ public class GameManager : MonoBehaviour {
 
     public void Pause()
     {
-
 		if (GameState == State.GAME) {
 			
 			_menusAnimatorController.SetTrigger ("ShowAdditionalMenu");
 			GameState = State.PAUSE;
+									//	BallSpawner.SetActive(false);
 
 		} else {
 			_menusAnimatorController.SetTrigger ("HideMenu");
@@ -306,7 +306,7 @@ public class GameManager : MonoBehaviour {
 		}
 
 		Time.timeScale = 1;
-
+										//	BallSpawner.SetActive(true);
     //  EnableCG(IN_GAME_CG);
 	//	DisableCG (SECOND_MENU_CG);
         DisableCG(GAME_OVER_CG);
@@ -348,7 +348,13 @@ public class GameManager : MonoBehaviour {
     }
 
 	public void OnAboutUsClick(){
-	
+		
 		Application.OpenURL ("https://campaign.beetheswarm.com/feed");
+	}
+
+	IEnumerator PlayBTSPromoCoroutine(){
+
+		yield return new WaitForSeconds (0.5f);
+		BTSPromoController.Instance.ShowOurGamesPromo ();
 	}
 }
