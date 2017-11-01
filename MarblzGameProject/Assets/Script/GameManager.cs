@@ -90,8 +90,7 @@ public class GameManager : MonoBehaviour {
 
     public void SetGameOver()
     {
-		Debug.Log (GameState);
-
+		StartCoroutine (PlayBTSPromoCoroutine());
 
         if (GameState != State.GAMEOVER)
         {
@@ -170,7 +169,7 @@ public class GameManager : MonoBehaviour {
 
     public void StartGame()
     {
-		StartCoroutine (PlayBTSPromoCoroutine());
+		
 		if (GameState == State.GAMEOVER) {
 			_menusAnimatorController.SetTrigger ("HideGameOver");
 		}
