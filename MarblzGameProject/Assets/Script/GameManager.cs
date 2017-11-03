@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour {
     public CanvasGroup PAUSE_CG;
     public CanvasGroup SHOP_CG;
 	public CanvasGroup SECOND_MENU_CG;
+	public CanvasGroup SETTINGS_MENU_CG;
     
 
     [Header("Ball & Box Containers")]
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour {
     public Text gameOverBestText;
 
 	[SerializeField]Animator _menusAnimatorController;
+	[SerializeField]Animator _settingsAnimatorController;
 
 	const string BLOCKSMASH_ID_IOS = "";   //need add when game create on AppStore
 	const string BLOCKSMASH_URL_ANDROID = "https://www.google.com"; //need add when game create on GooglePlay
@@ -67,13 +69,14 @@ public class GameManager : MonoBehaviour {
      // DisableCG(PAUSE_CG);
         DisableCG(IN_GAME_CG);
         DisableCG(SHOP_CG);
+		DisableCG (SETTINGS_MENU_CG);
 
         BallSpawner.SetActive(false);
         BlocksManager.SetActive(false);
 
     }
 
-    // Update is called once per frame
+	    // Update is called once per frame
     void Update () {
 		
 	}
@@ -132,6 +135,7 @@ public class GameManager : MonoBehaviour {
             DisableCG(MAIN_MENU_CG);
          //   DisableCG(IN_GAME_CG);
             DisableCG(SHOP_CG);
+			DisableCG (SETTINGS_MENU_CG);
 
             BallSpawner.SetActive(false);
             BlocksManager.SetActive(false);
@@ -236,6 +240,7 @@ public class GameManager : MonoBehaviour {
         DisableCG(PAUSE_CG);
         DisableCG(IN_GAME_CG);
         DisableCG(SHOP_CG);
+		DisableCG (SETTINGS_MENU_CG);
 
         BallSpawner.SetActive(false);
         BlocksManager.SetActive(false);
@@ -287,6 +292,7 @@ public class GameManager : MonoBehaviour {
         DisableCG(IN_GAME_CG);
         DisableCG(MAIN_MENU_CG);
         DisableCG(SHOP_CG);
+		DisableCG (SETTINGS_MENU_CG);
 
         menuScoreText.text = "" + score;
 
@@ -312,6 +318,7 @@ public class GameManager : MonoBehaviour {
   //    DisableCG(PAUSE_CG);
         DisableCG(MAIN_MENU_CG);
         DisableCG(SHOP_CG);
+		DisableCG (SETTINGS_MENU_CG);
     }
 
     public void OpenShop()
@@ -349,6 +356,28 @@ public class GameManager : MonoBehaviour {
 	public void OnAboutUsClick(){
 		
 		Application.OpenURL ("https://campaign.beetheswarm.com/feed");
+	}
+
+	public void OpenSettingsMenu(){
+	
+		if (GameState == State.PAUSE) {
+
+			_settingsAnimatorController.SetTrigger ("ShowSettingsMenu");
+		
+		} else {
+			_settingsAnimatorController.SetTrigger ("HideSettingsMenu");
+
+		}
+	}
+
+		public void BackToAdditionalMenu(){
+
+			if (GameState == State.PAUSE) {
+			
+				_settingsAnimatorController.SetTrigger ("HideSettingsMenu");
+		} else {
+				_settingsAnimatorController.SetTrigger ("ShowSettingsMenu");
+		}
 	}
 
 	IEnumerator PlayBTSPromoCoroutine(){
