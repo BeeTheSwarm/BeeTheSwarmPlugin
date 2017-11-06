@@ -16,7 +16,8 @@ public class AudioManager : SA_Singleton<AudioManager> {
 	float minValue;
 	float maxValue;
 
-	[SerializeField] UnityEngine.UI.Slider volumeSlider;
+	[SerializeField] UnityEngine.UI.Slider soundSlider;
+	[SerializeField] UnityEngine.UI.Slider musicSlider;
 	bool isSubscriber;
 
 	[SerializeField] float volume;
@@ -26,7 +27,10 @@ public class AudioManager : SA_Singleton<AudioManager> {
 	/// 
 
 	void Awake(){
-		SettheVolumeSlider (volumeSlider);
+
+
+		SetTheMusicVolumeSlider (musicSlider);
+		SetTheVolumeSlider (soundSlider);
 		DontDestroyOnLoad (this.gameObject);
 		minValue = 0.01f;
 
@@ -42,11 +46,12 @@ public class AudioManager : SA_Singleton<AudioManager> {
 		//есть ли ключ громкость, если нет то 1.
 		//read volume fromplayer prefs
 		volume = 1f;
-		volumeSlider.value = 1f;
+		soundSlider.value = 1f;
+		musicSlider.value = 1f;
 	}
 
 	void Update(){
-	
+
 		if (audioSource) {
 		
 			if (isFadeOut) {
@@ -80,22 +85,27 @@ public class AudioManager : SA_Singleton<AudioManager> {
 		//save to player prefs
 	}
 
-	public void SettheVolumeSlider (UnityEngine.UI.Slider slider){
-	
+	public void SetTheVolumeSlider (UnityEngine.UI.Slider slider){
+
 		if (slider != null) {
 			slider.value = volume;
-			volumeSlider = slider;
-			volumeSlider.onValueChanged.AddListener (UpdateApplicationVolume);
+			soundSlider = slider;
+			soundSlider.onValueChanged.AddListener (UpdateApplicationVolume);
 		}	
+	}
+
+	public void SetTheMusicVolumeSlider(UnityEngine.UI.Slider mslider){
+
+		if (mslider != null) {
+			mslider.value = volume;
+			musicSlider = mslider;
+			musicSlider.onValueChanged.AddListener (UpdateMusicVolumeSlider);
+		}
 	}
 
 	public void SetFadeInOutSpeed(float time){
 	
 		FadeInOutSpeed = time;
-	}
-
-	public void OnSliderUpdated() {
-		UpdateApplicationVolume (volumeSlider.value);
 	}
 
 	//////////
@@ -112,16 +122,16 @@ public class AudioManager : SA_Singleton<AudioManager> {
 	}
 
 	void UpdateApplicationVolume(float volume){
-		if (volumeSlider && volumeSlider.gameObject.activeSelf) {
-			SetApplicationVolume (volumeSlider.value);
-			volume = volumeSlider.value;
+		if (soundSlider && soundSlider.gameObject.activeSelf) {
+			SetApplicationVolume (soundSlider.value);
+			volume = soundSlider.value;
 		}
 	}
 
-	void UnSubscribedVolumeUpdate(){
-	
-		if (volumeSlider != null) {
-			volumeSlider.onValueChanged.RemoveListener (UpdateApplicationVolume);
+	void UpdateMusicVolumeSlider(float volume) {
+
+		if (musicSlider && musicSlider.gameObject.activeSelf) {
+			audioSource.volume = musicSlider.value;
 		}
 	}
 
@@ -134,4 +144,5 @@ public class AudioManager : SA_Singleton<AudioManager> {
 		if (audioSource)
 			audioSource.volume = Mathf.Lerp (audioSource.volume, 0, Time.unscaledDeltaTime * FadeInOutSpeed);
 	}
+
 }
