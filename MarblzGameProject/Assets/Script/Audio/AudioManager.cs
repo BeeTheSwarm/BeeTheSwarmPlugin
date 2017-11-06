@@ -22,6 +22,30 @@ public class AudioManager : SA_Singleton<AudioManager> {
 
 	[SerializeField] float volume;
 
+	///---------------
+	////Get/Set
+	/// --------------
+
+	private float LastPlayedSound {
+
+		get { 
+			return PlayerPrefs.GetFloat ("volume sound");
+		}
+		set { 
+			PlayerPrefs.SetFloat ("volume sound", value);	
+		}
+	} 
+
+	private float LastPlayedMusic{
+
+		get{ 
+			return PlayerPrefs.GetFloat ("volume music");
+		}
+		set { 
+			PlayerPrefs.SetFloat ("volume music", value);
+		}
+	}
+
 	/////////
 	/// Builds-in UNITY functions
 	/// 
@@ -29,6 +53,7 @@ public class AudioManager : SA_Singleton<AudioManager> {
 	void Awake(){
 
 
+		//PlayerPrefs.DeleteAll ();
 		SetTheMusicVolumeSlider (musicSlider);
 		SetTheVolumeSlider (soundSlider);
 		DontDestroyOnLoad (this.gameObject);
@@ -42,12 +67,26 @@ public class AudioManager : SA_Singleton<AudioManager> {
 			audioSource.Play ();
 		}
 
-		isFadeIn = true;
-		//есть ли ключ громкость, если нет то 1.
-		//read volume fromplayer prefs
-		volume = 1f;
-		soundSlider.value = 1f;
-		musicSlider.value = 1f;
+		//isFadeIn = true;
+
+		if (!PlayerPrefs.HasKey ("volume sound")) {
+			soundSlider.value = 1f;
+			PlayerPrefs.SetFloat ("volume sound", soundSlider.value);
+		} 
+		else {
+			soundSlider.value = LastPlayedSound;
+			AudioListener.volume = soundSlider.value;
+		}	
+
+		if (!PlayerPrefs.HasKey ("volume music")) {
+			musicSlider.value = 1f;
+			PlayerPrefs.SetFloat ("volume music", musicSlider.value);
+		}
+		else {
+			musicSlider.value = LastPlayedMusic;
+			audioSource.volume = musicSlider.value;
+		}
+	
 	}
 
 	void Update(){
@@ -81,8 +120,9 @@ public class AudioManager : SA_Singleton<AudioManager> {
 	/// 
 
 	public void SetApplicationVolume(float volume) {
+
 		AudioListener.volume = volume;
-		//save to player prefs
+		LastPlayedSound = AudioListener.volume;
 	}
 
 	public void SetTheVolumeSlider (UnityEngine.UI.Slider slider){
@@ -100,6 +140,7 @@ public class AudioManager : SA_Singleton<AudioManager> {
 			mslider.value = volume;
 			musicSlider = mslider;
 			musicSlider.onValueChanged.AddListener (UpdateMusicVolumeSlider);
+
 		}
 	}
 
@@ -132,6 +173,7 @@ public class AudioManager : SA_Singleton<AudioManager> {
 
 		if (musicSlider && musicSlider.gameObject.activeSelf) {
 			audioSource.volume = musicSlider.value;
+			LastPlayedMusic = audioSource.volume;
 		}
 	}
 

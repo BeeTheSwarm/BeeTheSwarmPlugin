@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		PlayerPrefs.DeleteAll ();
+		
         // Screen doesn't sleep ! A monster !! 
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
