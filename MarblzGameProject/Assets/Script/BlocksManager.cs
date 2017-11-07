@@ -88,7 +88,7 @@ void Update () {
             int randomSpawn = Random.Range(0, 9);
 
             //Spawn a block
-            if (randomSpawn == 1 || randomSpawn == 2 || randomSpawn == 3)
+			if (randomSpawn == 1 || randomSpawn == 2 || randomSpawn == 3 || randomSpawn == 4)
             {
 
                 GameObject newBlock = Instantiate(BlockPrefab,
@@ -103,7 +103,7 @@ void Update () {
                 else if (randomAmount == 2)
                     newBlock.GetComponent<BoxCollidedScript>().raqem = linesAmount * 2;
 
-            } else if( randomSpawn == 4 || randomSpawn == 5)
+            } else if( randomSpawn == 5)
             {
                 GameObject newBlock = Instantiate(EarnBallPrefab,
                     startPos + new Vector2(i * blockSpace, 0),
