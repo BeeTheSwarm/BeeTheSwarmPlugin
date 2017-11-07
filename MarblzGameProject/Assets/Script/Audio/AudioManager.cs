@@ -22,7 +22,7 @@ public class AudioManager : SA_Singleton<AudioManager> {
 
 	[SerializeField] float volume;
 
-	///---------------
+	///---------------//
 	////Get/Set
 	/// --------------
 
