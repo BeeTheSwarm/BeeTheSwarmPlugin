@@ -380,6 +380,12 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
+	public void OnEarnBeesButtonClick(){
+	
+
+		EarnBeesInterstitialController.Instance.Show (EarnBeesInterstitialController.EarnBeesInterstitialShowType.Table);
+	}
+
 	IEnumerator PlayBTSPromoCoroutine(){
 
 		yield return new WaitForSeconds (0.5f);
