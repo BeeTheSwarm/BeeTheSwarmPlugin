@@ -8,9 +8,6 @@ public class GameManager : MonoBehaviour {
     enum State { MENU, SHOP, PAUSE, GAME, GAMEOVER};
     State GameState;
 
-    [Header("Ad Management")]
-    public AdManager adManager;
-
     [Header("Canvas Groups")]
     public CanvasGroup MAIN_MENU_CG;
     public CanvasGroup GAME_OVER_CG;
@@ -43,6 +40,7 @@ public class GameManager : MonoBehaviour {
 	const string BLOCKSMASH_URL_ANDROID = "https://www.google.com"; //need add when game create on GooglePlay
 
     private PlayerPrefsManager PPM;
+	public ScoreManager ScoreManager;
 
 	// Use this for initialization
 	void Start () {
@@ -115,9 +113,6 @@ public class GameManager : MonoBehaviour {
         
             GameState = State.GAMEOVER;
 
-            adManager.gameOverCount++;
-            Debug.Log(adManager.gameOverCount);
-
             //Set Game Over score & best texts
             gameOverScoreText.text = "" + linesAmount;
 
@@ -125,9 +120,11 @@ public class GameManager : MonoBehaviour {
                 bestScore = linesAmount;
 
             gameOverBestText.text = "" + bestScore;
-
+			Debug.Log (gameOverBestText.text);
             //Save the best score
             PPM.SaveBestScore(bestScore);
+
+			ScoreManager.SubmitScore (bestScore);
 
             //Display the GameOverCanvas
           //  EnableCG(GAME_OVER_CG);
@@ -384,6 +381,10 @@ public class GameManager : MonoBehaviour {
 	
 
 		EarnBeesInterstitialController.Instance.Show (EarnBeesInterstitialController.EarnBeesInterstitialShowType.Table);
+	}
+
+	public void OnLeaderboardsButtonClick () {
+		UM_GameServiceManager.Instance.ShowLeaderBoardsUI ();
 	}
 
 	IEnumerator PlayBTSPromoCoroutine(){

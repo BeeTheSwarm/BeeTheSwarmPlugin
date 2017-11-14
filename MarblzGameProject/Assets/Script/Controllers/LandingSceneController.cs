@@ -21,8 +21,8 @@ public class LandingSceneController : SA_Singleton<LandingSceneController>  {
 	void Start(){
 
 		GoToLevel ();
-		Debug.Log ("Connection started");
-
+		Debug.Log ("Connections started");
+		PlayServiceConnectionStart ();
 		LoadPrefabs ();
 	}
 
@@ -36,6 +36,38 @@ public class LandingSceneController : SA_Singleton<LandingSceneController>  {
 	private void LoadPrefabs(){
 
 		StartCoroutine (LoadPrefabsCoroutine ());
+	}
+
+
+	private void PlayServiceConnectionStart(){
+		#if UNITY_EDITOR || UNITY_STANDALONE
+		/*string playServiceID = "G:000000000";
+		BTS_Manager.OnLoginConnectionSuccessfull += OnBTSConnectionSuccessfullHandler;
+		BTS_Manager.OnLoginConnectionFail += OnBTSConnectionFailHandler;
+		BTS_Manager.Instance.Connect (playServiceID);*/
+		#else
+		UM_GameServiceManager.OnPlayerConnected += OnPlayerConnected;
+		UM_GameServiceManager.OnPlayerDisconnected += OnPlayerDisconnected; 
+		UM_GameServiceManager.Instance.Connect();
+		#endif
+
+
+	}
+
+	private void OnPlayerConnected(){
+		Debug.Log ("Player Connected");
+		UM_GameServiceManager.Instance.LoadLeaderboardsInfo ();
+
+		UM_GameServiceManager.OnPlayerConnected -= OnPlayerConnected;
+		UM_GameServiceManager.OnPlayerDisconnected -= OnPlayerDisconnected;
+	}
+
+	private void OnPlayerDisconnected(){
+	
+		Debug.Log ("Player Disconnected");
+
+		UM_GameServiceManager.OnPlayerConnected -= OnPlayerConnected;
+		UM_GameServiceManager.OnPlayerDisconnected -= OnPlayerDisconnected;
 	}
 
 	IEnumerator LoadLevelAfterDelay(string levelname, float delay){
