@@ -36,8 +36,8 @@ public class GameManager : MonoBehaviour {
 	[SerializeField]Animator _menusAnimatorController;
 	[SerializeField]Animator _settingsAnimatorController;
 
-	const string BLOCKSMASH_ID_IOS = "";   //need add when game create on AppStore
-	const string BLOCKSMASH_URL_ANDROID = "https://www.google.com"; //need add when game create on GooglePlay
+	const string BLOCKSMASH_ID_IOS = "1313223895";   //need add when game create on AppStore
+	const string BLOCKSMASH_URL_ANDROID = "https://play.google.com/store/apps/details?id=com.beetheswarm.blocksmash"; //need add when game create on GooglePlay
 
     private PlayerPrefsManager PPM;
 	public ScoreManager ScoreManager;
