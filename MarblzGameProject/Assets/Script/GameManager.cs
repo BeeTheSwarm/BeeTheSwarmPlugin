@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour {
 
 	[SerializeField]Animator _menusAnimatorController;
 	[SerializeField]Animator _settingsAnimatorController;
-	//[SerializeField]Animator _shopAnimatorController;
+	[SerializeField]Animator _shopAnimatorController;
 
 	const string BLOCKSMASH_ID_IOS = "1313223895";   //need add when game create on AppStore
 	const string BLOCKSMASH_URL_ANDROID = "https://play.google.com/store/apps/details?id=com.beetheswarm.blocksmash"; //need add when game create on GooglePlay
@@ -63,9 +63,9 @@ public class GameManager : MonoBehaviour {
         Time.timeScale = 1;
 
         EnableCG(MAIN_MENU_CG);
-	  //DisableCG (SECOND_MENU_CG);
+	 //   DisableCG (SECOND_MENU_CG);
         DisableCG(GAME_OVER_CG);
-     // DisableCG(PAUSE_CG);
+      //  DisableCG(PAUSE_CG);
         DisableCG(IN_GAME_CG);
         DisableCG(SHOP_CG);
 		DisableCG (SETTINGS_MENU_CG);
@@ -245,23 +245,6 @@ public class GameManager : MonoBehaviour {
 
     }
 
-	/*public void SecondMenu(){
-	
-		GameState = State.MENU;
-		Time.timeScale = 1;
-
-		EnableCG (SECOND_MENU_CG);
-		DisableCG (PAUSE_CG);
-		DisableCG (GAME_OVER_CG);
-		DisableCG (IN_GAME_CG);
-		DisableCG (MAIN_MENU_CG);
-		DisableCG (SHOP_CG);
-
-		BallSpawner.SetActive (false);
-		BlocksManager.SetActive (false);
-
-
-	}*/
 
     public void Pause()
     {
@@ -289,7 +272,7 @@ public class GameManager : MonoBehaviour {
         DisableCG(GAME_OVER_CG);
         DisableCG(IN_GAME_CG);
         DisableCG(MAIN_MENU_CG);
-        DisableCG(SHOP_CG);
+        //DisableCG(SHOP_CG);
 		DisableCG (SETTINGS_MENU_CG);
 
         menuScoreText.text = "" + score;
@@ -315,7 +298,7 @@ public class GameManager : MonoBehaviour {
         DisableCG(GAME_OVER_CG);
   //    DisableCG(PAUSE_CG);
         DisableCG(MAIN_MENU_CG);
-        DisableCG(SHOP_CG);
+        //DisableCG(SHOP_CG);
 		DisableCG (SETTINGS_MENU_CG);
     }
 
@@ -324,17 +307,30 @@ public class GameManager : MonoBehaviour {
         //GameState = State.SHOP;
 
        // shopScoreText.text = "" + score;
-
-       // EnableCG(SHOP_CG);
-	//	DisableCG (SECOND_MENU_CG);
+		//EnableCG(SHOP_CG);
+		//DisableCG (SECOND_MENU_CG);
       //  DisableCG(GAME_OVER_CG);
       //  DisableCG(PAUSE_CG);
      //   DisableCG(MAIN_MENU_CG);
      //   DisableCG(IN_GAME_CG);
 
-		ShopController.Instance.Show ();
+		if (GameState == State.PAUSE) {
+			
+			_shopAnimatorController.SetTrigger ("FadeIn");
+
+		} else {
+			_shopAnimatorController.SetTrigger ("FadeOut");
+
+		}
 
     }
+
+	public void CloseShop(){
+		
+
+			_shopAnimatorController.SetTrigger ("FadeOut");
+		
+	}
 
     public void FastForwardFunction()
     {
