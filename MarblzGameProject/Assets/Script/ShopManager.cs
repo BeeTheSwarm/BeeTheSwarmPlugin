@@ -10,16 +10,16 @@ public class ShopManager : MonoBehaviour {
     public PlayerPrefsManager PPM;
     public GameManager GM;
 
-    [Header("Shop Button Prefab")]
-    public GameObject ShopButtonPrefab;
+    /*[Header("Shop Button Prefab")]
+    public GameObject ShopButtonPrefab;*/
 
     public GameObject[] BallzShop;
-    private Button[] LockedButtons;
+  //  private Button[] LockedButtons;
 
     private Color32[] BallzColors;
 
     private static int colorsAmount;
-    private static int ballPrice = 200;
+    private static int ballPrice = 10;
 
 	// Use this for initialization
 	void Start () {
@@ -28,15 +28,15 @@ public class ShopManager : MonoBehaviour {
 
         //Change the number of colors here
         //BallzShop = new GameObject[colorsAmount];
-        LockedButtons = new Button[colorsAmount];
+       // LockedButtons = new Button[colorsAmount];
 
         //Setup the colors of the balls
         BallzColors = new Color32[colorsAmount];
         SetupColors();
 
         //Scale the Viewport Content so that we can scroll correctly and see all the buttons
-        RectTransform r = this.GetComponent<RectTransform>();
-        r.sizeDelta = new Vector2(r.rect.x, (BallzShop.Length * 80) + 120);
+      //  RectTransform r = this.GetComponent<RectTransform>();
+       // r.sizeDelta = new Vector2(r.rect.x, (BallzShop.Length * 80) + 120);
 
         //Populate the shop
         for (int i = 0; i < BallzShop.Length; i++)
@@ -57,7 +57,7 @@ public class ShopManager : MonoBehaviour {
         }
 
 
-        Invoke("PopulateLockedButtons", 0.05f);
+     //   Invoke("PopulateLockedButtons", 0.05f);
         Invoke("AddListeners", 0.06f);
         Invoke("LoadPrefValues", 0.07f);
     }
@@ -74,14 +74,14 @@ public class ShopManager : MonoBehaviour {
         }
     }
 
-    void PopulateLockedButtons()
+  /*  void PopulateLockedButtons()
     {
         for (int i = 0; i < BallzShop.Length; i++)
         {
             LockedButtons[i] = BallzShop[i].transform.GetChild(1).GetComponent<Button>();
            
         }
-    }
+    }*/
 
     void AddListeners()
     {
@@ -90,16 +90,17 @@ public class ShopManager : MonoBehaviour {
         {
 
             int _k = k++;
+			//b.GetComponent<Image>()
             b.GetComponent<Button>().onClick.AddListener(delegate { SetBallColor(_k); });
         }
 
         int j = 0;
-        foreach (Button c in LockedButtons)
+        /*foreach (Button c in LockedButtons)
         {
 
             int _j = j++;
             c.onClick.AddListener(delegate { TryPurchaseColor(_j); });
-        }
+        }*/
     }
 	
 	// Update is called once per frame
@@ -112,12 +113,12 @@ public class ShopManager : MonoBehaviour {
         BC.ballColor = BallzShop[buttonId].transform.GetChild(0).GetComponent<Image>().color;
     }
 
-    void TryPurchaseColor(int buttonId)
+    public void TryPurchaseColor(int buttonId)
     {
         if(PPM.LoadCoins() >= ballPrice)
         {
             //Destroy the locked icon
-            Destroy(this.transform.GetChild(buttonId).GetChild(1).gameObject);
+    //        Destroy(this.transform.GetChild(buttonId).GetChild(1).gameObject);
 
             //Set the value in the Player Preferences
             PPM.SaveBallPurchased(buttonId);
@@ -143,7 +144,7 @@ public class ShopManager : MonoBehaviour {
         //Color 4
         BallzColors[3] = new Color32(255, 128, 44, 255);
 
-        //Color 5
+       /* //Color 5
         BallzColors[4] = new Color32(217, 47, 103, 255);
 
         //Color 6
@@ -159,6 +160,6 @@ public class ShopManager : MonoBehaviour {
         BallzColors[8] = new Color32(3, 78, 255, 255);
 
         //Color 10
-        BallzColors[9] = new Color32(255, 107, 235, 255);
+        BallzColors[9] = new Color32(255, 107, 235, 255);*/
     }
 }

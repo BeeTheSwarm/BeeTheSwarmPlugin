@@ -5,7 +5,7 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
-    enum State { MENU, SHOP, PAUSE, GAME, GAMEOVER};
+	enum State { MENU, SHOP, PAUSE, GAME, GAMEOVER};
     State GameState;
 
     [Header("Canvas Groups")]
@@ -50,10 +50,12 @@ public class GameManager : MonoBehaviour {
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
         PPM = this.GetComponent<PlayerPrefsManager>();
-        
+		//PlayerPrefs.DeleteAll ();
         score = PPM.LoadCoins();
+		//score=10000;
+	//	PPM.SaveCoins (score);
         bestScore = PPM.LoadBestScore();
-
+		Debug.Log (score);
         menuScoreText.text = "" + score;
         scoreText.text = "" + score;
         shopScoreText.text = "" + score;
@@ -77,7 +79,8 @@ public class GameManager : MonoBehaviour {
 
 	    // Update is called once per frame
     void Update () {
-		
+
+
 	}
 
     public void UpdateScoreText()
@@ -248,24 +251,21 @@ public class GameManager : MonoBehaviour {
 
     public void Pause()
     {
+		
 		if (GameState == State.GAME) {
 			
 			_menusAnimatorController.SetTrigger ("ShowAdditionalMenu");
 			GameState = State.PAUSE;
-									//	BallSpawner.SetActive(false);
 
 		} else {
 			_menusAnimatorController.SetTrigger ("HideMenu");
 
 
 		}
-
-        
+		        
 		Time.timeScale = 0;
 
-
-
-        PPM.SaveCoins(score);
+		PPM.SaveCoins(score);
 
         EnableCG(SECOND_MENU_CG);
 		DisableCG (PAUSE_CG);
@@ -281,10 +281,10 @@ public class GameManager : MonoBehaviour {
 
     public void ContinueGame()
     {
-		
 		if (GameState == State.PAUSE) {
 			_menusAnimatorController.SetTrigger ("HideAdditionalMenu");
 			GameState = State.GAME;
+
 		} else {
 			Debug.Log (GameState);
 			_menusAnimatorController.SetTrigger ("ShowAdditionalMenu");
@@ -292,8 +292,8 @@ public class GameManager : MonoBehaviour {
 		}
 
 		Time.timeScale = 1;
-										//	BallSpawner.SetActive(true);
-    //  EnableCG(IN_GAME_CG);
+
+	//  EnableCG(IN_GAME_CG);
 	//	DisableCG (SECOND_MENU_CG);
         DisableCG(GAME_OVER_CG);
   //    DisableCG(PAUSE_CG);
@@ -304,9 +304,9 @@ public class GameManager : MonoBehaviour {
 
     public void OpenShop()
     {
-        //GameState = State.SHOP;
+		//GameState = State.SHOP;
 
-       // shopScoreText.text = "" + score;
+		shopScoreText.text = "" + score;
 		//EnableCG(SHOP_CG);
 		//DisableCG (SECOND_MENU_CG);
       //  DisableCG(GAME_OVER_CG);
@@ -317,7 +317,7 @@ public class GameManager : MonoBehaviour {
 		if (GameState == State.PAUSE) {
 			
 			_shopAnimatorController.SetTrigger ("FadeIn");
-
+		
 		} else {
 			_shopAnimatorController.SetTrigger ("FadeOut");
 
@@ -327,9 +327,7 @@ public class GameManager : MonoBehaviour {
 
 	public void CloseShop(){
 		
-
-			_shopAnimatorController.SetTrigger ("FadeOut");
-		
+		_shopAnimatorController.SetTrigger ("FadeOut");
 	}
 
     public void FastForwardFunction()
@@ -347,8 +345,7 @@ public class GameManager : MonoBehaviour {
 		#endif
 		Debug.Log ("OpenBlockSmashReview");
 
-      //  Application.OpenURL("https://play.google.com/store/apps/details?id=com.yourComp.yourGameName");
-    }
+     }
 
 	public void OnAboutUsClick(){
 		
@@ -392,4 +389,18 @@ public class GameManager : MonoBehaviour {
 		yield return new WaitForSeconds (0.5f);
 		BTSPromoController.Instance.ShowOurGamesPromo ();
 	}
+
+
+	public bool TrySpendCoins(int scoreToSpend){
+		if ((score - scoreToSpend) >=0){
+			score -= scoreToSpend;
+
+			PPM.SaveCoins (score);
+			shopScoreText.text = "" + score;
+
+			return true;
+		}
+		return false;
+	}
+
 }
