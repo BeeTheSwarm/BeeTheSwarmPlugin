@@ -40,8 +40,24 @@ public class BallControl : MonoBehaviour {
 
     private bool firstBallSet;
 
+	private bool canWePlay = true;
+
+	void OnSecondMenuConditionChanged(bool condition) {
+		Debug.Log ("canWePlay " + canWePlay);
+		canWePlay = condition;
+	}
+
+	private void Subscribe() {
+		GameManager.OnSecondMenuConditionChanged += OnSecondMenuConditionChanged;
+	}
+
+	private void UnSubscribe() {
+		GameManager.OnSecondMenuConditionChanged -= OnSecondMenuConditionChanged;
+	}
+
     // Use this for initialization
     void Start () {
+		Subscribe ();
         //ballRigidbody = this.GetComponent<Rigidbody2D>();
 
         ballColor = Color.white;
@@ -70,18 +86,18 @@ public class BallControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-
+		if (!canWePlay)
+			return;
+		
         if (canLaunch)
         {
             if (Input.GetMouseButtonDown(0) && 
                 Camera.main.ScreenToWorldPoint(Input.mousePosition).y > initialBall.transform.position.y &&
                 Camera.main.ScreenToWorldPoint(Input.mousePosition).y < Camera.main.orthographicSize - 0.65f)
             {
-
-                //Show the FF Button
+				//Show the FF Button
                 FFButton.SetActive(true);
-
+				Debug.Log ("clicks");
                 //Get the direction for launching
                 touchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 dir = touchPos - (Vector2)initialBall.transform.position;
@@ -105,7 +121,7 @@ public class BallControl : MonoBehaviour {
            
         } else if(!canLaunch)
         {
-            //If we have only 1 ball left AKA the first ball, activate the launch
+			//If we have only 1 ball left AKA the first ball, activate the launch
             if (transform.childCount == 1)
             {
                 canLaunch = true;

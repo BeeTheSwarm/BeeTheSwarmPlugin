@@ -129,8 +129,7 @@ public class ShopController : MonoBehaviour {
 		OnItemEquipped (item.ID);
 
 		BC.ballColor = _items [currentEquippedItems].Color;
-
-
+		BC.initialBall.GetComponent<SpriteRenderer> ().color = _items [currentEquippedItems].Color;
 		Save ();
 	}
 

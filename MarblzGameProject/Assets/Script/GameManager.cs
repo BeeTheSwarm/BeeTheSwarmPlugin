@@ -5,6 +5,8 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
+	public static event Action<bool> OnSecondMenuConditionChanged = delegate {};
+
 	enum State { MENU, SHOP, PAUSE, GAME, GAMEOVER};
     State GameState;
 
@@ -50,10 +52,10 @@ public class GameManager : MonoBehaviour {
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
         PPM = this.GetComponent<PlayerPrefsManager>();
-		//PlayerPrefs.DeleteAll ();
+	//	PlayerPrefs.DeleteAll ();
         score = PPM.LoadCoins();
 		//score=10000;
-	//	PPM.SaveCoins (score);
+		//PPM.SaveCoins (score);
         bestScore = PPM.LoadBestScore();
 		Debug.Log (score);
         menuScoreText.text = "" + score;
@@ -161,20 +163,28 @@ public class GameManager : MonoBehaviour {
 
     void EnableCG(CanvasGroup cg)
     {
+		if (cg.name.Equals ("PANEL SECOND MENU"))
+			OnSecondMenuConditionChanged (false);
+		
         cg.alpha = 1;
         cg.blocksRaycasts = true;
         cg.interactable = true;
     }
     void DisableCG(CanvasGroup cg)
     {
-        cg.alpha = 0;
-        cg.blocksRaycasts = false;
+		Debug.Log ("cg name " + cg.name);
+		if (cg.name.Equals ("PANEL SECOND MENU"))
+			OnSecondMenuConditionChanged (true);
+		
+		cg.alpha = 0;       
+		cg.blocksRaycasts = false;
         cg.interactable = false;
     }
 
     public void StartGame()
     {
-		
+		OnSecondMenuConditionChanged (true);
+
 		if (GameState == State.GAMEOVER) {
 			_menusAnimatorController.SetTrigger ("HideGameOver");
 		}
@@ -281,6 +291,7 @@ public class GameManager : MonoBehaviour {
 
     public void ContinueGame()
     {
+		
 		if (GameState == State.PAUSE) {
 			_menusAnimatorController.SetTrigger ("HideAdditionalMenu");
 			GameState = State.GAME;
@@ -294,7 +305,7 @@ public class GameManager : MonoBehaviour {
 		Time.timeScale = 1;
 
 	//  EnableCG(IN_GAME_CG);
-	//	DisableCG (SECOND_MENU_CG);
+		DisableCG (SECOND_MENU_CG);
         DisableCG(GAME_OVER_CG);
   //    DisableCG(PAUSE_CG);
         DisableCG(MAIN_MENU_CG);
