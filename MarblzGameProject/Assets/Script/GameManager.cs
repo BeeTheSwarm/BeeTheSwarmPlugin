@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		
+
         // Screen doesn't sleep ! A monster !! 
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
@@ -63,7 +64,7 @@ public class GameManager : MonoBehaviour {
         shopScoreText.text = "" + score;
 
         GameState = State.MENU;
-
+		AdsController.Instance.ShowBanner ();
         Time.timeScale = 1;
 
         EnableCG(MAIN_MENU_CG);
@@ -97,6 +98,8 @@ public class GameManager : MonoBehaviour {
 
     public void SetGameOver()
     {
+		
+		AdsController.Instance.VideoShow ();
 		StartCoroutine (PlayBTSPromoCoroutine());
 
         if (GameState != State.GAMEOVER)

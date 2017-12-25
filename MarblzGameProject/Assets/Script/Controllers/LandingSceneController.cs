@@ -23,7 +23,9 @@ public class LandingSceneController : SA_Singleton<LandingSceneController>  {
 		GoToLevel ();
 		Debug.Log ("Connections started");
 		PlayServiceConnectionStart ();
+		AdsController.Instance.Init ();
 		LoadPrefabs ();
+
 	}
 
 	private void GoToLevel(){
@@ -49,9 +51,21 @@ public class LandingSceneController : SA_Singleton<LandingSceneController>  {
 		UM_GameServiceManager.OnPlayerConnected += OnPlayerConnected;
 		UM_GameServiceManager.OnPlayerDisconnected += OnPlayerDisconnected; 
 		UM_GameServiceManager.Instance.Connect();
+
+		UM_InAppPurchaseManager.Client.OnServiceConnected += OnBillingConnectFinishedAction;
+		UM_InAppPurchaseManager.Client.Connect ();
 		#endif
 
 
+	}
+
+private void OnBillingConnectFinishedAction(UM_BillingConnectionResult result){
+		UM_InAppPurchaseManager.Client.OnServiceConnected -= OnBillingConnectFinishedAction;
+		if (result.isSuccess) {
+			Debug.Log ("Billing Connected");
+		} else {
+			Debug.Log ("Failed to connect Billing" + result.message);
+		}
 	}
 
 	private void OnPlayerConnected(){
