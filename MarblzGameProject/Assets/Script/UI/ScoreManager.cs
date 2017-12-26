@@ -16,16 +16,22 @@ public class ScoreManager : MonoBehaviour {
 	//int _highscore;
 
 	const string _highscorePlayerPrefsKey = "Highscore";
-	const string LEADERBOARD_SCORE_ID = "Points High Score";
+	const string LEADERBOARD_SCORE_ID = "Points High Coins";
 
 	Dictionary<int, int> _beesRewardSheet;
 	
 	bool _isHighscore = false;
 	bool _isHighscoreLoaded = false;
 
-	public int Score {
+	public int Coins {
 
 		get { 
+			return GM.coins;
+		}
+	}
+
+	public int Score {
+		get {
 			return GM.score;
 		}
 	}
@@ -125,7 +131,7 @@ public class ScoreManager : MonoBehaviour {
 		UM_GameServiceManager.ActionScoreSubmitted += HandleActionScoreSubmitted;
 		UM_GameServiceManager.Instance.SubmitScore (LEADERBOARD_SCORE_ID, score);
 
-		Debug.Log ("Score submitted!");
+		Debug.Log ("Coins submitted!");
 		Reward();
 	}
 
@@ -149,24 +155,27 @@ public class ScoreManager : MonoBehaviour {
 		int bees = 0;
 		int points = 0;
 		int rewardedScore = 0;
+		int _beesEarnedCount = BTS_Manager.Instance.BeesEarnedToday;
 
 		foreach (KeyValuePair<int, int> pair in _beesRewardSheet) {
 			if (Score >= pair.Key) {
 				rewardedScore = pair.Key;
 				bees = pair.Value;
-				points = bees;
+				if (bees > _beesEarnedCount) {
+					int beesToReward = bees - _beesEarnedCount;
+					BTS_Manager.Instance.Reward (beesToReward);
+				}
+//				points = bees;
 			} else {
 				break;
 			}
 		}
-		if (points > 0) {
-			int pointsToReward = points;
-			int beesToReward = bees;
-			if (beesToReward > 0)
-				BTS_Manager.Instance.Reward (beesToReward);
+//		if (points > 0) {
+//			int pointsToReward = points;
+//			
 //			else
 //				BTS_Manager.Instance.Reward (pointsToReward);
-		}
+//		}
 	}
 
 

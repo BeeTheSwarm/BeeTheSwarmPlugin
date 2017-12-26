@@ -14,7 +14,7 @@ public class AddOneToPoints : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        int s = GameObject.Find("GameManager").GetComponent<GameManager>().score;
+        int s = GameObject.Find("GameManager").GetComponent<GameManager>().coins;
         s++;
         GameObject.Find("GameManager").GetComponent<PlayerPrefsManager>().SaveCoins(s);
 

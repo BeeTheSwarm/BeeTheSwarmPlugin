@@ -25,10 +25,11 @@ public class GameManager : MonoBehaviour {
     public GameObject BlocksManager;
 
     [HideInInspector]
-    public int score;
+    public int coins;
     public int bestScore;
+	public int score;	
 
-    [Header("Score Variables")]
+    [Header("Coins Variables")]
     public Text scoreText;
     public Text menuScoreText;
     public Text shopScoreText;
@@ -48,20 +49,22 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		
+		BTS_Manager.Instance.Init();
 
         // Screen doesn't sleep ! A monster !! 
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
         PPM = this.GetComponent<PlayerPrefsManager>();
 	//	PlayerPrefs.DeleteAll ();
-        score = PPM.LoadCoins();
+        coins = PPM.LoadCoins();
+		score = 0;
 		//score=10000;
 		//PPM.SaveCoins (score);
         bestScore = PPM.LoadBestScore();
-		Debug.Log (score);
-        menuScoreText.text = "" + score;
-        scoreText.text = "" + score;
-        shopScoreText.text = "" + score;
+		Debug.Log (coins);
+        menuScoreText.text = "" + coins;
+        scoreText.text = "" + coins;
+        shopScoreText.text = "" + coins;
 
         GameState = State.MENU;
 		AdsController.Instance.ShowBanner ();
@@ -88,11 +91,11 @@ public class GameManager : MonoBehaviour {
 
     public void UpdateScoreText()
     {
-        score = PPM.LoadCoins();
+        coins = PPM.LoadCoins();
 
-        scoreText.text = "" + score;
-        shopScoreText.text = "" + score;
-        menuScoreText.text = "" + score;
+        scoreText.text = "" + coins;
+        shopScoreText.text = "" + coins;
+        menuScoreText.text = "" + coins;
 
     }
 
@@ -117,8 +120,9 @@ public class GameManager : MonoBehaviour {
 
 
             int linesAmount = BlocksManager.GetComponent<BlocksManager>().linesAmount;
-
-            PPM.SaveCoins(score);
+	        score = linesAmount;
+	        
+            PPM.SaveCoins(coins);
         
             GameState = State.GAMEOVER;
 
@@ -236,7 +240,7 @@ public class GameManager : MonoBehaviour {
     public void MainMenu()
     {
 
-        menuScoreText.text = "" + score;
+        menuScoreText.text = "" + coins;
 
         //Save the best score
         PPM.SaveBestScore(bestScore);
@@ -278,7 +282,7 @@ public class GameManager : MonoBehaviour {
 		        
 		Time.timeScale = 0;
 
-		PPM.SaveCoins(score);
+		PPM.SaveCoins(coins);
 
         EnableCG(SECOND_MENU_CG);
 		DisableCG (PAUSE_CG);
@@ -288,7 +292,7 @@ public class GameManager : MonoBehaviour {
         //DisableCG(SHOP_CG);
 		DisableCG (SETTINGS_MENU_CG);
 
-        menuScoreText.text = "" + score;
+        menuScoreText.text = "" + coins;
 
     }
 
@@ -320,7 +324,7 @@ public class GameManager : MonoBehaviour {
     {
 		//GameState = State.SHOP;
 
-		shopScoreText.text = "" + score;
+		shopScoreText.text = "" + coins;
 		//EnableCG(SHOP_CG);
 		//DisableCG (SECOND_MENU_CG);
       //  DisableCG(GAME_OVER_CG);
@@ -414,11 +418,11 @@ public class GameManager : MonoBehaviour {
 
 
 	public bool TrySpendCoins(int scoreToSpend){
-		if ((score - scoreToSpend) >=0){
-			score -= scoreToSpend;
+		if ((coins - scoreToSpend) >=0){
+			coins -= scoreToSpend;
 
-			PPM.SaveCoins (score);
-			shopScoreText.text = "" + score;
+			PPM.SaveCoins (coins);
+			shopScoreText.text = "" + coins;
 
 			return true;
 		}

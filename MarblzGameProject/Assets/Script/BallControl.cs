@@ -97,7 +97,7 @@ public class BallControl : MonoBehaviour {
             {
 				//Show the FF Button
                 FFButton.SetActive(true);
-				Debug.Log ("clicks");
+//				Debug.Log ("clicks");
                 //Get the direction for launching
                 touchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 dir = touchPos - (Vector2)initialBall.transform.position;
