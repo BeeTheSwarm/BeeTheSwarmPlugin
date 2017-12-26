@@ -46,6 +46,7 @@ public class InAppPurchaseController : MonoBehaviour {
 			///////for multiple purchases.
 			switch (_inAppType) {
 			case InAppPurchaseType.NoAds:
+				AdsController.Instance.HideBanner ();
 				AdsController.Instance.DisableAds ();
 				break;
 			}
