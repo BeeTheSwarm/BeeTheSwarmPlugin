@@ -5,6 +5,7 @@ using System;
 using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour {
+	
 	public GameManager GM;
 	private PlayerPrefsManager PPM;
 
@@ -17,6 +18,8 @@ public class ScoreManager : MonoBehaviour {
 	const string _highscorePlayerPrefsKey = "Highscore";
 	const string LEADERBOARD_SCORE_ID = "Points High Score";
 
+	Dictionary<int, int> _beesRewardSheet;
+	
 	bool _isHighscore = false;
 	bool _isHighscoreLoaded = false;
 
@@ -42,6 +45,35 @@ public class ScoreManager : MonoBehaviour {
 	}
 
 
+	void Awake () {
+		//PlayerPrefs.DeleteAll ();
+
+		_beesRewardSheet = new Dictionary<int, int> ();
+		//Realise
+		_beesRewardSheet.Add (5, 	1);
+		_beesRewardSheet.Add (10, 	2);
+		_beesRewardSheet.Add (20, 	3);
+		_beesRewardSheet.Add (30, 	4);
+		_beesRewardSheet.Add (50, 	5);
+		_beesRewardSheet.Add (80, 	6);
+		_beesRewardSheet.Add (100, 	7);
+		_beesRewardSheet.Add (150, 	8);
+		_beesRewardSheet.Add (200,  9);
+		_beesRewardSheet.Add (300, 10);
+
+		//Test
+		/*_beesRewardSheet.Add (1, 	1);
+		_beesRewardSheet.Add (2, 	2);
+		_beesRewardSheet.Add (3, 	3);
+		_beesRewardSheet.Add (4, 	4);
+		_beesRewardSheet.Add (5, 	5);
+		_beesRewardSheet.Add (6, 	6);
+		_beesRewardSheet.Add (7, 	7);
+		_beesRewardSheet.Add (8, 	8);
+		_beesRewardSheet.Add (9, 	9);
+		_beesRewardSheet.Add (10, 	10);*/
+	}
+	
 	void Start(){
 		
 		//GM.bestScore = PPM.LoadBestScore();
@@ -94,7 +126,7 @@ public class ScoreManager : MonoBehaviour {
 		UM_GameServiceManager.Instance.SubmitScore (LEADERBOARD_SCORE_ID, score);
 
 		Debug.Log ("Score submitted!");
-
+		Reward();
 	}
 
 	private void HandleActionScoreSubmitted(UM_LeaderboardResult res){
@@ -110,7 +142,32 @@ public class ScoreManager : MonoBehaviour {
 			Debug.Log ("score submission failed:" + res.Error.Code + " / " + res.Error.Description);
 		}
 	}
+	
+	
 
+	private void Reward () {
+		int bees = 0;
+		int points = 0;
+		int rewardedScore = 0;
+
+		foreach (KeyValuePair<int, int> pair in _beesRewardSheet) {
+			if (Score >= pair.Key) {
+				rewardedScore = pair.Key;
+				bees = pair.Value;
+				points = bees;
+			} else {
+				break;
+			}
+		}
+		if (points > 0) {
+			int pointsToReward = points;
+			int beesToReward = bees;
+			if (beesToReward > 0)
+				BTS_Manager.Instance.Reward (beesToReward);
+//			else
+//				BTS_Manager.Instance.Reward (pointsToReward);
+		}
+	}
 
 
 }

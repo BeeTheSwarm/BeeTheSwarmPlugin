@@ -25,7 +25,8 @@ public class LandingSceneController : SA_Singleton<LandingSceneController>  {
 		PlayServiceConnectionStart ();
 		AdsController.Instance.Init ();
 		LoadPrefabs ();
-
+		
+		BTS_Manager.Instance.Connect();
 	}
 
 	private void GoToLevel(){

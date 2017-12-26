@@ -361,6 +361,14 @@ public class GameManager : MonoBehaviour {
 
      }
 
+	public void OnBTSButtonClick() {
+//		BTS_Manager.Instance.ShowInterstitial();
+		BTS_Manager.Instance.ShowPanel();
+		if (BTS_Manager.Instance.IsConnected) {
+			BTS_Manager.Instance.ShowBTSStatus();
+		} 
+	}
+
 	public void OnAboutUsClick(){
 		
 		Application.OpenURL ("https://campaign.beetheswarm.com/feed");

@@ -23,12 +23,12 @@ public class EarnBeesInterstitialController : MonoBehaviour {
 	[SerializeField] Animator _animator;
 
 	bool _isShowing = false;
+	bool _usePause = false;
 
 	private int _beesEarnedCount = 0;
 
 	List<KeyValuePair<EarnBeesInterstitialShowType, int>> _queue = new List<KeyValuePair<EarnBeesInterstitialShowType, int>> ();
 
-	bool _usePause = false;
 
 	public static EarnBeesInterstitialController Instance{
 
@@ -41,13 +41,37 @@ public class EarnBeesInterstitialController : MonoBehaviour {
 		DontDestroyOnLoad (this.gameObject);
 		_instance = this;
 	}
+	
+	private void OnEnable () {
+		//Subscribe to bees' events
+		BTS_Manager.OnDailyBeesMaximumReached 		+= OnDailyBeesMaximumReachedHandler;
+		BTS_Manager.OnRewardEarned 					+= OnBeesEarnedHandler;
+
+		BTS_Manager.OnLoginConnectionSuccessful 	+= OnLoginConnectionSuccessfullHandler;
+		BTS_Manager.OnDisconnected 					+= OnDisconnectedHandler;
+	}
+
+	private void OnDisable () {
+		//unsubscribe from them
+		BTS_Manager.OnDailyBeesMaximumReached 		-= OnDailyBeesMaximumReachedHandler;
+		BTS_Manager.OnRewardEarned 					-= OnBeesEarnedHandler;
+
+		BTS_Manager.OnLoginConnectionSuccessful 	-= OnLoginConnectionSuccessfullHandler;
+		BTS_Manager.OnDisconnected 					-= OnDisconnectedHandler;
+	}
 
 	public void Show (EarnBeesInterstitialShowType showType, int bees = 0){
-		if (_isShowing == true)
+		if (_isShowing)
 			return;
+		
+		
+		if (BTS_Manager.Instance.State == BTS.ConnectionState.Connected) {
+			UpdateBees ();
+		} else {
+			ResetBees ();
+		}
 
 		_isShowing = true;
-
 		_animator.SetTrigger ("FadeIn");
 
 		switch (showType) {
@@ -115,11 +139,38 @@ public class EarnBeesInterstitialController : MonoBehaviour {
 
 	public void UpdateBees(){
 	
+		_beesEarnedCount = BTS_Manager.Instance.BeesEarnedToday;
 		//here will be code 
 		StartCoroutine(UpdateBeesCoroutine());
 	}
 
+	private void OnBeesEarnedHandler (int bees, bool showNativeUI) {
+		if (showNativeUI == false) {
+			_usePause = true;
+			if (_isShowing == true)	{
+				_queue.Add (new KeyValuePair <EarnBeesInterstitialShowType, int> (EarnBeesInterstitialShowType.BeesEarned, bees));
+			} else {
+				Show (EarnBeesInterstitialShowType.BeesEarned, bees);
+			}	
+		}
+	}
+	
+	private void OnDailyBeesMaximumReachedHandler () {
+		_usePause = true;
+		if (_isShowing == true) {
+			_queue.Add (new KeyValuePair <EarnBeesInterstitialShowType, int>(EarnBeesInterstitialShowType.DailyMaximum, 0));
+		} else {
+			Show (EarnBeesInterstitialShowType.DailyMaximum);
+		}
+	}	
 
+	private void OnLoginConnectionSuccessfullHandler () {
+		UpdateBees ();
+	}
+		
+	private void OnDisconnectedHandler () {
+		ResetBees ();
+	}
 
 	IEnumerator UpdateBeesCoroutine(){
 		for (int b = 0; b < _beesOnTable.Count; b++) {

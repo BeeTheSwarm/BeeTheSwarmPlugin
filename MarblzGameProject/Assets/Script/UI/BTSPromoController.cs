@@ -135,7 +135,7 @@ public class BTSPromoController : SingletonPrefab<BTSPromoController> {
 	public void OpenBugsCrushPage(){
 	
 		#if UNITY_IPHONE
-		IOSNativeUtility.RedirectToAppStoreRatingPage(BUGSCRUSH_ID_IOS);
+		IOSNativeUtility.RedirectToAppStoreRatingPage(BUSGCRUSH_ID_IOS);
 		#elif UNITY_ANDROID
 		AndroidNativeUtility.RedirectToGooglePlayRatingPage(BUGSCRUSH_URL_ANDROID);
 		#endif
