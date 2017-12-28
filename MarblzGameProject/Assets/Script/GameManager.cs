@@ -190,8 +190,8 @@ public class GameManager : MonoBehaviour {
 
     public void StartGame()
     {
-		OnSecondMenuConditionChanged (true);
-
+		
+	    
 		if (GameState == State.GAMEOVER) {
 			_menusAnimatorController.SetTrigger ("HideGameOver");
 		}
@@ -227,6 +227,8 @@ public class GameManager : MonoBehaviour {
         BlocksManager.SetActive(true);
 		BallSpawner.GetComponent<BallControl>().ResetSettings();
 
+	    OnSecondMenuConditionChanged (true);
+	    score = 0;
         Time.timeScale = 1;
 
         EnableCG(IN_GAME_CG);

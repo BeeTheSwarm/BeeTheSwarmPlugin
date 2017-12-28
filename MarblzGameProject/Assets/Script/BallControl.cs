@@ -41,6 +41,16 @@ public class BallControl : MonoBehaviour {
     private bool firstBallSet;
 
 	private bool canWePlay = true;
+    
+    
+    // for dragging
+    private float force;
+    private bool mousePressed;
+    private Vector3 mouseStartPosition;
+    private Vector3 mouseEndPosition;
+    private Vector3 heading;
+    public float distance;
+    
 
 	void OnSecondMenuConditionChanged(bool condition) {
 		Debug.Log ("canWePlay " + canWePlay);
@@ -91,26 +101,64 @@ public class BallControl : MonoBehaviour {
 		
         if (canLaunch)
         {
-            if (Input.GetMouseButtonDown(0) && 
-                Camera.main.ScreenToWorldPoint(Input.mousePosition).y > initialBall.transform.position.y &&
-                Camera.main.ScreenToWorldPoint(Input.mousePosition).y < Camera.main.orthographicSize - 0.65f)
-            {
-				//Show the FF Button
-                FFButton.SetActive(true);
-//				Debug.Log ("clicks");
-                //Get the direction for launching
-                touchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                dir = touchPos - (Vector2)initialBall.transform.position;
 
-                //Disable the initialBall
-                initialBall.SetActive(false);
+            if (Input.GetMouseButtonDown(0)) {
 
-                //Launch the balls
-                launchBalls = true;
-
-                //Disable the launch until all the balls have disappeared
-                canLaunch = false;
+                mousePressed = true;
+                Ray vRayStart = Camera.main.ScreenPointToRay(Input.mousePosition);
+                mouseStartPosition = vRayStart.origin;
             }
+            
+            if (Input.GetMouseButtonUp(0)) {
+                if (mousePressed) {
+                    FFButton.SetActive(true);
+
+                    Ray vRayEnd = Camera.main.ScreenPointToRay(Input.mousePosition);
+ 
+                    mouseEndPosition = vRayEnd.origin;
+
+                    if (mouseStartPosition == mouseEndPosition)
+                        return;
+                    
+                    if (mouseEndPosition.y > mouseStartPosition.y) {
+                        return;
+                    }
+
+                    heading = mouseEndPosition - mouseStartPosition;
+                    distance = heading.magnitude;
+                    dir = heading/-distance;
+                    
+                    initialBall.SetActive(false);
+                    launchBalls = true;
+                    canLaunch = false;
+
+                    mousePressed = false;
+                    
+                }
+            }
+
+//            if (Input.GetMouseButtonDown(0) && 
+//                Camera.main.ScreenToWorldPoint(Input.mousePosition).y > initialBall.transform.position.y &&
+//                Camera.main.ScreenToWorldPoint(Input.mousePosition).y < Camera.main.orthographicSize - 0.65f)
+//            {
+//				//Show the FF Button
+//                FFButton.SetActive(true);
+////				Debug.Log ("clicks");
+//                //Get the direction for launching
+//                touchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+//                dir = touchPos - (Vector2)initialBall.transform.position;
+//
+////                dir = 
+//                
+//                //Disable the initialBall
+//                initialBall.SetActive(false);
+//
+//                //Launch the balls
+//                launchBalls = true;
+//
+//                //Disable the launch until all the balls have disappeared
+//                canLaunch = false;
+//            }
 
             if (launchBalls)
             {

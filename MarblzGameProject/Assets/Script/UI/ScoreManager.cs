@@ -16,7 +16,7 @@ public class ScoreManager : MonoBehaviour {
 	//int _highscore;
 
 	const string _highscorePlayerPrefsKey = "Highscore";
-	const string LEADERBOARD_SCORE_ID = "Points High Coins";
+	const string LEADERBOARD_SCORE_ID = "Points High Score";
 
 	Dictionary<int, int> _beesRewardSheet;
 	
@@ -132,7 +132,7 @@ public class ScoreManager : MonoBehaviour {
 		UM_GameServiceManager.Instance.SubmitScore (LEADERBOARD_SCORE_ID, score);
 
 		Debug.Log ("Coins submitted!");
-		Reward();
+//		Reward();
 	}
 
 	private void HandleActionScoreSubmitted(UM_LeaderboardResult res){
@@ -151,7 +151,7 @@ public class ScoreManager : MonoBehaviour {
 	
 	
 
-	private void Reward () {
+	public void SetReward () {
 		int bees = 0;
 		int points = 0;
 		int rewardedScore = 0;
