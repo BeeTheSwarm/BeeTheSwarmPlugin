@@ -31,6 +31,9 @@ public class BallControl : MonoBehaviour {
     private Vector2 dir;
     private Vector2 spawnPos;
 
+    [Header("Heading hint")]
+    public HeadingHint HeadingArrow;
+
     [HideInInspector]
     public GameObject initialBall;
 
@@ -40,9 +43,9 @@ public class BallControl : MonoBehaviour {
 
     private bool firstBallSet;
 
-	private bool canWePlay = true;
-    
-    
+    private bool canWePlay = true;
+
+
     // for dragging
     private float force;
     private bool mousePressed;
@@ -50,24 +53,24 @@ public class BallControl : MonoBehaviour {
     private Vector3 mouseEndPosition;
     private Vector3 heading;
     public float distance;
-    
 
-	void OnSecondMenuConditionChanged(bool condition) {
-		Debug.Log ("canWePlay " + canWePlay);
-		canWePlay = condition;
-	}
 
-	private void Subscribe() {
-		GameManager.OnSecondMenuConditionChanged += OnSecondMenuConditionChanged;
-	}
+    void OnSecondMenuConditionChanged(bool condition) {
+        Debug.Log("canWePlay " + canWePlay);
+        canWePlay = condition;
+    }
 
-	private void UnSubscribe() {
-		GameManager.OnSecondMenuConditionChanged -= OnSecondMenuConditionChanged;
-	}
+    private void Subscribe() {
+        GameManager.OnSecondMenuConditionChanged += OnSecondMenuConditionChanged;
+    }
+
+    private void UnSubscribe() {
+        GameManager.OnSecondMenuConditionChanged -= OnSecondMenuConditionChanged;
+    }
 
     // Use this for initialization
-    void Start () {
-		Subscribe ();
+    void Start() {
+        Subscribe();
         //ballRigidbody = this.GetComponent<Rigidbody2D>();
 
         ballColor = Color.white;
@@ -89,89 +92,69 @@ public class BallControl : MonoBehaviour {
         initialBall = Instantiate(BallPrefab, spawnPos, Quaternion.identity);
         initialBall.GetComponent<SpriteRenderer>().color = ballColor;
         initialBall.transform.parent = this.transform;
-
+        AlignHint();
+        HeadingArrow.transform.position = initialBall.transform.position;
+        HeadingArrow.gameObject.SetActive(false);
         numberOfBallsText.transform.position = new Vector2(spawnPos.x, spawnPos.y + 0.3f);
         numberOfBallsText.text = "x " + numberOfBalls;
     }
-	
-	// Update is called once per frame
-	void Update () {
-		if (!canWePlay)
-			return;
-		
-        if (canLaunch)
-        {
+
+    private void AlignHint() {
+        var position = initialBall.transform.position;
+        position.z = -1;
+        HeadingArrow.transform.position = position;
+
+    }
+
+    // Update is called once per frame
+    void Update() {
+        if (!canWePlay)
+            return;
+
+        if (canLaunch) {
 
             if (Input.GetMouseButtonDown(0)) {
 
                 mousePressed = true;
+                HeadingArrow.gameObject.SetActive(true);
                 Ray vRayStart = Camera.main.ScreenPointToRay(Input.mousePosition);
                 mouseStartPosition = vRayStart.origin;
             }
-            
-            if (Input.GetMouseButtonUp(0)) {
-                if (mousePressed) {
-                    FFButton.SetActive(true);
 
-                    Ray vRayEnd = Camera.main.ScreenPointToRay(Input.mousePosition);
- 
-                    mouseEndPosition = vRayEnd.origin;
-
+            if (mousePressed) {
+                Ray vRayEnd = Camera.main.ScreenPointToRay(Input.mousePosition);
+                mouseEndPosition = vRayEnd.origin;
+                heading = mouseEndPosition - mouseStartPosition;
+                distance = heading.magnitude;
+                dir = heading / -distance;
+                if (Input.GetMouseButtonUp(0)) {
+                    HeadingArrow.gameObject.SetActive(false);
+                    mousePressed = false;
                     if (mouseStartPosition == mouseEndPosition)
                         return;
-                    
                     if (mouseEndPosition.y > mouseStartPosition.y) {
                         return;
                     }
-
-                    heading = mouseEndPosition - mouseStartPosition;
-                    distance = heading.magnitude;
-                    dir = heading/-distance;
-                    
+                    FFButton.SetActive(true);
                     initialBall.SetActive(false);
                     launchBalls = true;
                     canLaunch = false;
-
-                    mousePressed = false;
-                    
+                }
+                else {
+                    HeadingArrow.SetHeading(Mathf.Atan(-dir.x / dir.y) * Mathf.Rad2Deg);
                 }
             }
 
-//            if (Input.GetMouseButtonDown(0) && 
-//                Camera.main.ScreenToWorldPoint(Input.mousePosition).y > initialBall.transform.position.y &&
-//                Camera.main.ScreenToWorldPoint(Input.mousePosition).y < Camera.main.orthographicSize - 0.65f)
-//            {
-//				//Show the FF Button
-//                FFButton.SetActive(true);
-////				Debug.Log ("clicks");
-//                //Get the direction for launching
-//                touchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-//                dir = touchPos - (Vector2)initialBall.transform.position;
-//
-////                dir = 
-//                
-//                //Disable the initialBall
-//                initialBall.SetActive(false);
-//
-//                //Launch the balls
-//                launchBalls = true;
-//
-//                //Disable the launch until all the balls have disappeared
-//                canLaunch = false;
-//            }
-
-            if (launchBalls)
-            {
+            if (launchBalls) {
                 StartCoroutine("LaunchBallsCoroutine");
                 launchBalls = false;
             }
 
-           
-        } else if(!canLaunch)
-        {
-			//If we have only 1 ball left AKA the first ball, activate the launch
-            if (transform.childCount == 1)
-            {
+
+        }
+        else if (!canLaunch) {
+            //If we have only 1 ball left AKA the first ball, activate the launch
+            if (transform.childCount == 1) {
                 canLaunch = true;
 
                 //Set the position and the value of the numberOfBallsText
@@ -181,22 +164,19 @@ public class BallControl : MonoBehaviour {
                 FFButton.SetActive(false);
                 Time.timeScale = 1;
 
-                if (!lineDropped)
-                {
+                if (!lineDropped) {
                     canDropLine = true;
                     lineDropped = true;
 
                 }
             }
         }
-	}
+    }
 
-    IEnumerator LaunchBallsCoroutine()
-    {
+    IEnumerator LaunchBallsCoroutine() {
         int ballsLaunched = numberOfBalls;
 
-        while(ballsLaunched > 0)
-        {
+        while (ballsLaunched > 0) {
             if (ballsLaunched - 1 > 0)
                 numberOfBallsText.text = "x " + (ballsLaunched - 1);
             else if (ballsLaunched - 1 == 0)
@@ -223,25 +203,20 @@ public class BallControl : MonoBehaviour {
         yield return null;
     }
 
-    void DisableCollisionsBetweenBalls()
-    {
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            for (int j = 0; j < transform.childCount; j++)
-            {
+    void DisableCollisionsBetweenBalls() {
+        for (int i = 0; i < transform.childCount; i++) {
+            for (int j = 0; j < transform.childCount; j++) {
                 Physics2D.IgnoreCollision(transform.GetChild(i).GetComponent<Collider2D>(), transform.GetChild(j).GetComponent<Collider2D>());
             }
         }
     }
 
-    public void SetFirstBall(Vector3 FirstBallPosition)
-    {
-        if (!firstBallSet)
-        {
-            initialBall.transform.position = new Vector2(FirstBallPosition.x, 
+    public void SetFirstBall(Vector3 FirstBallPosition) {
+        if (!firstBallSet) {
+            initialBall.transform.position = new Vector2(FirstBallPosition.x,
                 GameObject.FindGameObjectWithTag("Wall Bottom").transform.position.y + 0.65f);
             spawnPos = initialBall.transform.position;
-
+            AlignHint();
 
             //Enable the initialBall
             initialBall.SetActive(true);
@@ -251,20 +226,16 @@ public class BallControl : MonoBehaviour {
         }
     }
 
-    public void PlayBallSound()
-    {
+    public void PlayBallSound() {
         BallSound.Play();
     }
 
-    public void PlayEarnCoinSound()
-    {
+    public void PlayEarnCoinSound() {
         EarnAndCoinSound.Play();
     }
 
-    public void ResetSettings()
-    {
-        for(int i = 0; i < transform.childCount; i++)
-        {
+    public void ResetSettings() {
+        for (int i = 0; i < transform.childCount; i++) {
             Destroy(transform.GetChild(i).gameObject);
         }
 
