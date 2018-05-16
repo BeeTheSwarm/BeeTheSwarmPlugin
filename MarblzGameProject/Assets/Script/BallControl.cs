@@ -28,7 +28,7 @@ public class BallControl : MonoBehaviour {
     private Rigidbody2D ballRigidbody;
     private Vector2 initialPos;
     private Vector2 touchPos;
-    private Vector2 dir;
+    private Vector2 m_ballLaunchDirection;
     private Vector2 spawnPos;
 
     [Header("Heading hint")]
@@ -116,6 +116,7 @@ public class BallControl : MonoBehaviour {
             if (Input.GetMouseButtonDown(0)) {
 
                 mousePressed = true;
+                AlignHint();
                 HeadingArrow.gameObject.SetActive(true);
                 Ray vRayStart = Camera.main.ScreenPointToRay(Input.mousePosition);
                 mouseStartPosition = vRayStart.origin;
@@ -124,24 +125,31 @@ public class BallControl : MonoBehaviour {
             if (mousePressed) {
                 Ray vRayEnd = Camera.main.ScreenPointToRay(Input.mousePosition);
                 mouseEndPosition = vRayEnd.origin;
-                heading = mouseEndPosition - mouseStartPosition;
+                heading = mouseEndPosition - initialBall.transform.position;
                 distance = heading.magnitude;
-                dir = heading / -distance;
-                if (Input.GetMouseButtonUp(0)) {
+                m_ballLaunchDirection = heading;
+                m_ballLaunchDirection.Normalize();
+                if (Input.GetMouseButtonUp(0))
+                {
                     HeadingArrow.gameObject.SetActive(false);
                     mousePressed = false;
                     if (mouseStartPosition == mouseEndPosition)
                         return;
-                    if (mouseEndPosition.y > mouseStartPosition.y) {
+                   /* if (mouseEndPosition.y > mouseStartPosition.y)
+                    {
                         return;
-                    }
+                    }*/
+                    if (mouseEndPosition.y < initialBall.transform.position.y) { 
+
+                    return;
+                }
                     FFButton.SetActive(true);
                     initialBall.SetActive(false);
                     launchBalls = true;
                     canLaunch = false;
                 }
                 else {
-                    HeadingArrow.SetHeading(Mathf.Atan(-dir.x / dir.y) * Mathf.Rad2Deg);
+                    HeadingArrow.SetHeading(Mathf.Atan(-m_ballLaunchDirection.x / m_ballLaunchDirection.y) * Mathf.Rad2Deg);
                 }
             }
 
@@ -188,7 +196,7 @@ public class BallControl : MonoBehaviour {
             ball.GetComponent<SpriteRenderer>().color = ballColor;
 
             ball.transform.parent = this.gameObject.transform;
-            ball.GetComponent<Rigidbody2D>().AddForce(dir.normalized * launchForce);
+            ball.GetComponent<Rigidbody2D>().AddForce(m_ballLaunchDirection.normalized * launchForce);
 
             DisableCollisionsBetweenBalls();
 
