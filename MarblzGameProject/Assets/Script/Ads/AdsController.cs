@@ -73,7 +73,7 @@ public class AdsController : SA.Common.Pattern.Singleton<AdsController> {
 
 	void OnPurchaseFinishedHandler(UM_PurchaseResult result){
 		if(result.isSuccess && result.product.id == NOADS_ID){
-			UM_InAppPurchaseManager.Instance.OnPurchaseFinished -= OnPurchaseFinishedHandler;
+			UM_InAppPurchaseManager.Client.OnPurchaseFinished -= OnPurchaseFinishedHandler;
 
 			DisableAds();
 		}
