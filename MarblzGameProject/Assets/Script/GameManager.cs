@@ -2,13 +2,15 @@
 using UnityEngine.UI;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour {
 
 	public static event Action<bool> OnSecondMenuConditionChanged = delegate {};
 
-	enum State { MENU, SHOP, PAUSE, GAME, GAMEOVER};
-    State GameState;
+    
+    //enum State { MENU, SHOP, PAUSE, GAME, GAMEOVER};
+     
 
     [Header("Canvas Groups")]
     public CanvasGroup MAIN_MENU_CG;
@@ -36,6 +38,7 @@ public class GameManager : MonoBehaviour {
     public Text gameOverScoreText;
     public Text gameOverBestText;
 
+   // [SerializeField] Text _countdownText;
 	[SerializeField]Animator _menusAnimatorController;
 	[SerializeField]Animator _settingsAnimatorController;
 	[SerializeField]Animator _shopAnimatorController;
@@ -46,7 +49,8 @@ public class GameManager : MonoBehaviour {
     private PlayerPrefsManager PPM;
 	public ScoreManager ScoreManager;
 
-	// Use this for initialization
+
+    // Use this for initialization
 	void Start () {
 		
 		BTS_Manager.Instance.Init();
@@ -66,7 +70,8 @@ public class GameManager : MonoBehaviour {
         scoreText.text = "" + coins;
         shopScoreText.text = "" + coins;
 
-        GameState = State.MENU;
+
+        GameStateManager.Instance.MenuGame();
 		AdsController.Instance.ShowBanner ();
         Time.timeScale = 1;
 
@@ -83,11 +88,31 @@ public class GameManager : MonoBehaviour {
 
     }
 
-	    // Update is called once per frame
+    void OnEnable()
+    {
+       // GameStateManager.OnGameStarted += StartGame;
+       // GameStateManager.OnGamePaused += Pause;
+       // GameStateManager.OnGameRestarted += OnGameRestartedHandler;
+       // GameStateManager.OnGameResumed += OnGameResumedHandler;
+       // GameStateManager.OnGameOver += OnGameOverHandler;
+    }
+
+     void OnDisable()
+    {
+      //  GameStateManager.OnGameStarted -= StartGame;
+       // GameStateManager.OnGamePaused -= Pause;
+       // GameStateManager.OnGameRestarted -= OnGameRestartedHandler;
+       // GameStateManager.OnGameResumed -= OnGameResumedHandler;
+       // GameStateManager.OnGameOver -= OnGameOverHandler;
+    }
+
+
+    // Update is called once per frame
     void Update () {
 
 
 	}
+
 
     public void UpdateScoreText()
     {
@@ -105,26 +130,31 @@ public class GameManager : MonoBehaviour {
 		AdsController.Instance.VideoShow ();
 		StartCoroutine (PlayBTSPromoCoroutine());
 
-        if (GameState != State.GAMEOVER)
-        {
+        
 
-			if (GameState == State.GAME) {
+     //   if (GameStateManager.Instance.State != GameState.GameOver)
+      //  {
 
-				_menusAnimatorController.SetTrigger ("ShowGameOver");
-				GameState = State.GAMEOVER;
+            if (GameStateManager.Instance.State == GameState.Live)
+            {
 
-			} else {
-				_menusAnimatorController.SetTrigger ("HideGameOver");
+                _menusAnimatorController.SetTrigger("ShowGameOver");
+                GameStateManager.Instance.OverGame();
 
-			}
+            }
+           // else
+           // {
+          //      _menusAnimatorController.SetTrigger("HideGameOver");
+
+        //    }
 
 
             int linesAmount = BlocksManager.GetComponent<BlocksManager>().linesAmount;
-	        score = linesAmount;
-	        
+            score = linesAmount;
+
             PPM.SaveCoins(coins);
-        
-            GameState = State.GAMEOVER;
+           // GameStateManager.Instance.OverGame();
+            //  GameState = State.GAMEOVER;
 
             //Set Game Over score & best texts
             gameOverScoreText.text = "" + linesAmount;
@@ -133,19 +163,19 @@ public class GameManager : MonoBehaviour {
                 bestScore = linesAmount;
 
             gameOverBestText.text = "" + bestScore;
-			Debug.Log (gameOverBestText.text);
+            Debug.Log(gameOverBestText.text);
             //Save the best score
             PPM.SaveBestScore(bestScore);
 
-			ScoreManager.SubmitScore (bestScore);
+            ScoreManager.SubmitScore(bestScore);
 
             //Display the GameOverCanvas
-          //  EnableCG(GAME_OVER_CG);
-			DisableCG (SECOND_MENU_CG);
+            //  EnableCG(GAME_OVER_CG);
+            DisableCG(SECOND_MENU_CG);
             DisableCG(MAIN_MENU_CG);
-         //   DisableCG(IN_GAME_CG);
+            //   DisableCG(IN_GAME_CG);
             DisableCG(SHOP_CG);
-			DisableCG (SETTINGS_MENU_CG);
+            DisableCG(SETTINGS_MENU_CG);
 
             BallSpawner.SetActive(false);
             BlocksManager.SetActive(false);
@@ -164,7 +194,7 @@ public class GameManager : MonoBehaviour {
             //Then we reset the ballcount to 1
             BallSpawner.GetComponent<BallControl>().numberOfBalls = 1;
             BallSpawner.GetComponent<BallControl>().numberOfBallsText.text = "x 1";
-        }
+       // }
 
     }
 
@@ -190,22 +220,26 @@ public class GameManager : MonoBehaviour {
 
     public void StartGame()
     {
-		
-	    
-		if (GameState == State.GAMEOVER) {
+       
+        if (GameStateManager.Instance.State == GameState.GameOver) {
+           
 			_menusAnimatorController.SetTrigger ("HideGameOver");
 		}
-		if (GameState == State.PAUSE)
-			_menusAnimatorController.SetTrigger ("HideAdditionalMenu");
+        if (GameStateManager.Instance.State == GameState.Pause)
+        {
+            
+            _menusAnimatorController.SetTrigger("HideAdditionalMenu");
+        }
+        GameStateManager.Instance.StartGame();
+       
+        //GameState = State.GAME;
 
-		GameState = State.GAME;
 
-
-		if (GameState == State.MENU)
+        if (GameStateManager.Instance.State == GameState.Menu)
 			_menusAnimatorController.SetTrigger ("ShowMainMenu");
 		else 
 			_menusAnimatorController.SetTrigger ("HideMenu");
-
+            
 													//BallSpawner.GetComponent<BallControl>().ResetSettings();
 		BallSpawner.SetActive(false);
 
@@ -250,7 +284,7 @@ public class GameManager : MonoBehaviour {
         //Reset the number of lines too
         BlocksManager.GetComponent<BlocksManager>().linesAmount = 1;
 
-        GameState = State.MENU;
+        //GameState = State.MENU;
 
         Time.timeScale = 1;
 
@@ -270,17 +304,19 @@ public class GameManager : MonoBehaviour {
 
     public void Pause()
     {
-		
-		if (GameState == State.GAME) {
-			
-			_menusAnimatorController.SetTrigger ("ShowAdditionalMenu");
-			GameState = State.PAUSE;
+        
+        GameStateManager.Instance.PauseGame();
+        
+        //if (GameState == State.GAME) {
 
-		} else {
-			_menusAnimatorController.SetTrigger ("HideMenu");
+        _menusAnimatorController.SetTrigger ("ShowAdditionalMenu");
+			//GameState = State.PAUSE;
+
+		//} else {
+		//	_menusAnimatorController.SetTrigger ("HideMenu");
 
 
-		}
+		//}
 		        
 		Time.timeScale = 0;
 
@@ -300,16 +336,16 @@ public class GameManager : MonoBehaviour {
 
     public void ContinueGame()
     {
-		
-		if (GameState == State.PAUSE) {
+        //StartCoroutine(ResumeToGame(1f));
+	//	if (GameState == State.PAUSE) {
 			_menusAnimatorController.SetTrigger ("HideAdditionalMenu");
-			GameState = State.GAME;
+			//GameState = State.GAME;
 
-		} else {
-			Debug.Log (GameState);
-			_menusAnimatorController.SetTrigger ("ShowAdditionalMenu");
+		//} else {
+		//	Debug.Log (GameState);
+		//	_menusAnimatorController.SetTrigger ("ShowAdditionalMenu");
 
-		}
+		//}
 
 		Time.timeScale = 1;
 
@@ -334,7 +370,7 @@ public class GameManager : MonoBehaviour {
      //   DisableCG(MAIN_MENU_CG);
      //   DisableCG(IN_GAME_CG);
 
-		if (GameState == State.PAUSE) {
+		if (GameStateManager.Instance.State == GameState.Pause) {
 			
 			_shopAnimatorController.SetTrigger ("FadeIn");
 		
@@ -382,7 +418,7 @@ public class GameManager : MonoBehaviour {
 
 	public void OpenSettingsMenu(){
 	
-		if (GameState == State.PAUSE) {
+		if (GameStateManager.Instance.State == GameState.Pause) {
 
 			_settingsAnimatorController.SetTrigger ("ShowSettingsMenu");
 		
@@ -394,7 +430,7 @@ public class GameManager : MonoBehaviour {
 
 		public void BackToAdditionalMenu(){
 
-			if (GameState == State.PAUSE) {
+			if (GameStateManager.Instance.State == GameState.Pause) {
 			
 				_settingsAnimatorController.SetTrigger ("HideSettingsMenu");
 		} else {
@@ -430,5 +466,13 @@ public class GameManager : MonoBehaviour {
 		}
 		return false;
 	}
+
+
+    /*IEnumerator ResumeToGame(float countdownTimeStep) {
+        for (int seconds = 3; seconds >= 1; seconds--) {
+            _countdownText.text = seconds.ToString();
+            yield return new WaitForSeconds(countdownTimeStep);
+        }   
+    }*/
 
 }

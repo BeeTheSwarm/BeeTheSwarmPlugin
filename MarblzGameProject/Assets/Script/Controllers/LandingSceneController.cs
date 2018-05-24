@@ -13,6 +13,7 @@ public class LandingSceneController : SA_Singleton<LandingSceneController>
     {
         DontDestroyOnLoad(gameObject);
         Application.targetFrameRate = 30;
+        GameStateManager.Instance.Init();
     }
 
     void Start()
