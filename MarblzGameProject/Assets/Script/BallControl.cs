@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
+
 
 public class BallControl : MonoBehaviour {
 
@@ -36,6 +39,8 @@ public class BallControl : MonoBehaviour {
 
     [HideInInspector]
     public GameObject initialBall;
+
+    [SerializeField] GameObject m_WallTopPositionBorder;
 
     public bool canLaunch;
     public bool canDropLine;
@@ -113,8 +118,19 @@ public class BallControl : MonoBehaviour {
 
         if (canLaunch) {
 
-            if (Input.GetMouseButtonDown(0)) {
-
+            float checkPlayerTouch = Input.mousePosition.y;
+            Vector3 checkAllowedClickHeight;
+            checkAllowedClickHeight = RectTransformUtility.WorldToScreenPoint(Camera.main, m_WallTopPositionBorder.transform.position);
+            
+            if (checkPlayerTouch > checkAllowedClickHeight.y)
+            {
+                mousePressed = false;
+                HeadingArrow.gameObject.SetActive(false);
+               
+            }
+                     
+            else if(Input.GetMouseButtonDown(0)) {
+              
                 mousePressed = true;
                 AlignHint();
                 HeadingArrow.gameObject.SetActive(true);
