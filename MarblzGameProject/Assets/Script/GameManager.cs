@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour {
 	[SerializeField]Animator _menusAnimatorController;
 	[SerializeField]Animator _settingsAnimatorController;
 	[SerializeField]Animator _shopAnimatorController;
+    [SerializeField] Animator m_rewardBeesAnimatorController;
 
 	const string BLOCKSMASH_ID_IOS = "1313223895";   //need add when game create on AppStore
 	const string BLOCKSMASH_URL_ANDROID = "https://play.google.com/store/apps/details?id=com.beetheswarm.blocksmash"; //need add when game create on GooglePlay
@@ -438,11 +439,25 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	public void OnEarnBeesButtonClick(){
-	
+    public void OpenRewardBeesScreen() {
+        if (GameStateManager.Instance.State == GameState.Pause)
+        {
+               m_rewardBeesAnimatorController.SetTrigger("OpenRewardBeesScreen");
+        }
+        else {
+                m_rewardBeesAnimatorController.SetTrigger("HideRewardBeesScreen");     
+        }
+    }
 
-		EarnBeesInterstitialController.Instance.Show (EarnBeesInterstitialController.EarnBeesInterstitialShowType.Table);
-	}
+    public void CloseRewardBeesScreen()
+    {
+        m_rewardBeesAnimatorController.SetTrigger("HideRewardBeesScreen");
+    }
+
+
+  /*  public void OnEarnBeesButtonClick(){
+			EarnBeesInterstitialController.Instance.Show (EarnBeesInterstitialController.EarnBeesInterstitialShowType.Table);
+	}*/
 
 	public void OnLeaderboardsButtonClick () {
 		UM_GameServiceManager.Instance.ShowLeaderBoardsUI ();

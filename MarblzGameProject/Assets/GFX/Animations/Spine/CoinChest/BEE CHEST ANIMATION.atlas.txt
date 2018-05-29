@@ -1,0 +1,104 @@
+
+BEE CHEST ANIMATION.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1st frame copy
+  rotate: true
+  xy: 2, 299
+  size: 384, 303
+  orig: 384, 303
+  offset: 0, 0
+  index: -1
+BIG COIN
+  rotate: true
+  xy: 2, 2
+  size: 295, 315
+  orig: 295, 315
+  offset: 0, 0
+  index: -1
+GOLD 2
+  rotate: false
+  xy: 371, 706
+  size: 367, 301
+  orig: 367, 301
+  offset: 0, 0
+  index: -1
+GOLD 3
+  rotate: false
+  xy: 2, 685
+  size: 367, 322
+  orig: 367, 322
+  offset: 0, 0
+  index: -1
+GOLD 3 - Copy
+  rotate: false
+  xy: 2, 685
+  size: 367, 322
+  orig: 367, 322
+  offset: 0, 0
+  index: -1
+coin icon
+  rotate: false
+  xy: 740, 769
+  size: 222, 238
+  orig: 222, 238
+  offset: 0, 0
+  index: -1
+coin icon copy
+  rotate: false
+  xy: 531, 477
+  size: 222, 227
+  orig: 222, 227
+  offset: 0, 0
+  index: -1
+coin icon copy 2
+  rotate: true
+  xy: 319, 83
+  size: 222, 206
+  orig: 222, 206
+  offset: 0, 0
+  index: -1
+coin icon copy 3
+  rotate: false
+  xy: 531, 278
+  size: 222, 197
+  orig: 222, 197
+  offset: 0, 0
+  index: -1
+coin icon copy 4
+  rotate: false
+  xy: 307, 455
+  size: 222, 228
+  orig: 222, 228
+  offset: 0, 0
+  index: -1
+coin icon copy 5
+  rotate: true
+  xy: 755, 545
+  size: 222, 135
+  orig: 222, 135
+  offset: 0, 0
+  index: -1
+coin icon copy 6
+  rotate: true
+  xy: 755, 323
+  size: 220, 69
+  orig: 220, 69
+  offset: 0, 0
+  index: -1
+coin icon copy 7
+  rotate: false
+  xy: 307, 307
+  size: 222, 146
+  orig: 222, 146
+  offset: 0, 0
+  index: -1
+coin icon copy 9
+  rotate: false
+  xy: 527, 81
+  size: 222, 195
+  orig: 222, 195
+  offset: 0, 0
+  index: -1

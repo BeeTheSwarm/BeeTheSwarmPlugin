@@ -1,0 +1,76 @@
+
+BEE CHEST ANIMATION.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1st frame copy
+  rotate: true
+  xy: 985, 123
+  size: 384, 303
+  orig: 384, 303
+  offset: 0, 0
+  index: -1
+BEE 3
+  rotate: true
+  xy: 337, 140
+  size: 367, 322
+  orig: 367, 322
+  offset: 0, 0
+  index: -1
+BEE BIG
+  rotate: true
+  xy: 2, 95
+  size: 412, 333
+  orig: 412, 333
+  offset: 0, 0
+  index: -1
+BEES 2
+  rotate: true
+  xy: 1290, 140
+  size: 367, 301
+  orig: 367, 301
+  offset: 0, 0
+  index: -1
+BOTTOM GLOW
+  rotate: false
+  xy: 1593, 257
+  size: 396, 250
+  orig: 396, 250
+  offset: 0, 0
+  index: -1
+Bee L
+  rotate: false
+  xy: 506, 8
+  size: 140, 130
+  orig: 140, 130
+  offset: 0, 0
+  index: -1
+Bee M
+  rotate: false
+  xy: 337, 2
+  size: 167, 136
+  orig: 167, 136
+  offset: 0, 0
+  index: -1
+Bee R
+  rotate: false
+  xy: 648, 8
+  size: 140, 130
+  orig: 140, 130
+  offset: 0, 0
+  index: -1
+GEM 3
+  rotate: true
+  xy: 661, 140
+  size: 367, 322
+  orig: 367, 322
+  offset: 0, 0
+  index: -1
+star
+  rotate: true
+  xy: 2, 9
+  size: 84, 79
+  orig: 84, 79
+  offset: 0, 0
+  index: -1
