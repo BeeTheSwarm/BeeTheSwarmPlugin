@@ -89,28 +89,9 @@ public class GameManager : MonoBehaviour {
 
     }
 
-    void OnEnable()
-    {
-       // GameStateManager.OnGameStarted += StartGame;
-       // GameStateManager.OnGamePaused += Pause;
-       // GameStateManager.OnGameRestarted += OnGameRestartedHandler;
-       // GameStateManager.OnGameResumed += OnGameResumedHandler;
-       // GameStateManager.OnGameOver += OnGameOverHandler;
-    }
-
-     void OnDisable()
-    {
-      //  GameStateManager.OnGameStarted -= StartGame;
-       // GameStateManager.OnGamePaused -= Pause;
-       // GameStateManager.OnGameRestarted -= OnGameRestartedHandler;
-       // GameStateManager.OnGameResumed -= OnGameResumedHandler;
-       // GameStateManager.OnGameOver -= OnGameOverHandler;
-    }
-
 
     // Update is called once per frame
     void Update () {
-
 
 	}
 
@@ -130,11 +111,7 @@ public class GameManager : MonoBehaviour {
 		
 		AdsController.Instance.VideoShow ();
 		StartCoroutine (PlayBTSPromoCoroutine());
-
-        
-
-     //   if (GameStateManager.Instance.State != GameState.GameOver)
-      //  {
+       
 
             if (GameStateManager.Instance.State == GameState.Live)
             {
@@ -143,12 +120,7 @@ public class GameManager : MonoBehaviour {
                 GameStateManager.Instance.OverGame();
 
             }
-           // else
-           // {
-          //      _menusAnimatorController.SetTrigger("HideGameOver");
-
-        //    }
-
+          
 
             int linesAmount = BlocksManager.GetComponent<BlocksManager>().linesAmount;
             score = linesAmount;
@@ -189,8 +161,6 @@ public class GameManager : MonoBehaviour {
 
                 //We should delete again for safety when GO is displayed.            
             }
-
-
 
             //Then we reset the ballcount to 1
             BallSpawner.GetComponent<BallControl>().numberOfBalls = 1;
@@ -233,9 +203,6 @@ public class GameManager : MonoBehaviour {
         }
         GameStateManager.Instance.StartGame();
        
-        //GameState = State.GAME;
-
-
         if (GameStateManager.Instance.State == GameState.Menu)
 			_menusAnimatorController.SetTrigger ("ShowMainMenu");
 		else 
@@ -247,6 +214,8 @@ public class GameManager : MonoBehaviour {
         //Reset the number of lines too
         BlocksManager.GetComponent<BlocksManager>().linesAmount = 1;
         BlocksManager.GetComponent<BlocksManager>().levelText.text = "" + BlocksManager.GetComponent<BlocksManager>().linesAmount;
+        BlocksManager.GetComponent<BlocksManager>().m_nextChanceRateChest = 1.9f;
+        BlocksManager.GetComponent<BlocksManager>().m_countDropChance.text ="" + BlocksManager.GetComponent<BlocksManager>().m_nextChanceRateChest;
 
         for (int i = 0; i < BlocksManager.transform.childCount; i++)
         {
@@ -308,17 +277,8 @@ public class GameManager : MonoBehaviour {
         
         GameStateManager.Instance.PauseGame();
         
-        //if (GameState == State.GAME) {
-
         _menusAnimatorController.SetTrigger ("ShowAdditionalMenu");
-			//GameState = State.PAUSE;
-
-		//} else {
-		//	_menusAnimatorController.SetTrigger ("HideMenu");
-
-
-		//}
-		        
+        
 		Time.timeScale = 0;
 
 		PPM.SaveCoins(coins);
@@ -337,16 +297,9 @@ public class GameManager : MonoBehaviour {
 
     public void ContinueGame()
     {
-        //StartCoroutine(ResumeToGame(1f));
-	//	if (GameState == State.PAUSE) {
+        GameStateManager.Instance.ResumeGame();
 			_menusAnimatorController.SetTrigger ("HideAdditionalMenu");
-			//GameState = State.GAME;
-
-		//} else {
-		//	Debug.Log (GameState);
-		//	_menusAnimatorController.SetTrigger ("ShowAdditionalMenu");
-
-		//}
+			
 
 		Time.timeScale = 1;
 
@@ -454,12 +407,7 @@ public class GameManager : MonoBehaviour {
         m_rewardBeesAnimatorController.SetTrigger("HideRewardBeesScreen");
     }
 
-
-  /*  public void OnEarnBeesButtonClick(){
-			EarnBeesInterstitialController.Instance.Show (EarnBeesInterstitialController.EarnBeesInterstitialShowType.Table);
-	}*/
-
-	public void OnLeaderboardsButtonClick () {
+ 	public void OnLeaderboardsButtonClick () {
 		UM_GameServiceManager.Instance.ShowLeaderBoardsUI ();
 	}
 
@@ -481,13 +429,5 @@ public class GameManager : MonoBehaviour {
 		}
 		return false;
 	}
-
-
-    /*IEnumerator ResumeToGame(float countdownTimeStep) {
-        for (int seconds = 3; seconds >= 1; seconds--) {
-            _countdownText.text = seconds.ToString();
-            yield return new WaitForSeconds(countdownTimeStep);
-        }   
-    }*/
 
 }
