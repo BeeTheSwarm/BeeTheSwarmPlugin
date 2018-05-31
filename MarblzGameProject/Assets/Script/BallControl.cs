@@ -23,6 +23,7 @@ public class BallControl : MonoBehaviour {
 
     [Header("Fast Forward Button")]
     public GameObject FFButton;
+    public GameObject SkipButton;
 
     [Space(10)]
 
@@ -75,8 +76,12 @@ public class BallControl : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
+
+        GameManager.OnResetLagBalls += ResetFreezingBalls;
+
         Subscribe();
         //ballRigidbody = this.GetComponent<Rigidbody2D>();
+        
 
         ballColor = Color.white;
 
@@ -90,6 +95,7 @@ public class BallControl : MonoBehaviour {
 
         //Hide the Fast Forward Button
         FFButton.SetActive(false);
+        SkipButton.SetActive(false);
 
         //Instantiate the initial Ball
         spawnPos = new Vector2(0, GameObject.FindGameObjectWithTag("Wall Bottom").transform.position.y + 0.65f);
@@ -117,7 +123,7 @@ public class BallControl : MonoBehaviour {
             return;
 
         if (canLaunch) {
-
+            SkipButton.SetActive(false);
             float checkPlayerTouch = Input.mousePosition.y;
             Vector3 checkAllowedClickHeight;
             checkAllowedClickHeight = RectTransformUtility.WorldToScreenPoint(Camera.main, m_WallTopPositionBorder.transform.position);
@@ -160,6 +166,7 @@ public class BallControl : MonoBehaviour {
                     return;
                 }
                     FFButton.SetActive(true);
+                    SkipButton.SetActive(false);
                     initialBall.SetActive(false);
                     launchBalls = true;
                     canLaunch = false;
@@ -186,6 +193,7 @@ public class BallControl : MonoBehaviour {
                 numberOfBallsText.text = "x " + numberOfBalls;
 
                 FFButton.SetActive(false);
+                SkipButton.SetActive(false);
                 Time.timeScale = 1;
 
                 if (!lineDropped) {
@@ -258,8 +266,38 @@ public class BallControl : MonoBehaviour {
         EarnAndCoinSound.Play();
     }
 
-    public void ResetSettings() {
-        for (int i = 0; i < transform.childCount; i++) {
+    public void ResetSettings()
+    {
+        SkipButton.SetActive(false);
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            Destroy(transform.GetChild(i).gameObject);
+        }
+
+        //First Ball set initially false
+        firstBallSet = false;
+        canLaunch = true;
+
+        launchBalls = false;
+        canDropLine = true;
+        lineDropped = false;
+
+        //Instantiate the initial Ball
+        spawnPos = new Vector2(0, GameObject.FindGameObjectWithTag("Wall Bottom").transform.position.y + 0.65f);
+        initialBall = Instantiate(BallPrefab, spawnPos, Quaternion.identity);
+        initialBall.GetComponent<SpriteRenderer>().color = ballColor;
+
+        initialBall.transform.parent = this.transform;
+        numberOfBalls = 1;
+
+        numberOfBallsText.transform.position = new Vector2(spawnPos.x, spawnPos.y + 0.3f);
+        numberOfBallsText.text = "x " + numberOfBalls;
+    }
+
+    public void ResetFreezingBalls() {
+        SkipButton.SetActive(false);
+        for (int i = 0; i < transform.childCount; i++)
+        {
             Destroy(transform.GetChild(i).gameObject);
         }
 
@@ -278,9 +316,10 @@ public class BallControl : MonoBehaviour {
 
         initialBall.transform.parent = this.transform;
 
-        numberOfBalls = 1;
-
         numberOfBallsText.transform.position = new Vector2(spawnPos.x, spawnPos.y + 0.3f);
         numberOfBallsText.text = "x " + numberOfBalls;
     }
+    
 }
+
+    

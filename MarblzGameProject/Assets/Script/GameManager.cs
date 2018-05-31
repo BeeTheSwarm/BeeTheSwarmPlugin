@@ -7,8 +7,9 @@ using System.Collections.Generic;
 public class GameManager : MonoBehaviour {
 
 	public static event Action<bool> OnSecondMenuConditionChanged = delegate {};
+    public static event Action OnNewDropLineRequest = delegate { };
+    public static event Action OnResetLagBalls = delegate { };
 
-    
     //enum State { MENU, SHOP, PAUSE, GAME, GAMEOVER};
      
 
@@ -38,7 +39,9 @@ public class GameManager : MonoBehaviour {
     public Text gameOverScoreText;
     public Text gameOverBestText;
 
-   // [SerializeField] Text _countdownText;
+   // [SerializeField] GameObject m_fastForwardButton;
+   // [SerializeField] GameObject m_skipButton;
+
 	[SerializeField]Animator _menusAnimatorController;
 	[SerializeField]Animator _settingsAnimatorController;
 	[SerializeField]Animator _shopAnimatorController;
@@ -49,10 +52,11 @@ public class GameManager : MonoBehaviour {
 
     private PlayerPrefsManager PPM;
 	public ScoreManager ScoreManager;
+    public BallControl BallControl;
 
 
     // Use this for initialization
-	void Start () {
+    void Start () {
 		
 		BTS_Manager.Instance.Init();
 
@@ -216,6 +220,7 @@ public class GameManager : MonoBehaviour {
         BlocksManager.GetComponent<BlocksManager>().levelText.text = "" + BlocksManager.GetComponent<BlocksManager>().linesAmount;
         BlocksManager.GetComponent<BlocksManager>().m_nextChanceRateChest = 1.9f;
         BlocksManager.GetComponent<BlocksManager>().m_countDropChance.text ="" + BlocksManager.GetComponent<BlocksManager>().m_nextChanceRateChest;
+      
 
         for (int i = 0; i < BlocksManager.transform.childCount; i++)
         {
@@ -230,8 +235,7 @@ public class GameManager : MonoBehaviour {
         BallSpawner.SetActive(true);
         BlocksManager.SetActive(true);
 		BallSpawner.GetComponent<BallControl>().ResetSettings();
-
-	    OnSecondMenuConditionChanged (true);
+        OnSecondMenuConditionChanged(true);
 	    score = 0;
         Time.timeScale = 1;
 
@@ -342,7 +346,8 @@ public class GameManager : MonoBehaviour {
 
     public void FastForwardFunction()
     {
-        Time.timeScale = 3;
+        Time.timeScale = 3f;
+        StartCoroutine(TimeSpawnSkipButton());
     }
 
     public void OpenBlockSmashReview()
@@ -429,5 +434,20 @@ public class GameManager : MonoBehaviour {
 		}
 		return false;
 	}
+
+    public void SkipHoveringBalls() {
+        
+          OnResetLagBalls();
+          Time.timeScale = 1f;
+          
+          
+    }
+
+    IEnumerator TimeSpawnSkipButton()
+    {
+        BallControl.FFButton.SetActive(false);
+        yield return new WaitForSeconds(2f);
+        BallControl.SkipButton.SetActive(true);
+    }
 
 }

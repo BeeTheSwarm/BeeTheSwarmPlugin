@@ -36,7 +36,7 @@ public class BlocksManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        
+        GameManager.OnNewDropLineRequest += SpawnBlockLine;
 
         startPos.x = ((numberOfBlocks - 1) / 2) * (-blockSpace);
         startPos.y = 3.75f - blockSpaceY;
@@ -57,7 +57,9 @@ void Update () {
         //Check if all the balls are back, if so, dropBlockLine then SpawnBlockLine
         if(BC.canDropLine )
         {
+           
             SpawnBlockLine();
+            BC.SkipButton.SetActive(false);
             BC.canDropLine = false;
         }
 
@@ -104,13 +106,13 @@ void Update () {
         {
             int randomSpawn = Random.Range(0, 9);
 
-            if (linesAmount % 20 == 0 && i==0)
+            if (linesAmount % 10 == 0 && i==0)
             {
                 Debug.Log("100 CHANCE DROP");
                 GameObject newBlock = Instantiate(ChestBlockPrefab,
                             startPos + new Vector2(0 * blockSpace, 0),
                             Quaternion.identity, this.transform);
-                newBlock.GetComponent<ChestCollided>().raqem = linesAmount * 4;
+                newBlock.GetComponent<ChestCollided>().raqem = linesAmount * 3;
             }
 
             
@@ -155,7 +157,7 @@ void Update () {
                     GameObject newBlock = Instantiate(ChestBlockPrefab,
                         startPos + new Vector2(i * blockSpace, 0),
                         Quaternion.identity, this.transform);
-                   newBlock.GetComponent<ChestCollided>().raqem = linesAmount * 4;
+                   newBlock.GetComponent<ChestCollided>().raqem = linesAmount * 3;
                   
                 }
                
