@@ -15,8 +15,10 @@ public class ShopController : MonoBehaviour {
 	public static Action<int> OnItemEquipped = delegate{};
 	public static Action <int> OnItemUnequipped = delegate {};
 	public static Action<int> OnItemPreviewed = delegate {};
-
-	public static Action OnItemsLoaded = delegate {};
+    public static event Action OnShowNoCoinsPopup = delegate { };
+    public static event Action OnShowCongratsPopup = delegate { };
+   
+    public static Action OnItemsLoaded = delegate {};
 
 	private Dictionary<int, ShopItem> _items = new Dictionary<int, ShopItem>();
 
@@ -28,7 +30,7 @@ public class ShopController : MonoBehaviour {
 	private static int colorsAmount;
 	private Color32[] BallzColors;
 
-	public GameManager GM;
+    public GameManager GM;
 	public BallControl BC;
 	public PlayerPrefsManager PPM;
 	public static ShopController Instance{
@@ -38,7 +40,7 @@ public class ShopController : MonoBehaviour {
 		}
 	}
 
-	public Dictionary<int, ShopItem> Items{
+    public Dictionary<int, ShopItem> Items{
 
 		get { 
 			return _items;
@@ -96,18 +98,23 @@ public class ShopController : MonoBehaviour {
 	}
 
 	public void TryPurchaseItem(ShopItem item){
+        
 		int price = item.Price;
 
 		if (!_purchasedItems.Contains (item.ID)) {
-			
-			if (GM.TrySpendCoins (price)) {
-				
-				_purchasedItems.Add (item.ID);
+
+                     
+            if (GM.TrySpendCoins (price)) {
+
+                _purchasedItems.Add (item.ID);
 				item.SetState (ShopItemState.Bought);
 
 				OnItemPurchased (item.ID);
 				EquipItem (item);
+                OnShowCongratsPopup();
+                GM.UpdateScoreText();
 			} else {
+                OnShowNoCoinsPopup();
 				Debug.Log("Not enough coins!");
 			}
 					} else {
