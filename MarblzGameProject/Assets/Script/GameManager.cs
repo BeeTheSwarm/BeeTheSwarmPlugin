@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour {
     // Use this for initialization
     void Start() {
 
-        BTS_Manager.Instance.Init();
+        //BTS_Manager.Instance.Init();
         
         // Screen doesn't sleep ! A monster !! 
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
@@ -363,11 +363,11 @@ public class GameManager : MonoBehaviour {
      }
 
 	public void OnBTSButtonClick() {
-//		BTS_Manager.Instance.ShowInterstitial();
-		BTS_Manager.Instance.ShowPanel();
+//		BTS_Manager.Instance.ShowInterstitial();//
+		/*BTS_Manager.Instance.ShowPanel();
 		if (BTS_Manager.Instance.IsConnected) {
 			BTS_Manager.Instance.ShowBTSStatus();
-		} 
+		} */
 	}
 
 	public void OnAboutUsClick(){

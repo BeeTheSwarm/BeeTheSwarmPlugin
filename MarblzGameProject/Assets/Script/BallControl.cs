@@ -148,6 +148,7 @@ public class BallControl : MonoBehaviour {
                 Ray vRayEnd = Camera.main.ScreenPointToRay(Input.mousePosition);
                 mouseEndPosition = vRayEnd.origin;
                 heading = mouseEndPosition - initialBall.transform.position;
+                heading.x = -heading.x;
                 distance = heading.magnitude;
                 m_ballLaunchDirection = heading;
                 m_ballLaunchDirection.Normalize();

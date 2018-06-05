@@ -44,20 +44,20 @@ public class EarnBeesInterstitialController : MonoBehaviour {
 	
 	private void OnEnable () {
 		//Subscribe to bees' events
-		BTS_Manager.OnDailyBeesMaximumReached 		+= OnDailyBeesMaximumReachedHandler;
-		BTS_Manager.OnRewardEarned 					+= OnBeesEarnedHandler;
+		//BTS_Manager.OnDailyBeesMaximumReached 		+= OnDailyBeesMaximumReachedHandler;
+		//BTS_Manager.OnRewardEarned 					+= OnBeesEarnedHandler;
 
-		BTS_Manager.OnLoginConnectionSuccessful 	+= OnLoginConnectionSuccessfullHandler;
-		BTS_Manager.OnDisconnected 					+= OnDisconnectedHandler;
+		//BTS_Manager.OnLoginConnectionSuccessful 	+= OnLoginConnectionSuccessfullHandler;
+		//BTS_Manager.OnDisconnected 					+= OnDisconnectedHandler;
 	}
 
 	private void OnDisable () {
 		//unsubscribe from them
-		BTS_Manager.OnDailyBeesMaximumReached 		-= OnDailyBeesMaximumReachedHandler;
-		BTS_Manager.OnRewardEarned 					-= OnBeesEarnedHandler;
+		//BTS_Manager.OnDailyBeesMaximumReached 		-= OnDailyBeesMaximumReachedHandler;
+		//BTS_Manager.OnRewardEarned 					-= OnBeesEarnedHandler;
 
-		BTS_Manager.OnLoginConnectionSuccessful 	-= OnLoginConnectionSuccessfullHandler;
-		BTS_Manager.OnDisconnected 					-= OnDisconnectedHandler;
+		//BTS_Manager.OnLoginConnectionSuccessful 	-= OnLoginConnectionSuccessfullHandler;
+		//BTS_Manager.OnDisconnected 					-= OnDisconnectedHandler;
 	}
 
 	public void Show (EarnBeesInterstitialShowType showType, int bees = 0){
@@ -65,11 +65,11 @@ public class EarnBeesInterstitialController : MonoBehaviour {
 			return;
 		
 		
-		if (BTS_Manager.Instance.State == BTS.ConnectionState.Connected) {
+		/*if (BTS_Manager.Instance.State == BTS.ConnectionState.Connected) {
 			UpdateBees ();
 		} else {
 			ResetBees ();
-		}
+		}*/
 
 		_isShowing = true;
 		_animator.SetTrigger ("FadeIn");
@@ -139,7 +139,7 @@ public class EarnBeesInterstitialController : MonoBehaviour {
 
 	public void UpdateBees(){
 	
-		_beesEarnedCount = BTS_Manager.Instance.BeesEarnedToday;
+		//_beesEarnedCount = BTS_Manager.Instance.BeesEarnedToday;
 		//here will be code 
 		StartCoroutine(UpdateBeesCoroutine());
 	}

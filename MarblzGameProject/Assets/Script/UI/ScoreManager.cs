@@ -155,16 +155,16 @@ public class ScoreManager : MonoBehaviour {
 		int bees = 0;
 		int points = 0;
 		int rewardedScore = 0;
-		int _beesEarnedCount = BTS_Manager.Instance.BeesEarnedToday;
+		//int _beesEarnedCount = BTS_Manager.Instance.BeesEarnedToday;
 
 		foreach (KeyValuePair<int, int> pair in _beesRewardSheet) {
 			if (Score >= pair.Key) {
 				rewardedScore = pair.Key;
 				bees = pair.Value;
-				if (bees > _beesEarnedCount) {
+				/*if (bees > _beesEarnedCount) {
 					int beesToReward = bees - _beesEarnedCount;
 					BTS_Manager.Instance.Reward (beesToReward);
-				}
+				}*/
 //				points = bees;
 			} else {
 				break;
