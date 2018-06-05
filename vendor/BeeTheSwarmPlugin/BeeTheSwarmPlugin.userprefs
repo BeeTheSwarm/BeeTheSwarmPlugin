@@ -1,0 +1,41 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/BTSPlugin/Scripts/BTS/Managers/BTS_RewardManager.cs">
+    <Files>
+      <File FileName="Assets/BTSPlugin/Scripts/BTS/WebServer/Controllers/BTS_WebServerManager.cs" Line="88" Column="1" />
+      <File FileName="Assets/BTSPlugin/Scripts/BTS/Managers/BTS_Manager.cs" Line="276" Column="21" />
+      <File FileName="Assets/BTSPlugin/Scripts/BTS/Managers/BTS_RewardManager.cs" Line="105" Column="47" />
+      <File FileName="Assets/BTSPlugin/Scripts/BTS/Player/BTS_Player.cs" Line="176" Column="26" />
+      <File FileName="Assets/BTSPlugin/Scripts/BTS/WebServer/Controllers/BTS_WebServer.cs" Line="36" Column="2" />
+      <File FileName="Assets/BTSPlugin/Scripts/BTS/UI/BTS_PopupController.cs" Line="180" Column="52" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/user/BTSPlugin/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/WebServer/Controllers/BTS_RegistrationController.cs" line="952" column="1" />
+      <Breakpoint file="/Users/user/BTSPlugin/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/Managers/BTS_Manager.cs" line="332" column="1" />
+      <Breakpoint file="/Users/user/BTSPlugin/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/WebServer/Controllers/BTS_RegistrationController.cs" line="942" column="1" />
+      <Breakpoint file="/Users/user/BTSPlugin/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/WebServer/Controllers/BTS_RegistrationController.cs" line="943" column="1" />
+      <Breakpoint file="/Users/user/BTSPlugin/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/WebServer/Controllers/BTS_RegistrationController.cs" line="736" column="1" />
+      <Breakpoint file="/Users/user/BTSPlugin/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/WebServer/Controllers/BTS_WebServerManager.cs" line="241" column="1" />
+      <Breakpoint file="/Users/user/BTSPlugin/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/WebServer/Controllers/BTS_WebServerManager.cs" line="243" column="1" />
+      <Breakpoint file="/Users/user/BTSPlugin/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/WebServer/Controllers/BTS_RegistrationController.cs" line="759" column="1" />
+      <Breakpoint file="/Users/user/BTSPlugin/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/WebServer/Controllers/BTS_RegistrationController.cs" line="766" column="1" />
+      <Breakpoint file="/Users/user/BTSPlugin/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/WebServer/Controllers/BTS_RegistrationController.cs" line="962" column="1" />
+      <Breakpoint file="/Users/user/BTSPlugin/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/WebServer/Controllers/BTS_RegistrationController.cs" line="966" column="1" />
+      <Breakpoint file="/Users/user/BTSPlugin/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/WebServer/Controllers/BTS_RegistrationController.cs" line="956" column="1" />
+      <Breakpoint file="/Users/user/BTSPlugin/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/WebServer/Controllers/BTS_RegistrationController.cs" line="784" column="1" />
+      <Breakpoint file="/Users/user/BTSPlugin/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/WebServer/Controllers/BTS_RegistrationController.cs" line="785" column="1" />
+      <Breakpoint file="/Users/user/BTSPlugin/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/WebServer/Controllers/BTS_RegistrationController.cs" line="790" column="1" />
+      <Breakpoint file="/Users/user/BTSPlugin/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/WebServer/Controllers/BTS_RegistrationController.cs" line="771" column="1" />
+      <Breakpoint file="/Users/user/BTSPlugin/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/WebServer/Controllers/BTS_WebServer.cs" line="183" column="1" />
+      <Breakpoint file="/Users/user/BTSPlugin/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/WebServer/Controllers/BTS_WebServerManager.cs" line="170" column="1" />
+      <Breakpoint file="/Users/user/BTSPlugin/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/WebServer/Controllers/BTS_WebServerManager.cs" line="202" column="1" />
+      <Breakpoint file="/Users/user/BTSPlugin/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/Managers/BTS_RewardManager.cs" line="108" column="1" />
+      <Breakpoint file="/Users/user/BTSPlugin/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/Managers/BTS_RewardManager.cs" line="110" column="1" />
+      <Breakpoint file="/Users/user/BTSPlugin/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/WebServer/Controllers/BTS_WebServerManager.cs" line="88" column="1" />
+      <Breakpoint file="/Users/user/BTSPlugin/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/UI/BTS_PopupController.cs" line="537" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

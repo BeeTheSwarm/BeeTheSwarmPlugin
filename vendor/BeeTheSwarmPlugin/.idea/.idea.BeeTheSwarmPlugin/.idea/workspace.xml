@@ -1,0 +1,875 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3e666e94-6741-4622-9da3-f300a63e036b" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>PointsEarned</find>
+      <find>firstName</find>
+      <find>_name</find>
+      <find>isAutoLogin</find>
+      <find>_resendEmailButton</find>
+      <find>HideAllComponents</find>
+      <find>BTS_ResendCode</find>
+      <find>_amountDestination</find>
+      <find>_showNativePopup</find>
+      <find>ro</find>
+      <find>_confirmEmail</find>
+      <find>_errorLog</find>
+      <find>OnGetEventsSuccessfullHandler</find>
+      <find>OnGetEventsSuccessful</find>
+      <find>ANIMATOR_LOGIN_TRIGGER</find>
+      <find>ShowChangeEmail</find>
+      <find>SendScreenHit</find>
+      <find>_defaultAvatarSprite</find>
+      <find>ANIMATOR_SIGNUP_OUT_TRIGGER</find>
+      <find>_emailCodeInput</find>
+      <find>_levelUpDuration</find>
+      <find>Random</find>
+      <find>_avatar</find>
+      <find>ISendPushIdService</find>
+      <find>lerpTarget</find>
+    </findStrings>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Base/Observable/Observable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/PluginContent/Controller/IPluginContentController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/PluginContent/View/PluginContentView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Memory-Match/MemoryMatchProject/Assets/Scripts/Controllers/InviteManager.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Models/UserModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Models/DataModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Notifications/Controller/NotificationsController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Notifications/Controller/INotificationsController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Models/CampaignLevelModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/UI/BTS_InputField.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Notifications/Service/INotificationsService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Models/ImageUrlsModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/WebServer/Packages/Base/BTS_Error.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/WebServer/Packages/Base/BTS_BaseServerPackage.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/WebServer/Packages/Base/BTS_RequestResult.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Notifications/Model/INotificationsModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Notifications/Model/NotificationsViewModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/WebServer/Packages/Base/BTS_BasePackage.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Loader/LoaderView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/WebServer/Packages/Base/BTS_GetEvent_Data.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/WebServer/Packages/Enum/BTS_RequestStatus.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Loader/LoaderController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/WebServer/Packages/Client/BTS_GetEvents.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Models/Notifications/NotificationModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Models/Notifications/CampaignRelatedNotificationModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Notifications/View/NotificationsView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/StansAssets/Modules/GoogleAnalytics/Core/GA_Manager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/WebServer/Packages/Client/BTS_AddBees.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Notifications/View/INotificationsViewListener.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/StansAssets/Modules/GoogleAnalytics/Core/GA_Client.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/WebServer/Packages/Client/BTS_Event.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Notifications/View/INotificationsView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Factory/NotificationsFactory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/InviteFriends/Controller/InviteFriendsController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/InviteFriends/Controller/IInviteFriendsController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/InviteFriends/Model/InviteFriendViewModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/InviteFriends/View/InviteFriendsView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/StansAssets/Modules/AndroidNative/Scripts/System/APIBridge/AN_ProxyPool.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/ContactPicker/Controller/ContactPickerController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/ContactPicker/View/ContactPickerItem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/StansAssets/Modules/AndroidNative/Scripts/System/APIBridge/AN_SocialSharingProxy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Memory-Match/MemoryMatchProject/Assets/Scripts/Controllers/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/StansAssets/Support/Common/Models/SA_Result.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/ViewCampaign/View/ViewCampaignView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Bug-Crush-Bee-The-Swarm/Assets/RedesignAssets/Scripts/UI/BTSPanelController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/AddPost/View/AddPostView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/StansAssets/Modules/AndroidNative/Scripts/System/Features/AndroidSocialGate.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/ViewCampaign/View/PostListControllerDelegate.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/ViewCampaign/View/IPostlistContainer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/AddPost/View/IAddPostViewListener.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/ViewCampaign/View/IViewCampaignView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/ViewCampaign/View/IPostListControllerDelegate.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Base/View/Components/TiledInputField.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Downloads/BottomPanelElement.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/WebServer/Models/PackageResponces/EventResponce.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/WebServer/Models/PackageResponces/AddBeesResponse.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/MinIGame/MiniGameBallView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BB0D3C0A-3936-468B-8576-0C70661B809B/b7/0e10bc9f/IBeginDragHandler.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Commands/ISendPushIdService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Commands/SendPushIdService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/LoginScreens/Registration/View/RegistrationView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/MinIGame/View/MiniGameView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Extensions/CodeStage/AntiCheatToolkit/Scripts/ObscuredTypes/ObscuredUint.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Bug-Crush-Bee-The-Swarm/Assets/_Yurowm/Match-Tree Engine/Scripts/UI/ScoreStarFromMemory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/MinIGame/Controller/MiniGameController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/MinIGame/View/IMiniGameView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/WebServer/Models/PackageResponces/PackageResponse.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/WebServer/Models/PackageResponces/GetUserResponce.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Memory-Match/MemoryMatchProject/Assets/Fabric/Kits/Crashlytics/Editor/GUI/View/DashboardPage.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/StansAssets/Modules/GoogleMobileAd/Scripts/Core/GoogleMobileAd.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/WebServer/Models/PackageResponces/GetEventsResponse.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/MinIGame/MiniGameViewModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/FlappyBeeRepo/FlappyBee/Flappy Bee/Assets/BTSPlugin/Scripts/BTS/Managers/BTS_Manager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/FlappyBeeRepo/FlappyBee/Flappy Bee/Assets/BTSPlugin/Scripts/BTS/WebServer/Controllers/BTS_WebServer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/FlappyBeeRepo/FlappyBee/Flappy Bee/Assets/BTSPlugin/Scripts/BTS/WebServer/Controllers/BTS_RegistrationController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/FlappyBeeRepo/FlappyBee/Flappy Bee/Assets/BTSPlugin/Scripts/BTS/WebServer/Controllers/BTS_ConnectionController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Badges/View/IBadgesView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Bug-Crush-Bee-The-Swarm/Assets/_Yurowm/Match-Tree Engine/Scripts/UI/LevelButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Badges/View/IBadgesViewListener.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5D83A8D5-4E33-4CDC-853A-0DBA68082096/53/d9991583/String.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/StansAssets/Modules/GoogleAnalytics/Example/Scripts/UseExample.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Requests/Controller/RequestsScreenController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Utils/AddressBookAdapter/ContactInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Feeds/Controller/IFeedsController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/EditCampaign/Controller/IEditCampaignController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Feeds/Controller/FeedsController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/StansAssets/Modules/GoogleAnalytics/Enum/GA_HitType.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/StansAssets/Bundles/UltimateMobile/Scripts/Social/UM_ShareUtility.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/EditCampaign/View/IEditCampaignViewListener.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/EditCampaign/View/EditCampaignView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/EditCampaign/View/IEditCampaignView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Requests/View/RequestsScreenView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/UserProfile/Service/Delegates/UpdateUserCommand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/StansAssets/Modules/IOSNative/Scripts/System/Contacts/ISN_Contact.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/StansAssets/Modules/IOSNative/Scripts/System/Contacts/ISN_PhoneNumber.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Feeds/Service/Delegates/GetPostsCommand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/UserProfile/Controller/UserProfileScreenController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/UI/BTS_BestFitInputField.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5D83A8D5-4E33-4CDC-853A-0DBA68082096/58/8efd916f/TimeZoneInfo.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/UserProfile/Service/Delegates/LoginCommand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/OneSignal/Example/GameControllerExample.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/UserProfile/Service/IUserProfileService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/UserProfile/Model/UserProfileModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/UserProfile/Service/UserProfileService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/OneSignal/Editor/PostProcessBuildPlayer_iOS.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Bug-Crush-Bee-The-Swarm/Assets/Plugins/unity-ui-extensions/Scripts/Layout/ScrollSnap.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Feeds/Model/FeedListViewModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/PlatformAdapter/IPlatformAdapter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/UserProfile/View/UserCampaignContainer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/PlatformAdapter/IosPlatformAdapter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/PlatformAdapter/AndroidPlatformAdapter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Memory-Match/MemoryMatchProject/Assets/Plugins/StansAssets/Modules/AndroidNative/Scripts/System/APIBridge/AN_SocialSharingProxy.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Assets/OneSignal/src/OneSignal.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Feeds/Service/Delegates/IPostLoadService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/PlatformAdapter/EditorPlatformAdapter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Commands/BaseNetworkHandlerCommand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Feeds/View/IFeedsView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/EditProfile/Controller/EditProfileController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Feeds/View/ShortFeedSublist.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Bug-Crush-Bee-The-Swarm/Assets/Plugins/StansAssets/Modules/AndroidNative/Scripts/System/Features/AndroidNativeUtility.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Feeds/View/FeedsView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Feeds/View/IFeedsViewListener.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Bug-Crush-Bee-The-Swarm/Assets/RedesignAssets/Scripts/UI/BTSPromoController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/StansAssets/Modules/IOSNative/Scripts/Social/Controllers/IOSSocialManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/WebServer/Packages/Client/BTS_ResetEmail.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A7B213EE-4E11-43F1-AD95-705E2D5696C8/4a/86e2405a/InputField.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/StansAssets/Modules/IOSNative/Scripts/Social/Enum/ISN_TextMessageComposeResult.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Feeds/View/FullFeedsList.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Bug-Crush-Bee-The-Swarm/Assets/AdColony/Scripts/AdColony.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/EditProfile/View/EditProfileView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Bug-Crush-Bee-The-Swarm/Assets/_Yurowm/Match-Tree Engine/Scripts/Slot/Weed.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5D83A8D5-4E33-4CDC-853A-0DBA68082096/d1/ac60cf2c/KeyValuePair`2.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/WebServer/Packages/Client/BTS_ReassignEmail.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Models/EventModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Models/RewardModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/AddToHive/View/IAddToHiveViewListener.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BAF588C5-BA12-4B90-9AB0-57D890118DC2/27/3cde3db4/MonoBehaviour.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/CampaignCategories/View/CampaignCategoriesView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Bug-Crush-Bee-The-Swarm/Assets/BTSPlugin/Scripts/BTS/UI/BTS_StatusIndicator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/WebServer/Packages/Client/BTS_ReassignPassword.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Base/Controller/BaseController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/StansAssets/Modules/IOSNative/xExamples/Scripts/Other/IOSSocialUseExample.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Base/Controller/TopPanelScreenController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Base/Controller/IScreenController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/TopPanel/Controller/TopPanelControllerDelegate.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/2048game_test/2048 Game/Assets/Scripts/Controllers/GameController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Bug-Crush-Bee-The-Swarm/Assets/BTSPlugin/Scripts/BTS/UI/BTS_InterstitialController2.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/OurGames/Controller/OurGamesController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Bug-Crush-Bee-The-Swarm/Assets/BTSPlugin/Scripts/BTS/UI/BTS_InterstitialController1.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Base/Controller/BaseScreenController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/MinIGame/MiniGameCampaignView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Memory-Match/MemoryMatchProject/Assets/Plugins/StansAssets/Bundles/UltimateMobile/Scripts/Social/UM_ShareUtility.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Base/Model/TopPanelViewModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/OurGames/View/IOurGamesViewListener.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Config/Util/ScriptableObjectUtility.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Base/View/Components/SizeObserver.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Base/View/Components/ScrollRectObserver.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Hive/HiveScreen/Controller/HiveController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Base/View/BaseListContainer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Base/View/Components/TopPanelComponent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Base/View/ITopPanelContainer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AhhBalls/Ahh Balls/Assets/Scripts/UI/BTSPromoController.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Base/View/BaseControlledView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Example/ClientGameMockup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Base/View/ITopPanelComponent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Base/View/IControlledView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Base/View/IViewEventListener.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/CampaignToolbox/Controller/ICampaignToolboxController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/CampaignToolbox/Controller/CampaignToolboxController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Base/View/TopPanelScreen.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/CampaignToolbox/View/CampaignToolboxView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A973C441-7613-4AC8-921E-4FC533469761/65/9e4f7d9b/TouchScreenKeyboard.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/UI/ResizableInputField.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Base/View/BaseView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/BadgeAwardPopup/View/IBadgeAwardPopupViewListener.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Editor/EditorUtils.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Base/IView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/UpdateCampaign/Controller/UpdateCampaignController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/unity-ui-extensions/Scripts/Layout/ScrollSnap.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/UpdateCampaign/View/UpdateCampaignView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C95265F7-4FDF-4905-BFB0-D5A4B652216C/f4/7b208f18/Action.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A973C441-7613-4AC8-921E-4FC533469761/88/ad04ce47/Rigidbody2D.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/BTSPluginContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/UserProfile/Service/Delegates/IRemoveUserService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Config/BTS_Settings.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Config/BTS_Config.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/BTSPlugin.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/StartCampaign/Controller/StartCampaignController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/WebServer/Packages/Client/SetupPushId.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/StartCampaign/View/IStartCampaignView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/UI/BTS_UIAnimatedTitle.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/StartCampaign/View/IStartCampaignViewListener.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/SmithsonianGo/Assets/Plugins/StansAssets/Modules/AndroidNative/Scripts/Editor/AndroidNativeSettingsEditor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/StartCampaign/View/StartCampaignView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C95265F7-4FDF-4905-BFB0-D5A4B652216C/bb/d3297e5e/StringBuilder.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Utils/SA_Singleton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/SameTypePosts/Controller/ISameTypePostsController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/UI/BTS_StatusIndicator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/UI/Avatar.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/SameTypePosts/Controller/SameTypePostsController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/SameTypePosts/View/ISameTypePostsViewListener.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/UI/InputFieldsHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/SameTypePosts/View/ISameTypePostsView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Bug-Crush-Bee-The-Swarm/Assets/BTSPlugin/Config/Util/ScriptableObjectUtility.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Utils/Constants.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/ContactUs/ContactUsButtonHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/SameTypePosts/View/SameTypePostsView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/UI/SlideableScreensContainer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/UpdatePost/IUpdatePostController.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/StartCampaign/View/StartCampaignView.cs" />
+        <option value="$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/CampaignCategories/View/CampaignCategoriesView.cs" />
+        <option value="$PROJECT_DIR$/Assets/Plugins/IOS/ISN_SocialGate.mm" />
+        <option value="$PROJECT_DIR$/Assets/Plugins/StansAssets/Support/NativeLibraries/IOS/ISN_SocialGate.mm.txt" />
+        <option value="$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/PlatformAdapter/AndroidPlatformAdapter.cs" />
+        <option value="$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/PlatformAdapter/IosPlatformAdapter.cs" />
+        <option value="$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Commands/SendPushIdService.cs" />
+        <option value="$PROJECT_DIR$/Assets/OneSignal/src/OneSignal.cs" />
+        <option value="$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/WebServer/Packages/Client/SetupPushId.cs" />
+        <option value="$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/BTSPluginContext.cs" />
+        <option value="$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/UI/ResizableInputField.cs" />
+        <option value="$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/UserProfile/Service/Delegates/LoginCommand.cs" />
+        <option value="$USER_HOME$/Memory-Match/MemoryMatchProject/Assets/Plugins/Android/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/Assets/Plugins/Android/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/Assets/Plugins/Android/mainTemplate.gradle" />
+        <option value="$PROJECT_DIR$/Assets/Plugins/Android/AN_Res/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/UI/BTS_InputField.cs" />
+        <option value="$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/UI/InputFieldsHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/LoginScreens/Registration/View/RegistrationView.cs" />
+        <option value="$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/UpdateCampaign/Controller/UpdateCampaignController.cs" />
+        <option value="$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/EditProfile/Controller/EditProfileController.cs" />
+        <option value="$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/UI/SlideableScreensContainer.cs" />
+        <option value="$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/CampaignToolbox/Controller/CampaignToolboxController.cs" />
+        <option value="$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Feeds/View/ShortFeedSublist.cs" />
+        <option value="$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/MinIGame/MiniGameCompainContainer.cs" />
+        <option value="$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Notifications/View/INotificationsView.cs" />
+        <option value="$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Notifications/View/NotificationsView.cs" />
+        <option value="$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Notifications/Controller/NotificationsController.cs" />
+        <option value="$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Hive/HiveScreen/Controller/HiveController.cs" />
+        <option value="$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/MinIGame/MiniGameScreenController.cs" />
+        <option value="$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/MinIGame/MiniGameViewVVVV.cs" />
+        <option value="$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/MinIGame/IMiniGameViewListener.cs" />
+        <option value="$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/MinIGame/MiniGameCompainView.cs" />
+        <option value="$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/MinIGame/MiniGameViewModel.cs" />
+        <option value="$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/MinIGame/IMiniGameView.cs" />
+        <option value="$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/MinIGame/MiniGameController.cs" />
+        <option value="$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/MinIGame/MiniGameView.cs" />
+        <option value="$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/MinIGame/MiniGameCampaignView.cs" />
+        <option value="$PROJECT_DIR$/Assets/Plugins/unity-ui-extensions/Editor/UIExtensionsMenuOptions.cs" />
+        <option value="$PROJECT_DIR$/Assets/Plugins/unity-ui-extensions/Editor/AccordionElementEditor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Plugins/unity-ui-extensions/Editor/BoxSliderEditor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Plugins/unity-ui-extensions/Editor/uGUITools.cs" />
+        <option value="$PROJECT_DIR$/Assets/Plugins/unity-ui-extensions/Editor/TextPicEditor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Plugins/unity-ui-extensions/Editor/NonDrawingGraphicEditor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Plugins/unity-ui-extensions/Editor/CompressionTests.cs" />
+        <option value="$PROJECT_DIR$/Assets/Plugins/unity-ui-extensions/Scripts/TabNavigation.cs" />
+        <option value="$PROJECT_DIR$/Assets/Plugins/unity-ui-extensions/Scripts/UIWindowBase.cs" />
+        <option value="$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/MinIGame/MiniGame.cs" />
+        <option value="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A973C441-7613-4AC8-921E-4FC533469761/88/ad04ce47/Rigidbody2D.cs" />
+        <option value="$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/MinIGame/MiniGameBallView.cs" />
+        <option value="$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/MinIGame/View/MiniGameView.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="22" />
+    <option name="width" value="1920" />
+    <option name="height" value="1007" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="SolutionExplorer" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="SolutionExplorer">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BeeTheSwarmPlugin (4 projects)" />
+              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <option name="show-file-system" value="false" />
+        <option name="show-all-items" value="false" />
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="m_itemsParent&#9;null&#9;null&#10;bts_in&#9;FILE&#9;file:///Users/user/BTS_Plugin_/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/UI/BTS_InputField.cs&#10;bts_i&#9;FILE&#9;file:///Users/user/BTS_Plugin_/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/UI/BTS_InputField.cs&#10;plu&#9;FILE&#9;file:///Users/user/BTS_Plugin_/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/Modules/BTSPluginContext.cs&#10;ones&#9;FILE&#9;file:///Users/user/BTS_Plugin_/BeeTheSwarmPlugin/Assets/OneSignal/src/OneSignal.cs&#10;фтвкщшвздф&#9;FILE&#9;file:///Users/user/BTS_Plugin_/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/PlatformAdapter/AndroidPlatformAdapter.cs&#10;EditorUtils.FindInputFieldsToFix&#9;null&#9;null&#10;loade&#9;null&#9;null&#10;цуи&#9;FILE&#9;file:///Users/user/BTS_Plugin_/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/WebServer/Controllers/BTS_WebServerManager.cs&#10;bts_p&#9;FILE&#9;file:///Users/user/BTS_Plugin_/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/Player/BTS_PlayerData.cs&#10;здфнук&#9;FILE&#9;file:///Users/user/BTS_Plugin_/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/Player/BTS_Player.cs&#10;BTS_Web&#9;FILE&#9;file:///Users/user/BTS_Plugin_/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/WebServer/Controllers/BTS_WebServerManager.cs&#10;conne&#9;FILE&#9;file:///Users/user/BTS_Plugin_/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/WebServer/Controllers/BTS_ConnectionController.cs&#10;reward&#9;FILE&#9;file:///Users/user/BTS_Plugin_/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/Managers/BTS_RewardManager.cs&#10;rewa&#9;FILE&#9;file:///Users/user/BTS_Plugin_/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/Managers/BTS_RewardManager.cs.meta&#10;web&#9;FILE&#9;file:///Users/user/BTS_Plugin_/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/WebServer/Controllers/BTS_WebServerManager.cs&#10;popup&#9;FILE&#9;file:///Users/user/BTS_Plugin_/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/UI/BTS_PopupController.cs&#10;куыутвс&#9;FILE&#9;file:///Users/user/BTS_Plugin_/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/WebServer/Packages/Client/BTS_ResendCode.cs&#10;куыутвсщ&#9;FILE&#9;file:///Users/user/BTS_Plugin_/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/WebServer/Packages/Client/BTS_ResendCode.cs.meta&#10;webserv&#9;FILE&#9;file:///Users/user/BTS_Plugin_/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/WebServer/Controllers/BTS_WebServerManager.cs&#10;BTS_rew&#9;FILE&#9;file:///Users/user/BTS_Plugin_/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/Managers/BTS_RewardManager.cs&#10;inters&#9;null&#9;null&#10;bts_playerdat&#9;null&#9;null&#10;pop&#9;FILE&#9;file:///Users/user/BTSPlugin/BeeTheSwarmPlugin/Assets/BTSPlugin/Scripts/BTS/UI/BTS_PopupController.cs" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Unity Debug.Attach to Unity Editor">
+    <configuration default="true" type="DotNetProject" factoryName=".NET Project">
+      <option name="PROJECT_PATH" value="" />
+      <option name="PROJECT_KIND" value="None" />
+      <option name="PROJECT_TFM" value="" />
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="USE_MONO" value="0" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug">
+      <method />
+    </configuration>
+    <configuration default="false" name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug">
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Unity Debug.Attach to Unity Editor" />
+    </list>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="22" width="1920" height="1007" extended-state="0" />
+    <layout>
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Errors In Solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15671642" sideWeight="0.5104167" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Unit Tests" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24093817" sideWeight="0.48958334" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="4" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Base/IView.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Base/View/IControlledView.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="4" column="35" lean-forward="false" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Base/View/IViewEventListener.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="3" column="17" lean-forward="false" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Feeds/View/IFeedsViewListener.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="10" column="29" lean-forward="false" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/SameTypePosts/Controller/ISameTypePostsController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="4" column="21" lean-forward="false" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/SameTypePosts/View/ISameTypePostsViewListener.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="4" column="21" lean-forward="false" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Feeds/View/IFeedsView.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="9" column="32" lean-forward="false" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Requests/View/RequestsScreenView.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="65" column="33" lean-forward="false" selection-start-line="65" selection-start-column="33" selection-end-line="65" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Requests/Controller/RequestsScreenController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="945">
+          <caret line="67" column="22" lean-forward="false" selection-start-line="67" selection-start-column="22" selection-end-line="67" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Base/View/Components/ScrollRectObserver.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="20" column="23" lean-forward="false" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Feeds/Service/Delegates/IPostLoadService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Feeds/Service/Delegates/GetPostsCommand.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="28" column="20" lean-forward="false" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Feeds/Model/FeedListViewModel.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Base/View/BaseControlledView.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="25" lean-forward="false" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Base/Controller/TopPanelScreenController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="10" column="28" lean-forward="false" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/ViewCampaign/View/IPostListControllerDelegate.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/MinIGame/MiniGameViewModel.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="4" column="30" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/MinIGame/IMiniGameView.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/MinIGame/IMiniGameViewListener.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Base/Controller/IScreenController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="6" column="9" lean-forward="false" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Feeds/Controller/FeedsController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="82" column="22" lean-forward="false" selection-start-line="82" selection-start-column="22" selection-end-line="82" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Base/Controller/BaseController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="19" lean-forward="false" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Plugins/unity-ui-extensions/Editor/UIExtensionsMenuOptions.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Plugins/unity-ui-extensions/Editor/AccordionElementEditor.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Plugins/unity-ui-extensions/Editor/BoxSliderEditor.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Plugins/unity-ui-extensions/Editor/uGUITools.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Plugins/unity-ui-extensions/Editor/CompressionTests.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Plugins/unity-ui-extensions/Editor/NonDrawingGraphicEditor.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Plugins/unity-ui-extensions/Editor/TextPicEditor.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Plugins/unity-ui-extensions/Scripts/TabNavigation.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Plugins/unity-ui-extensions/Scripts/UIWindowBase.cs" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BB0D3C0A-3936-468B-8576-0C70661B809B/b7/0e10bc9f/IBeginDragHandler.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="19" lean-forward="false" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Plugins/unity-ui-extensions/Scripts/Layout/TileSizeFitter.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/MinIGame/MiniGameCampaignView.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="20" column="9" lean-forward="false" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/MinIGame/MiniGameController.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/MinIGame/MiniGameView.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/MinIGame/MiniGame.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/MinIGame/View/IMiniGameView.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/InviteFriends/Model/InviteFriendViewModel.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/SameTypePosts/Controller/SameTypePostsController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="39" column="46" lean-forward="false" selection-start-line="39" selection-start-column="46" selection-end-line="39" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/SameTypePosts/View/SameTypePostsView.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="9" column="44" lean-forward="false" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/SameTypePosts/View/ISameTypePostsView.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="1" lean-forward="false" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AhhBalls/Ahh Balls/Assets/Scripts/UI/BTSPromoController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="80" column="26" lean-forward="false" selection-start-line="80" selection-start-column="26" selection-end-line="80" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A973C441-7613-4AC8-921E-4FC533469761/88/ad04ce47/Rigidbody2D.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="257" column="23" lean-forward="false" selection-start-line="257" selection-start-column="23" selection-end-line="257" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Feeds/View/FullFeedsList.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="8" column="77" lean-forward="false" selection-start-line="8" selection-start-column="77" selection-end-line="8" selection-end-column="77" />
+          <folding>
+            <marker date="1525266644000" expanded="false" signature="6:92" ph="..." />
+            <marker date="1525266644000" expanded="true" signature="106:247" ph="{...}" />
+            <marker date="1525266644000" expanded="true" signature="155:245" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Base/View/BaseListContainer.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+          <folding>
+            <marker date="1522251360000" expanded="false" signature="6:92" ph="..." />
+            <marker date="1522251360000" expanded="true" signature="227:1814" ph="{...}" />
+            <marker date="1522251360000" expanded="true" signature="474:553" ph="{...}" />
+            <marker date="1522251360000" expanded="true" signature="621:975" ph="{...}" />
+            <marker date="1522251360000" expanded="true" signature="922:967" ph="{...}" />
+            <marker date="1522251360000" expanded="true" signature="1027:1043" ph="{...}" />
+            <marker date="1522251360000" expanded="true" signature="1095:1221" ph="{...}" />
+            <marker date="1522251360000" expanded="true" signature="1270:1470" ph="{...}" />
+            <marker date="1522251360000" expanded="true" signature="1509:1644" ph="{...}" />
+            <marker date="1522251360000" expanded="true" signature="1543:1611" ph="{...}" />
+            <marker date="1522251360000" expanded="true" signature="1693:1812" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/MinIGame/MiniGameBallView.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" column="54" lean-forward="false" selection-start-line="34" selection-start-column="54" selection-end-line="34" selection-end-column="54" />
+          <folding>
+            <marker date="1525272084000" expanded="true" signature="6:181" ph="..." />
+            <marker date="1525272084000" expanded="true" signature="229:1398" ph="{...}" />
+            <marker date="1525272084000" expanded="true" signature="560:638" ph="{...}" />
+            <marker date="1525272084000" expanded="true" signature="568:635" ph="{...}" />
+            <marker date="1525272084000" expanded="true" signature="654:1003" ph="{...}" />
+            <marker date="1525272084000" expanded="true" signature="1031:1217" ph="{...}" />
+            <marker date="1525272084000" expanded="true" signature="1073:1155" ph="{...}" />
+            <marker date="1525272084000" expanded="true" signature="1271:1396" ph="{...}" />
+            <marker date="1525272084000" expanded="true" signature="1314:1393" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Plugins/unity-ui-extensions/Scripts/Layout/ScrollSnap.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="371" column="27" lean-forward="true" selection-start-line="371" selection-start-column="27" selection-end-line="371" selection-end-column="27" />
+          <folding>
+            <marker date="1498832245000" expanded="true" signature="0:882" ph="/* Credit BinaryX ... */" />
+            <marker date="1498832245000" expanded="false" signature="889:928" ph="..." />
+            <marker date="1498832245000" expanded="true" signature="965:18234" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="1180:18232" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="1195:1380" ph="/* needed because of reversed behaviour of axis Y compared to X ... */" />
+            <marker date="1498832245000" expanded="true" signature="1416:1481" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="3707:4669" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="4274:4450" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="4364:4434" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="4479:4659" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="4569:4643" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="4691:4732" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="4775:7000" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="4916:5102" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="5119:5307" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="5386:5471" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="5546:6990" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="5632:6293" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="5713:6275" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="5859:6253" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="6022:6165" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="6314:6976" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="6395:6958" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="6541:6936" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="6704:6847" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="7047:10411" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="7144:10400" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="7320:7509" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="7408:7491" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="7730:10086" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="7894:8845" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="8458:8823" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="8870:9911" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="8917:9053" ph="/* Debug.Log (&quot;-------------looking for list spanning range----------------&quot;); ... */" />
+            <marker date="1498832245000" expanded="true" signature="9524:9889" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="10134:10218" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="10444:10838" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="10511:10655" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="10672:10828" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="10894:12050" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="10931:11481" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="11006:11228" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="11088:11210" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="11249:11467" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="11329:11449" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="11498:12040" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="11573:11791" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="11655:11773" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="11812:12026" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="11892:12008" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="12077:13072" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="12184:12965" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="12480:12678" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="12867:12951" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="12998:13062" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="13247:13525" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="13340:13515" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="13617:13887" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="13702:13877" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="14034:14354" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="14089:14344" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="14501:14805" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="14548:14795" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="14896:15481" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="14987:15166" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="15183:15362" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="15523:15736" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="15576:15726" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="15856:16266" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="15935:16030" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="16059:16146" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="16185:16256" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="16276:18226" ph="Interfaces" />
+            <marker date="1498832245000" expanded="true" signature="16354:16580" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="16639:17974" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="16767:16866" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="16883:16983" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="17014:17825" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="17161:17346" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="17242:17328" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="17377:17652" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="17431:17520" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="17545:17634" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="17673:17811" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="17842:17964" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="18030:18207" ph="{...}" />
+            <marker date="1498832245000" expanded="true" signature="18094:18197" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/MinIGame/View/MiniGameView.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-494">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <marker date="1525277454000" expanded="true" signature="6:144" ph="..." />
+            <marker date="1525277454000" expanded="true" signature="231:2003" ph="{...}" />
+            <marker date="1525277454000" expanded="true" signature="657:880" ph="{...}" />
+            <marker date="1525277454000" expanded="true" signature="942:949" ph="{...}" />
+            <marker date="1525277454000" expanded="true" signature="976:1006" ph="{...}" />
+            <marker date="1525277454000" expanded="true" signature="1037:1073" ph="{...}" />
+            <marker date="1525277454000" expanded="true" signature="1110:1146" ph="{...}" />
+            <marker date="1525277454000" expanded="true" signature="1186:1225" ph="{...}" />
+            <marker date="1525277454000" expanded="true" signature="1276:1698" ph="{...}" />
+            <marker date="1525277454000" expanded="true" signature="1390:1423" ph="{...}" />
+            <marker date="1525277454000" expanded="true" signature="1448:1695" ph="{...}" />
+            <marker date="1525277454000" expanded="true" signature="1516:1557" ph="{...}" />
+            <marker date="1525277454000" expanded="true" signature="1619:1679" ph="{...}" />
+            <marker date="1525277454000" expanded="true" signature="1733:1757" ph="{...}" />
+            <marker date="1525277454000" expanded="true" signature="1791:1850" ph="{...}" />
+            <marker date="1525277454000" expanded="true" signature="1898:1935" ph="{...}" />
+            <marker date="1525277454000" expanded="true" signature="1968:2001" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/MinIGame/Controller/MiniGameController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="21" column="9" lean-forward="false" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+          <folding>
+            <marker date="1524826003000" expanded="false" signature="6:78" ph="..." />
+            <marker date="1524826003000" expanded="true" signature="94:1122" ph="{...}" />
+            <marker date="1524826003000" expanded="true" signature="192:1120" ph="{...}" />
+            <marker date="1524826003000" expanded="true" signature="557:681" ph="{...}" />
+            <marker date="1524826003000" expanded="true" signature="719:771" ph="{...}" />
+            <marker date="1524826003000" expanded="true" signature="794:803" ph="{...}" />
+            <marker date="1524826003000" expanded="true" signature="829:835" ph="{...}" />
+            <marker date="1524826003000" expanded="true" signature="867:876" ph="{...}" />
+            <marker date="1524826003000" expanded="true" signature="909:964" ph="{...}" />
+            <marker date="1524826003000" expanded="true" signature="994:1003" ph="{...}" />
+            <marker date="1524826003000" expanded="true" signature="1035:1077" ph="{...}" />
+            <marker date="1524826003000" expanded="true" signature="1112:1117" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/BTSPlugin/Scripts/BTS/Modules/Feeds/View/FeedsView.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="38" column="47" lean-forward="false" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
+          <folding>
+            <marker date="1519918513000" expanded="false" signature="6:142" ph="..." />
+            <marker date="1519918513000" expanded="true" signature="158:1838" ph="{...}" />
+            <marker date="1519918513000" expanded="true" signature="256:1836" ph="{...}" />
+            <marker date="1519918513000" expanded="true" signature="649:746" ph="{...}" />
+            <marker date="1519918513000" expanded="true" signature="792:912" ph="{...}" />
+            <marker date="1519918513000" expanded="true" signature="959:971" ph="{...}" />
+            <marker date="1519918513000" expanded="true" signature="1009:1062" ph="{...}" />
+            <marker date="1519918513000" expanded="true" signature="1110:1168" ph="{...}" />
+            <marker date="1519918513000" expanded="true" signature="1222:1286" ph="{...}" />
+            <marker date="1519918513000" expanded="true" signature="1337:1398" ph="{...}" />
+            <marker date="1519918513000" expanded="true" signature="1446:1504" ph="{...}" />
+            <marker date="1519918513000" expanded="true" signature="1563:1609" ph="{...}" />
+            <marker date="1519918513000" expanded="true" signature="1673:1725" ph="{...}" />
+            <marker date="1519918513000" expanded="true" signature="1784:1830" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

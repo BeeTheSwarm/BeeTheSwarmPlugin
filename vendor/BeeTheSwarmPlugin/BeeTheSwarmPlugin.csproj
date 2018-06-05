@@ -1,0 +1,973 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{19B823F0-04CA-AC5C-7882-62CAF5B32F2C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
+    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityBuildTarget>Android:13</UnityBuildTarget>
+    <UnityVersion>2017.2.1f1</UnityVersion>
+    <RootNamespace>
+    </RootNamespace>
+    <LangVersion>4</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Debug\</OutputPath>
+    <IntermediateOutputPath>Temp\UnityVS_obj\Debug\</IntermediateOutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_2_1;UNITY_2017_2;UNITY_2017;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;ENABLE_SPRITE_MASKING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_VIDEO;ENABLE_RMGUI;ENABLE_PACKMAN;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_STYLE_SHEETS;PLATFORM_ANDROID;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_SUBSTANCE;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_EVENT_QUEUE;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VR;ENABLE_AR;ENABLE_SPATIALTRACKING;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Release\</OutputPath>
+    <IntermediateOutputPath>Temp\UnityVS_obj\Release\</IntermediateOutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_2_1;UNITY_2017_2;UNITY_2017;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;ENABLE_SPRITE_MASKING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_VIDEO;ENABLE_RMGUI;ENABLE_PACKMAN;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_STYLE_SHEETS;PLATFORM_ANDROID;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_SUBSTANCE;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_EVENT_QUEUE;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VR;ENABLE_AR;ENABLE_SPATIALTRACKING;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="Boo.Lang" />
+    <Reference Include="UnityScript.Lang" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEditor">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AccessibilityModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.AccessibilityModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.ParticleSystemModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.PhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VehiclesModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.VehiclesModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClothModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.ClothModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AIModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainPhysicsModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.TerrainPhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAudioModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestTextureModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestWWWModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClusterInputModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.ClusterInputModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClusterRendererModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.ClusterRendererModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UNETModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.UNETModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.DirectorModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.DirectorModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityAnalyticsModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityAnalyticsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CrashReportingModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.CrashReportingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PerformanceReportingModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.PerformanceReportingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityConnectModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityConnectModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.WebModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.WebModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ARModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.ARModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VRModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.VRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIElementsModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.UIElementsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.StyleSheetsModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.StyleSheetsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GameCenterModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.GameCenterModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GridModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.GridModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.InputModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.JSONSerializeModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.JSONSerializeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ParticlesLegacyModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.ParticlesLegacyModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Physics2DModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.Physics2DModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ScreenCaptureModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.ScreenCaptureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpriteMaskModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.SpriteMaskModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.TerrainModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TilemapModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.TilemapModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VideoModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.VideoModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.WindModule">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/Managed/UnityEngine/UnityEngine.WindModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TestRunner">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Timeline">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIAutomation">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/UnityExtensions/Unity/UIAutomation/UnityEngine.UIAutomation.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GoogleAudioSpatializer">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.HoloLens">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpatialTracking">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="GoogleAdsWP8">
+      <HintPath>Assets/Plugins/GoogleAdsWP8.dll</HintPath>
+    </Reference>
+    <Reference Include="WP8Native">
+      <HintPath>Assets/Plugins/WP8Native.dll</HintPath>
+    </Reference>
+    <Reference Include="WP8PopUps">
+      <HintPath>Assets/Plugins/WP8PopUps.dll</HintPath>
+    </Reference>
+    <Reference Include="WSANative">
+      <HintPath>Assets/Plugins/WSANative.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Analytics">
+      <HintPath>C:/Users/Igor/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/UnityEngine.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Purchasing">
+      <HintPath>C:/Users/Igor/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@1.0.1/UnityEngine.Purchasing.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>C:/Program Files/Unity2017.2.1/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="BeeTheSwarmPlugin.Plugins.csproj">
+      <Project>{69377525-ECD4-2064-D74D-86C3A0DC91F3}</Project>
+      <Name>BeeTheSwarmPlugin.Plugins</Name>
+    </ProjectReference>
+    <ProjectReference Include="BeeTheSwarmPlugin.Plugins.unityproj">
+      <Project>{69377525-ECD4-2064-D74D-86C3A0DC91F3}</Project>
+      <Name>BeeTheSwarmPlugin.Plugins</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\BTSPlugin\Config\BTS_Config.cs" />
+    <Compile Include="Assets\BTSPlugin\Config\BTS_Settings.cs" />
+    <Compile Include="Assets\BTSPlugin\Config\Util\ScriptableObjectUtility.cs" />
+    <Compile Include="Assets\BTSPlugin\Example\ClientGameMockup.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Base\DependencyInjection\DependencyResolver.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Base\DependencyInjection\IDependencyResolver.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Base\DependencyInjection\IInjectTarget.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Base\DependencyInjection\Inject.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Base\Observable\Observable.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Base\Observable\ObservableList.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Base\Observable\ObservableListListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Commands\BaseCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Commands\BaseNetworkHandlerCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Commands\ICommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Enum\ApiErrors.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Enum\ConnectionState.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Enum\ConnectionType.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Factory\NotificationsFactory.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Models\CampaignLevelModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Models\CampaignModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Models\CategoryModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Models\CommentModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Models\CommentSimpleModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Models\DataModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Models\EventModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Models\ImageUrlsModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Models\InvitationModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Models\Notifications\CampaignRelatedNotificationModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Models\Notifications\NotificationModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Models\Notifications\PostRelatednotificationModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Models\PostModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Models\PostSimpleModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Models\ProgressModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Models\RewardModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Models\UserModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\AddFriendCodePopup\Controller\AddFriendCodePopupController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\AddFriendCodePopup\Controller\AddFriendCodePopupViewModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\AddFriendCodePopup\Controller\IAddFriendCodePopupController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\AddFriendCodePopup\View\AddFriendCodePopupView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\AddFriendCodePopup\View\IAddFriendCodePopupView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\AddFriendCodePopup\View\IAddFriendCodePopupViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\AddToHive\Controller\AddToHiveController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\AddToHive\Controller\IAddToHiveController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\AddToHive\View\AddToHiveView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\AddToHive\View\IAddToHiveView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\AddToHive\View\IAddToHiveViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\BadgeAwardPopup\Controller\BadgeAwardPopupController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\BadgeAwardPopup\Controller\IBadgeAwardPopupController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\BadgeAwardPopup\View\BadgeAwardPopupView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\BadgeAwardPopup\View\IBadgeAwardPopupView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\BadgeAwardPopup\View\IBadgeAwardPopupViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Badges\Controller\BadgesController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Badges\Controller\IBadgesController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Badges\View\BadgesView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Badges\View\IBadgesView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Badges\View\IBadgesViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\Controller\BaseController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\Controller\BasePopupController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\Controller\BaseScreenController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\Controller\IController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\Controller\IPopupController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\Controller\IScreenController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\Controller\ITopPanelScreenController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\Controller\IViewController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\Controller\TopPanelScreenController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\Enum\BTSModels.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\Enum\BTSServices.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\Enum\CampaignsGroupType.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\Enum\DeleteCampaignPopupResponce.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\Enum\EditCampaignMenuResponce.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\Enum\EditCampaignPopupResponce.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\Enum\PopupIds.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\IView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\Model\IModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\Model\TopPanelViewModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\Service\BaseService.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\Service\IService.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\View\BaseControlledView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\View\BaseListContainer.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\View\BaseView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\View\Components\ImagePreloader.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\View\Components\ScrollRectObserver.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\View\Components\SizeObserver.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\View\Components\TopPanelComponent.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\View\Components\VerticalLayout.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\View\IControlledView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\View\IListItem.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\View\IListItemViewModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\View\IScreenTopPanelViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\View\ITopPanelComponent.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\View\ITopPanelContainer.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\View\IViewEventListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Base\View\TopPanelScreen.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\BTSPlugin.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\BTSPluginContext.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\CampaignCategories\Controller\CampaignCategoriesController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\CampaignCategories\Controller\ICampaignCategoriesController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\CampaignCategories\Model\CampaignCategoriesModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\CampaignCategories\Model\ICampaignCategoriesModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\CampaignCategories\Service\CampaignCategoriesService.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\CampaignCategories\Service\Delegates\GetCampaignCategoriesCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\CampaignCategories\Service\ICampaignCategoriesService.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\CampaignCategories\View\CampaignCategoriesView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\CampaignCategories\View\ICampaignCategoriesView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\CampaignCategories\View\ICampaignCategoriesViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\CampaignToolbox\Controller\CampaignToolboxController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\CampaignToolbox\Controller\ICampaignToolboxController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\CampaignToolbox\View\CampaignToolboxView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\CampaignToolbox\View\ICampaignToolboxView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\CampaignToolbox\View\ICampaignToolboxViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ChangePassword\Controller\ChangePasswordController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ChangePassword\Controller\IChangePasswordController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ChangePassword\View\ChangePasswordView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ChangePassword\View\IChangePasswordView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ChangePassword\View\IChangePasswordViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ChangeUsername\Controller\ChangeUsernameController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ChangeUsername\Controller\IChangeUsernameController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ChangeUsername\View\ChangeUsernameView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ChangeUsername\View\IChangeUsernameView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ChangeUsername\View\IChangeUsernameViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ChestReveal\Controller\ChestRevealController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ChestReveal\Controller\IChestRevealController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ChestReveal\View\ChestRevealView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ChestReveal\View\IChestRevealView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ChestReveal\View\IChestRevealViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ContactPicker\Controller\ContactPickerController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ContactPicker\Controller\IContactPickerController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ContactPicker\Model\ContactPickerItemViewModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ContactPicker\Model\ContactPickerViewModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ContactPicker\Model\ContentPickerMode.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ContactPicker\View\ContactPickerItem.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ContactPicker\View\ContactPickerView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ContactPicker\View\IContactPickerView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ContactPicker\View\IContactPickerViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\DeleteCampaignPopup\Controller\DeleteCampaignPopupController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\DeleteCampaignPopup\Controller\IDeleteCampaignPopupController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\DeleteCampaignPopup\View\DeleteCampaignPopupView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\DeleteCampaignPopup\View\IDeleteCampaignPopupView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\DeleteCampaignPopup\View\IDeleteCampaignPopupViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\EditCampaign\Controller\EditCampaignController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\EditCampaign\Controller\IEditCampaignController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\EditCampaign\View\EditCampaignView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\EditCampaign\View\IEditCampaignView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\EditCampaign\View\IEditCampaignViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\EditProfile\Controller\EditProfileController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\EditProfile\Controller\IEditProfileController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\EditProfile\Model\EditProfileViewModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\EditProfile\View\EditProfileView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\EditProfile\View\IEditProfileView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\EditProfile\View\IEditProfileViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Events\Model\EventModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Events\Model\EventsModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Events\Model\IEventsModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Events\Service\Delegates\GetEventsCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Events\Service\Delegates\SendEventCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Events\Service\EventsService.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Events\Service\IEventsService.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\Controller\FeedsController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\Controller\IFeedsController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\Model\CampaignItem.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\Model\CommentViewModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\Model\FeedListItemModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\Model\FeedListViewModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\Model\FeedsModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\Model\IFeedsModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\Model\PostItem.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\Model\PostsList.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\Model\PostViewModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\Service\Delegates\CreateCampaignCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\Service\Delegates\CreateCommentCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\Service\Delegates\CreatePostCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\Service\Delegates\DeleteCampaignCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\Service\Delegates\DeletePostCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\Service\Delegates\FavoriteCampaignCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\Service\Delegates\FeedCampaignCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\Service\Delegates\GetCampaignsPostsCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\Service\Delegates\GetCampaingLevelsCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\Service\Delegates\GetFavoritePostsCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\Service\Delegates\GetImpactCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\Service\Delegates\GetPostComments.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\Service\Delegates\GetPostsCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\Service\Delegates\GetTopPostsCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\Service\Delegates\GetUserCampaignCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\Service\Delegates\IPostLoaderCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\Service\FeedsService.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\Service\IFeedsService.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\View\BaseFeedsList.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\View\FeedsListItem.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\View\FeedsView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\View\FullFeedsList.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\View\IFeedItemListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\View\IFeedsView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\View\IFeedsViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\View\PostCommentItem.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\View\ProgressBar.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\View\ShortFeedsList.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Feeds\View\ShortFeedSublist.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Greeting\Controller\GreetingController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Greeting\Controller\IGreetingController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Greeting\Model\ErrorPopupItemModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Greeting\Model\IPopupsModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Greeting\Model\PopupItemModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Greeting\Model\PopupsModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Greeting\Model\PopupTypes.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Greeting\Model\UserInfoPopupItemModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Greeting\Model\UserLoginPopupItemModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Greeting\View\GreetingView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Greeting\View\IGreetingView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Greeting\View\IGreetingViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Greeting\View\SubViews\ErrorPopupView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Greeting\View\SubViews\UserInfoPopupView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Greeting\View\SubViews\UserLoginPopupView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\History\Service\HistoryService.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\History\Service\IHistoryService.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\BaseHivePopup\Controller\BaseHivePopupController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\BaseHivePopup\Controller\IBaseHivePopupController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\BaseHivePopup\View\BaseHivePopupView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\BaseHivePopup\View\IBaseHivePopupView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\BaseHivePopup\View\IBaseHivePopupViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\BaseSearchPlayerScreen\Controller\BaseSearchHivePlayersController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\BaseSearchPlayerScreen\Controller\IBaseSearchHivePlayersController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\BaseSearchPlayerScreen\Model\SearchHivePlayersItemViewModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\BaseSearchPlayerScreen\Model\SearchHivePlayersViewModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\BaseSearchPlayerScreen\View\BaseSearchHivePlayersView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\BaseSearchPlayerScreen\View\IBaseSearchHivePlayersView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\BaseSearchPlayerScreen\View\IBaseSearchHivePlayersViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\BaseSearchPlayerScreen\View\SearchHiveItemView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\ConfirmJoinHivePopup\Controller\ConfirmJoinHivePopupController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\ConfirmJoinHivePopup\Controller\IConfirmJoinHivePopupController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\ConfirmJoinHivePopup\View\ConfirmJoinHivePopupView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\ConfirmJoinHivePopup\View\IConfirmJoinHivePopupView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\HiveScreen\Controller\HiveController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\HiveScreen\Controller\HiveMemberViewModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\HiveScreen\Controller\HiveViewModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\HiveScreen\Controller\IHiveController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\HiveScreen\View\Components\HiveMember.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\HiveScreen\View\Components\HiveMembersContainer.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\HiveScreen\View\HiveView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\HiveScreen\View\IHiveView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\HiveScreen\View\IHiveViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\InviteToHivePopup\Controller\IInviteToHivePopupController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\InviteToHivePopup\Controller\InviteToHivePopupController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\InviteToHivePopup\View\IInviteToHivePopupView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\InviteToHivePopup\View\IInviteToHivePopupViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\InviteToHivePopup\View\InviteToHivePopupView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\IsReferrerPopup\Controller\IIsReferrerPopupController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\IsReferrerPopup\Controller\IsReferrerPopupController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\IsReferrerPopup\View\IIsReferrerPopupView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\IsReferrerPopup\View\IsReffererPopupView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\Model\HiveModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\Model\IHiveModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\SearchMissingHivePlayersScreen\Controller\ISearchMissingHivePlayersController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\SearchMissingHivePlayersScreen\Controller\SearchMissingHivePlayersController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\SearchMissingHivePlayersScreen\View\SearchMissingHivePlayersView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\SearchReffererScreen\Controller\ISearchReffererController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\SearchReffererScreen\Controller\SearchReffererController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\SearchReffererScreen\View\ISearchReffererView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\SearchReffererScreen\View\ISearchReffererViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\SearchReffererScreen\View\SearchReffererView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\Service\Delegates\AddFriendCodeCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\Service\Delegates\ConfirmInviteToHiveCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\Service\Delegates\GetHiveCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\Service\Delegates\GetInvitationsCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\Service\Delegates\InviteToHiveCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\Service\Delegates\JoinHiveCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\Service\Delegates\SearchPlayerCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\Service\HiveService.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Hive\Service\IHiveService.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\HiveLeaderboard\Controller\HiveLeaderboardController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\HiveLeaderboard\Controller\HiveLeaderboardItemViewModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\HiveLeaderboard\Controller\HiveLeaderboardViewModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\HiveLeaderboard\Controller\HiveMemberViewModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\HiveLeaderboard\Controller\IHiveLeaderboardController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\HiveLeaderboard\View\HiveLeaderboardItem.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\HiveLeaderboard\View\HiveLeaderboardView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\HiveLeaderboard\View\IHiveLeaderboardView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\HiveLeaderboard\View\IHiveLeaderboardViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\IContext.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ImagesRepository\IImagesRepository.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ImagesRepository\IImagesService.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ImagesRepository\ImagesRepository.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ImagesRepository\ImagesService.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\InviteFriends\Controller\IInviteFriendsController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\InviteFriends\Controller\InviteFriendsController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\InviteFriends\Model\InviteFriendViewModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\InviteFriends\Service\Delegates\InviteFriendsEmailCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\InviteFriends\Service\Delegates\InviteFriendsPhoneCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\InviteFriends\Service\IInviteFriendsService.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\InviteFriends\Service\InviteFriendsService.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\InviteFriends\View\IInviteFriendsView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\InviteFriends\View\IInviteFriendsViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\InviteFriends\View\InviteFriendsView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Loader\ILoaderController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Loader\ILoaderView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Loader\LoaderController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Loader\LoaderView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\LoginScreens\ForgotEmail\Controller\ForgotEmailController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\LoginScreens\ForgotEmail\Controller\IForgotEmailController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\LoginScreens\ForgotEmail\View\ForgotEmailView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\LoginScreens\ForgotEmail\View\IForgotEmailView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\LoginScreens\ForgotEmail\View\IForgotEmailViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\LoginScreens\ForgotPassword\Controller\ForgotPasswordController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\LoginScreens\ForgotPassword\Controller\IForgotPasswordController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\LoginScreens\ForgotPassword\View\ForgotPasswordView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\LoginScreens\ForgotPassword\View\IForgotPasswordView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\LoginScreens\ForgotPassword\View\IForgotPasswordViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\LoginScreens\Logout\Controller\ILogoutController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\LoginScreens\Logout\Controller\LogoutController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\LoginScreens\Logout\View\ILogoutView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\LoginScreens\Logout\View\ILogoutViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\LoginScreens\Logout\View\LogoutView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\LoginScreens\Registration\Controller\IRegistrationController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\LoginScreens\Registration\Controller\RegistrationController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\LoginScreens\Registration\Controller\RegistrationScreenViewModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\LoginScreens\Registration\View\IRegistrationView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\LoginScreens\Registration\View\IRegistrationViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\LoginScreens\Registration\View\RegistrationView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\LoginScreens\SignIn\Controller\ISignInController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\LoginScreens\SignIn\Controller\SignInController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\LoginScreens\SignIn\View\ISignInView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\LoginScreens\SignIn\View\ISignInViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\LoginScreens\SignIn\View\SignInView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\LoginScreens\SignUp\Controller\ISignUpController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\LoginScreens\SignUp\Controller\SignUpController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\LoginScreens\SignUp\View\ISignUpView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\LoginScreens\SignUp\View\ISignUpViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\LoginScreens\SignUp\View\SignUpView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\MissedHivePlayers\Controller\IMissedHivePlayersController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\MissedHivePlayers\Controller\MissedHivePlayersController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\MissedHivePlayers\Controller\MissedHivePlayersItemViewModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\MissedHivePlayers\Controller\MissedHivePlayersViewModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\MissedHivePlayers\Service\IMissedHivePlayersService.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\MissedHivePlayers\Service\MissedHivePlayersService.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\MissedHivePlayers\View\Components\MissedHivePlayersItem.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\MissedHivePlayers\View\IMissedHivePlayersView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\MissedHivePlayers\View\IMissedHivePlayersViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\MissedHivePlayers\View\MissedHivePlayersView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Notifications\Controller\INotificationsController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Notifications\Controller\NotificationsController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Notifications\Model\CommentNotificationViewModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Notifications\Model\INotificationsModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Notifications\Model\NotificationAction.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Notifications\Model\NotificationsModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Notifications\Model\NotificationsViewModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Notifications\Model\NotificationViewModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Notifications\Model\PostNotificationViewModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Notifications\Service\Delegates\GetNotificationsCountCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Notifications\Service\Delegates\LoadNotificationsCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Notifications\Service\INotificationsService.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Notifications\Service\NotificationsService.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Notifications\View\Components\BaseCommentNotificationView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Notifications\View\Components\BaseNotificationView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Notifications\View\Components\BasePostNotificationView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Notifications\View\Components\NotificationCampaignFundedView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Notifications\View\Components\NotificationCommentToPostView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Notifications\View\Components\NotificationDonateToCampaignView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Notifications\View\Components\NotificationFriendRequestView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Notifications\View\Components\NotificationHiveRequestConfirmedView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Notifications\View\Components\NotificationPhotoUploadRewardView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Notifications\View\Components\NotificationReplyToCommentView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Notifications\View\Components\NotificationRequestToHiveView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Notifications\View\Components\NotificationUserJoinedByInviteView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Notifications\View\Components\NotificationWelcomeToHiveView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Notifications\View\INotificationsView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Notifications\View\INotificationsViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Notifications\View\NotificationsView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\OurGames\Controller\IOurGamesController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\OurGames\Controller\OurGamesController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\OurGames\View\IOurGamesView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\OurGames\View\IOurGamesViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\OurGames\View\OurGamesView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\PluginContent\Controller\IPluginContentController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\PluginContent\Controller\PluginContentController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\PluginContent\View\IPluginContentView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\PluginContent\View\IPluginContentViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\PluginContent\View\PluginContentView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Quests\Controller\IQuestsController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Quests\Controller\QuestsController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Quests\View\IQuestsView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Quests\View\IQuestsViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Quests\View\QuestListItem.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Quests\View\QuestsView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\SameTypePosts\Controller\ISameTypePostsController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\SameTypePosts\Controller\SameTypePostsController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\SameTypePosts\PostTypes.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\SameTypePosts\View\ISameTypePostsView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\SameTypePosts\View\ISameTypePostsViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\SameTypePosts\View\SameTypePostsList.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\SameTypePosts\View\SameTypePostsView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Search\Controller\ISearchController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Search\Controller\SearchController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Search\View\ISearchView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Search\View\ISearchViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Search\View\SearchView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\StartCampaign\Controller\IStartCampaignController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\StartCampaign\Controller\StartCampaignController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\StartCampaign\Model\CategoryItemViewModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\StartCampaign\Model\StartCampaignViewModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\StartCampaign\Service\IStartCampaignService.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\StartCampaign\View\CategoryItemView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\StartCampaign\View\IStartCampaignView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\StartCampaign\View\IStartCampaignViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\StartCampaign\View\StartCampaignView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Store\Controller\IStoreController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Store\Controller\StoreController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Store\View\IStoreView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Store\View\IStoreViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\Store\View\StoreView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\TopPanel\Controller\ITopPanelScreenController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\TopPanel\Controller\TopPanelControllerDelegate.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\TopPanel\View\TopPanelView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\UpdateCampaign\Controller\IUpdateCampaignController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\UpdateCampaign\Controller\UpdateCampaignController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\UpdateCampaign\Model\UpdateCampaignViewModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\UpdateCampaign\Service\IUpdateCampaignService.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\UpdateCampaign\View\IUpdateCampaignView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\UpdateCampaign\View\IUpdateCampaignViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\UpdateCampaign\View\UpdateCampaignView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\UserProfile\Controller\IUserProfileController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\UserProfile\Controller\UserProfileScreenController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\UserProfile\Model\AccountState.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\UserProfile\Model\IUserProfileModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\UserProfile\Model\UserProfileModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\UserProfile\Model\UserProfileViewModel.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\UserProfile\PlayerPrefsConstants.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\UserProfile\Service\Delegates\AddBeesCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\UserProfile\Service\Delegates\ConfirmRegistrationCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\UserProfile\Service\Delegates\GetUserCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\UserProfile\Service\Delegates\LoginCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\UserProfile\Service\Delegates\RegisterCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\UserProfile\Service\Delegates\RemoveUserCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\UserProfile\Service\Delegates\RenewAuthTokenCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\UserProfile\Service\Delegates\ResendCodeCommand.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\UserProfile\Service\IUserProfileService.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\UserProfile\Service\UserProfileService.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\UserProfile\View\IUserProfileScreen.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\UserProfile\View\IUserProfileScreenListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\UserProfile\View\UserCampaignContainer.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\UserProfile\View\UserProfileScreen.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ViewCampaign\Controller\IViewCampaignController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ViewCampaign\Controller\ViewCampaignController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ViewCampaign\View\IPostlistContainer.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ViewCampaign\View\IPostListControllerDelegate.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ViewCampaign\View\IViewCampaignView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ViewCampaign\View\IViewCampaignViewListener.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ViewCampaign\View\PostListControllerDelegate.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ViewCampaign\View\ViewCampaignList.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Modules\ViewCampaign\View\ViewCampaignView.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\PlatformAdapter\AndroidPlatformAdapter.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\PlatformAdapter\EditorPlatformAdapter.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\PlatformAdapter\IosPlatformAdapter.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\PlatformAdapter\IPlatformAdapter.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\PlatformAdapter\Platform.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Player\BTS_Player.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Player\BTS_PlayerData.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Service\NetworkService\INetworkService.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Service\NetworkService\NetworkService.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Service\NetworkService\NetworkState.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Signals\BaseSignal.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Signals\IRenewAuthTokenSignal.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Signals\ISignal.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Signals\RenewAuthTokenSignal.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\UI\BTS_BestFitInputField.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\UI\BTS_PopupController.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\UI\BTS_StatusIndicator.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\UI\BTS_UIAnimatedTitle.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\UI\ResizableInputField.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Utils\AddressBookAdapter\ContactInfo.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Utils\AddressBookAdapter\ContactsLoader.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Utils\AntiCheatToolkitPrefs.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Utils\Constants.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Utils\GameObjectInstatiator.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Utils\GAMiniJSON.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Utils\IPlayerDataLoader.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Utils\NetworkingUtil.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Utils\NonMonoSingleton.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Utils\ObfuscatedPrefs.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Utils\SA_Singleton.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Utils\SessionManager.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Utils\String.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\Utils\TimeDateUtils.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Models\Enum\LeaderboardType.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Models\FriendProgress.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Models\PackageResponces\AddBeesResponse.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Models\PackageResponces\AuthCodeResponce.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Models\PackageResponces\AuthTokenResponce.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Models\PackageResponces\EventResponce.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Models\PackageResponces\FeedCampaignResponce.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Models\PackageResponces\GetCampaignCategoriesResponse.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Models\PackageResponces\GetCampaignLevelsResponse.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Models\PackageResponces\GetEventsResponse.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Models\PackageResponces\GetFavoriteCampaignsResponse.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Models\PackageResponces\GetHiveResponse.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Models\PackageResponces\GetImpactResponce.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Models\PackageResponces\GetInvitationsResponse.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Models\PackageResponces\GetNewNotificationsResponce.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Models\PackageResponces\GetNotificationsResponse.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Models\PackageResponces\GetPostCommentsResponse.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Models\PackageResponces\GetPostsResponse.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Models\PackageResponces\GetUserCampaignsResponce.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Models\PackageResponces\GetUserResponce.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Models\PackageResponces\LoginResponce.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Models\PackageResponces\MockPackResponce.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Models\PackageResponces\NoDataResponse.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Models\PackageResponces\PackageResponse.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Models\PackageResponces\ResetAuthResponce.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Models\PackageResponces\SearchHiveResponse.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Models\RefundedItem.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Base\BTS_BasePackage.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Base\BTS_BaseServerPackage.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Base\BTS_Error.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Base\BTS_GetEvent_Data.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Base\BTS_RequestResult.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Base\IBasePackage.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Base\IServerResponseHandler.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\BTS_AddBees.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\BTS_Event.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\BTS_GetEvents.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\BTS_GetImpact.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\BTS_GetNewNotifications.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\BTS_GetNotifications.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\BTS_GetTopFeed.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\BTS_GetTopUsers.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\BTS_GetUserCampaign.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\BTS_InvitePlayers.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\BTS_ReassignEmail.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\BTS_ReassignPassword.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\BTS_ReportCampaign.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\BTS_ResetEmail.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\BTS_ResetPassword.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\BTS_UpdateUserEmail.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\BTS_UpdateUsername.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\BTS_UpdateUserPassword.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\Campain\BTS_AddCampaignToFavorite.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\Campain\BTS_CampaignPosts.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\Campain\BTS_CreateCampaign.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\Campain\BTS_DeleteCampaign.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\Campain\BTS_FeedCampaign.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\Campain\BTS_GetCampaignBoard.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\Campain\BTS_GetCampaignCategories.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\Campain\BTS_GetCampaignLevels.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\Campain\BTS_GetCampaignPosts.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\Hive\BTS_GetHive.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\Hive\BTS_GetInvitations.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\Hive\BTS_JoinHive.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\Hive\BTS_RequestInvitation.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\Hive\BTS_ResponseHive.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\Hive\BTS_SearchHive.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\Posts\BTS_CreatePost.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\Posts\BTS_CreatePostComment.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\Posts\BTS_DeletePost.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\Posts\BTS_GetFavouritePosts.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\Posts\BTS_GetPost.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\Posts\BTS_GetPostComments.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\Posts\BTS_GetPosts.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\Posts\BTS_GetTopSwarmedPosts.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\Posts\BTS_UpdatePost.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\User\BTS_AuthCode.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\User\BTS_GetUserInfo.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\User\BTS_Login.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\User\BTS_Register.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\User\BTS_RemoveUser.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\User\BTS_ResendCode.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\User\BTS_ResetAuth.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Client\User\BTS_UpdateUser.cs" />
+    <Compile Include="Assets\BTSPlugin\Scripts\BTS\WebServer\Packages\Enum\BTS_RequestStatus.cs" />
+    <Compile Include="Assets\Extensions\CodeStage\AntiCheatToolkit\Examples\Scripts\ActRotatorExample.cs" />
+    <Compile Include="Assets\Extensions\CodeStage\AntiCheatToolkit\Examples\Scripts\ActTesterGUI.cs" />
+    <Compile Include="Assets\Extensions\CodeStage\AntiCheatToolkit\Examples\Scripts\DetectorsUsageExample.cs" />
+    <Compile Include="Assets\Extensions\CodeStage\AntiCheatToolkit\Examples\Scripts\ObscuredTypesTests\ObscuredFloatTest.cs" />
+    <Compile Include="Assets\Extensions\CodeStage\AntiCheatToolkit\Examples\Scripts\ObscuredTypesTests\ObscuredIntTest.cs" />
+    <Compile Include="Assets\Extensions\CodeStage\AntiCheatToolkit\Examples\Scripts\ObscuredTypesTests\ObscuredPrefsTest.cs" />
+    <Compile Include="Assets\Extensions\CodeStage\AntiCheatToolkit\Examples\Scripts\ObscuredTypesTests\ObscuredStringTest.cs" />
+    <Compile Include="Assets\Extensions\CodeStage\AntiCheatToolkit\Examples\Scripts\ObscuredTypesTests\ObscuredVector3Test.cs" />
+    <Compile Include="Assets\Extensions\CodeStage\AntiCheatToolkit\Examples\Scripts\ObscuredTypesTests\PerformanceObscuredTests.cs" />
+    <Compile Include="Assets\Extensions\CodeStage\AntiCheatToolkit\Scripts\Detectors\ActDetectorBase.cs" />
+    <Compile Include="Assets\Extensions\CodeStage\AntiCheatToolkit\Scripts\Detectors\InjectionDetector.cs" />
+    <Compile Include="Assets\Extensions\CodeStage\AntiCheatToolkit\Scripts\Detectors\ObscuredCheatingDetector.cs" />
+    <Compile Include="Assets\Extensions\CodeStage\AntiCheatToolkit\Scripts\Detectors\SpeedHackDetector.cs" />
+    <Compile Include="Assets\Extensions\CodeStage\AntiCheatToolkit\Scripts\ObscuredTypes\ObscuredBool.cs" />
+    <Compile Include="Assets\Extensions\CodeStage\AntiCheatToolkit\Scripts\ObscuredTypes\ObscuredByte.cs" />
+    <Compile Include="Assets\Extensions\CodeStage\AntiCheatToolkit\Scripts\ObscuredTypes\ObscuredChar.cs" />
+    <Compile Include="Assets\Extensions\CodeStage\AntiCheatToolkit\Scripts\ObscuredTypes\ObscuredDecimal.cs" />
+    <Compile Include="Assets\Extensions\CodeStage\AntiCheatToolkit\Scripts\ObscuredTypes\ObscuredDouble.cs" />
+    <Compile Include="Assets\Extensions\CodeStage\AntiCheatToolkit\Scripts\ObscuredTypes\ObscuredFloat.cs" />
+    <Compile Include="Assets\Extensions\CodeStage\AntiCheatToolkit\Scripts\ObscuredTypes\ObscuredInt.cs" />
+    <Compile Include="Assets\Extensions\CodeStage\AntiCheatToolkit\Scripts\ObscuredTypes\ObscuredLong.cs" />
+    <Compile Include="Assets\Extensions\CodeStage\AntiCheatToolkit\Scripts\ObscuredTypes\ObscuredPrefs.cs" />
+    <Compile Include="Assets\Extensions\CodeStage\AntiCheatToolkit\Scripts\ObscuredTypes\ObscuredQuaternion.cs" />
+    <Compile Include="Assets\Extensions\CodeStage\AntiCheatToolkit\Scripts\ObscuredTypes\ObscuredSByte.cs" />
+    <Compile Include="Assets\Extensions\CodeStage\AntiCheatToolkit\Scripts\ObscuredTypes\ObscuredShort.cs" />
+    <Compile Include="Assets\Extensions\CodeStage\AntiCheatToolkit\Scripts\ObscuredTypes\ObscuredString.cs" />
+    <Compile Include="Assets\Extensions\CodeStage\AntiCheatToolkit\Scripts\ObscuredTypes\ObscuredUint.cs" />
+    <Compile Include="Assets\Extensions\CodeStage\AntiCheatToolkit\Scripts\ObscuredTypes\ObscuredULong.cs" />
+    <Compile Include="Assets\Extensions\CodeStage\AntiCheatToolkit\Scripts\ObscuredTypes\ObscuredUshort.cs" />
+    <Compile Include="Assets\Extensions\CodeStage\AntiCheatToolkit\Scripts\ObscuredTypes\ObscuredVector2.cs" />
+    <Compile Include="Assets\Extensions\CodeStage\AntiCheatToolkit\Scripts\ObscuredTypes\ObscuredVector3.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\BTSPlugin\GFX\Shader\Mask.shader" />
+    <None Include="Assets\Extensions\CodeStage\AntiCheatToolkit\API.txt" />
+    <None Include="Assets\Extensions\CodeStage\AntiCheatToolkit\Changelog.txt" />
+    <None Include="Assets\Extensions\CodeStage\AntiCheatToolkit\Integration\readme.txt" />
+    <None Include="Assets\Plugins\Android\AN_Res\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\Android\AN_Res\res\values\analytics.xml" />
+    <None Include="Assets\Plugins\Android\AN_Res\res\values\ids.xml" />
+    <None Include="Assets\Plugins\Android\AN_Res\res\values\version.xml" />
+    <None Include="Assets\Plugins\Android\AN_Res\res\xml\file_paths.xml" />
+    <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\StansAssets\Bundles\UltimateMobile\Documentation\ReadMe.txt" />
+    <None Include="Assets\Plugins\StansAssets\Bundles\UltimateMobile\Documentation\UM_VersionNotes.txt" />
+    <None Include="Assets\Plugins\StansAssets\Modules\AmazonNative\Documentation\READ ME.txt" />
+    <None Include="Assets\Plugins\StansAssets\Modules\AndroidNative\Documentation\AN_VersionNotes.txt" />
+    <None Include="Assets\Plugins\StansAssets\Modules\AndroidNative\Documentation\ReadMe.txt" />
+    <None Include="Assets\Plugins\StansAssets\Modules\GoogleAnalytics\Documentation\ReadMe.txt" />
+    <None Include="Assets\Plugins\StansAssets\Modules\GoogleMobileAd\Documentation\GMA_VersionNotes.txt" />
+    <None Include="Assets\Plugins\StansAssets\Modules\GoogleMobileAd\Documentation\ReadMe.txt" />
+    <None Include="Assets\Plugins\StansAssets\Modules\IOSDeploy\Documentation\ReadMe.txt" />
+    <None Include="Assets\Plugins\StansAssets\Modules\IOSNative\Documentation\ISN_VersionNotes.txt" />
+    <None Include="Assets\Plugins\StansAssets\Modules\IOSNative\Documentation\ReadMe.txt" />
+    <None Include="Assets\Plugins\StansAssets\Modules\ManifestManager\default.xml" />
+    <None Include="Assets\Plugins\StansAssets\Modules\MobileNativePopUps\Documentation\ReadMe.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\AN_Res\AndroidManifest.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\AN_Res\res\values\analytics.xml" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\AN_Res\res\values\ids.xml" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\AN_Res\res\values\version.xml" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\AN_Res\res\xml\file_paths.xml" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\AndroidManifest.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\androidnative.jar.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\androidnative.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\app_licensing\an_licensing_library.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\billing\an_billing.jar.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\billing\an_billing.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\firebase\firebase-analytics-impl.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\firebase\firebase-analytics.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\firebase\firebase-common.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\firebase\firebase-dynamic-links.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\firebase\firebase-iid.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\fitness\an_fitness.jar.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\fitness\an_fitness.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\fitness\play-services-fitness.jar.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\fitness\play-services-fitness.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\an_googleplay.jar.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\an_googleplay.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-ads-lite.jar.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-ads-lite.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-ads.jar.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-ads.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-analytics-impl.jar.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-analytics-impl.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-analytics.jar.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-analytics.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-appinvite.jar.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-appinvite.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-auth-base.jar.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-auth-base.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-auth.jar.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-auth.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-base.jar.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-base.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-basement.jar.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-basement.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-drive.jar.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-drive.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-games.jar.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-games.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-gcm.jar.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-gcm.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-iid.jar.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-iid.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-plus.jar.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-plus.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-safetynet.jar.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\google_play\play-services-safetynet.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\libs\GA_Firebase\AndroidManifest.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\libs\GA_Firebase\ids.xml" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\libs\an_sa_soomla.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\libs\android-support-v4.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\libs\image-chooser-library-1.6.0.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\libs\sa_analytics.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\libs\sa_firebase.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\libs\support-v4-24.1.1.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\mobile-native-popups.jar.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\mobile-native-popups.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\social\an_social.jar.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\social\an_social.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\social\twitter4j-core-4.0.4.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\IOS\GMA_SA_Lib.h.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\IOS\GMA_SA_Lib.m.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\IOS\GMA_SA_Lib_Proxy.mm.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\IOS\ISN_AppController.mm.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\IOS\ISN_Camera.mm.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\IOS\ISN_CloudKit.mm.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\IOS\ISN_Contacts.mm.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\IOS\ISN_DFContinuousForceTouchGestureRecognizer.h.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\IOS\ISN_DFContinuousForceTouchGestureRecognizer.m.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\IOS\ISN_FilePicker.mm.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\IOS\ISN_ForceTouch.mm.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\IOS\ISN_GameCenter.mm.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\IOS\ISN_GestureRecognizer.mm.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\IOS\ISN_InApp.mm.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\IOS\ISN_Media.mm.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\IOS\ISN_NativeCore.h.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\IOS\ISN_NativeCore.mm.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\IOS\ISN_Privacy.mm.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\IOS\ISN_RemoteNotifications.mm.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\IOS\ISN_ReplayKit.mm.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\IOS\ISN_SocialGate.mm.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\IOS\ISN_Soomla.mm.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\IOS\ISN_UserNotifications.h.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\IOS\ISN_UserNotifications.mm.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\IOS\MNP_UIController.mm.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\Versions\AN_VersionInfo.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\Versions\GMA_VersionInfo.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\Versions\ISN_VersionInfo.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\Versions\MSP_VersionInfo.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\Versions\UM_VersionInfo.txt" />
+    <None Include="Assets\Plugins\WP8\GoogleAds.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="GenerateTargetFrameworkMonikerAttribute" />
+</Project>
