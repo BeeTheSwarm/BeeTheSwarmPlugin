@@ -1,8 +1,14 @@
+ Настроить
+
 git remote add bts https://github.com/BeeTheSwarm/BeeTheSwarmPlugin.git
 git fetch bts
+git subtree add --prefix "MarblzGameProject/Assets/Plugins/BeeTheSwarm" bts master --squash
+git subtree pull --prefix "MarblzGameProject/Assets/Plugins/BeeTheSwarm" bts master --squash
 
 
-git subtree add --prefix "SocialAppProject/Assets/Plugins/BeeTheSwarm" bts master --squash
-git subtree pull --prefix "SocialAppProject/Assets/Plugins/BeeTheSwarm" bts master --squash
+Получть
+git subtree pull --prefix "MarblzGameProject/Assets/Plugins/BeeTheSwarm" bts master --squash
 
-git subtree push --prefix "SocialAppProject/Assets/Plugins/BeeTheSwarm" bts master --squash
+
+Отправить
+git subtree push --prefix "MarblzGameProject/Assets/Plugins/BeeTheSwarm" bts master --squash
