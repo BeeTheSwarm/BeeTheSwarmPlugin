@@ -58,6 +58,8 @@ public class GameManager : MonoBehaviour {
     // Use this for initialization
     void Start() {
 
+        ChestsRewardController.OnOpenChest += OpenChest;
+
         //BTS_Manager.Instance.Init();
         
         // Screen doesn't sleep ! A monster !! 
@@ -441,6 +443,10 @@ public class GameManager : MonoBehaviour {
           Time.timeScale = 1f;
           
           
+    }
+
+    public void OpenChest() {
+        //new WE_OpenChest().Send();      
     }
 
     IEnumerator TimeSpawnSkipButton()
