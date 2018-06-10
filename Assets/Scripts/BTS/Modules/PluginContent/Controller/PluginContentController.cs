@@ -36,6 +36,8 @@ public class PluginContentController : BaseScreenController<IPluginContentView>,
     public override void Show() {
         base.Show();
         if (m_userProfile.IsLoggedIn) {
+            m_view.Show();
+             
         }
         else {
             m_signUpController.Show();

@@ -16,5 +16,10 @@ public class PluginContentView : BaseControlledView<IPluginContentViewListener>,
     {
         m_dragBeginPoint = Input.mousePosition;
     }
-    
+
+    public override void Show() {
+        base.Show();
+        m_animator.enabled = true;
+        m_animator.SetBool("Opened", true);
+    }
 }
