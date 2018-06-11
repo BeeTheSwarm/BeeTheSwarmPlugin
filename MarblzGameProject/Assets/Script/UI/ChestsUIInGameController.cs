@@ -7,7 +7,7 @@ public class ChestsUIInGameController : ChestsUIController {
 
     protected override void Start() {
         base.Start();
-        // GameManager.Instance.OnStartGame += RefresgOnStartGame;
+        // GameManager.Instance.OnStartGame += RefreshOnStartGame;
         RefreshOnStartGame();
     }
 

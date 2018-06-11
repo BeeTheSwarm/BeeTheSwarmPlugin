@@ -40,7 +40,7 @@ public class ChestsRewardController : MonoBehaviour
     void Start()
     {
 
-                  // WebServerManager.OnOpenChestSuccessful += OnChestsRewardRecievedHandler;    //need to do
+        // WebServerManager.OnOpenChestSuccessful += OnChestsRewardRecievedHandler;    //need to do
         //  WebServerManager.OnChooseChestSuccessful += ORewardRecivedHandler;         //need to do
 
         m_isChestsAvailable = false;
@@ -93,7 +93,7 @@ public class ChestsRewardController : MonoBehaviour
     {
         
         m_hintsAnimator.SetTrigger("ShowPossibleRewards");
-        // AudioManager.Instance.PlayAllChestsRewardsClip();          //need to do
+         AudioManager.Instance.PlayAllChestsRewardsClip();          
         m_isChestsAvailable = true;
         m_bees = reward[0].reward.count;
 
@@ -163,7 +163,7 @@ public class ChestsRewardController : MonoBehaviour
 
         yield return new WaitWhile(() => !m_isChestsAvailable);
         chestAnim.freeze = false;
-        //AudioManager.Instance.ReceiveChestReward();      //need to do
+        AudioManager.Instance.ReceiveChestReward(); 
         yield return new WaitForSeconds(2.0f);
 
         if (beesReward)
@@ -186,7 +186,7 @@ public class ChestsRewardController : MonoBehaviour
         m_chestsAnimator.SetTrigger("Shuffle");
         m_hintsAnimator.SetTrigger("ShuffleChests");
         yield return new WaitForSeconds(0.5f);
-        //AudioManager.Instance.PlayShuffleChestsClip();    //need to do
+        AudioManager.Instance.PlayShuffleChestsClip(); 
 
         yield return new WaitForSeconds(1.8f);
         chooseReward = true;

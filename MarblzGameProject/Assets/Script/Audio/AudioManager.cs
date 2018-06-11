@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class AudioManager : SA_Singleton<AudioManager> {
 
-	[SerializeField] AudioSource audioSource;
-	[SerializeField] float FadeInOutSpeed;
-	[SerializeField] AudioClip Menu;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioSource m_secondaryAudioSource;
+    [SerializeField] float FadeInOutSpeed;
+    [SerializeField] AudioClip Menu;
+    [SerializeField] AudioClip m_allChestsRewardsClip;
+    [SerializeField] AudioClip m_receiveChestClip;
+    [SerializeField] AudioClip m_shuffleChestClip;
+    [SerializeField] AudioClip m_menuButtonClip;
 
 	bool autoMode = true;
 	bool isFadeIn;
@@ -176,6 +181,22 @@ public class AudioManager : SA_Singleton<AudioManager> {
 			LastPlayedMusic = audioSource.volume;
 		}
 	}
+
+    public void PlayAllChestsRewardsClip() {
+        m_secondaryAudioSource.PlayOneShot(m_allChestsRewardsClip);
+    }
+
+    public void ReceiveChestReward() {
+        m_secondaryAudioSource.PlayOneShot(m_receiveChestClip);
+    }
+
+    public void PlayShuffleChestsClip() {
+        m_secondaryAudioSource.PlayOneShot(m_shuffleChestClip);
+    }
+
+    public void PlayMenuButtonClickClip() {
+        m_secondaryAudioSource.PlayOneShot(m_menuButtonClip);
+    }
 
 	void FadeIn(){
 		if (audioSource)
