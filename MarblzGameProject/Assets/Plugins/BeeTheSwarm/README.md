@@ -1,2 +1,0 @@
-# BeeTheSwarmPlugin
-Some chnages
