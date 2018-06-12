@@ -400,6 +400,11 @@ public class GameManager : MonoBehaviour {
 	}
 
     public void OpenRewardBeesScreen() {
+
+       // if (!BTSManager.Instance.IsConnected) {
+            // call "need login in BTS Popup"
+       // }
+
         if (GameStateManager.Instance.State == GameState.Pause)
         {
                m_rewardBeesAnimatorController.SetTrigger("OpenRewardBeesScreen");
