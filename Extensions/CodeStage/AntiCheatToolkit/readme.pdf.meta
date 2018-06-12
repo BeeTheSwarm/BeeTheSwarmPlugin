@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4d2d6fd090757104e8198ec673f419ac
+guid: 65c032e5b1e1c934a8047aa0dadd8acd
 labels:
 - cheat
 - hack
@@ -25,4 +25,7 @@ labels:
 - SecurePrefs
 - PlayMaker
 DefaultImporter:
+  externalObjects: {}
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 
