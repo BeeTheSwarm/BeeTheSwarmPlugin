@@ -17,15 +17,28 @@ namespace BTS {
             m_notificationsId = id;
         }
 
-        internal void StartPlugin(Action callback) {
+        private bool m_isStandaloneApp;
+        
+        internal void StartPlugin(Action callback, bool standalone = false) {
             m_dependencyContainer.GetModel<IUserProfileModel>().OnUserLoggedIn += UserLoggedInHandler;
             m_dependencyContainer.GetService<IStartupService>().Execute(callback);
+            m_isStandaloneApp = standalone;
         }
 
         private void UserLoggedInHandler() {
             OnUserLoggedIn.Invoke();
         }
 
+        public bool InUserLoggedIn() {
+            var userProfile = m_dependencyContainer.GetModel<UserProfileModel>();
+            if (userProfile == null) {
+                return false;
+            }
+
+            return userProfile.IsLoggedIn;
+        }
+
+        
         internal void AddBees(int count) {
             m_dependencyContainer.GetService<IAddBeesService>().Execute(count);
         }
@@ -44,6 +57,18 @@ namespace BTS {
         
         public void ProcessNotification() {
             m_dependencyContainer.GetService<IUpdateNotificationsRealtime>().Execute();
+        }
+        
+        public void AddChest(Action<int> callback) {
+            m_dependencyContainer.GetService<IAddChestService>().Execute(callback);
+        }
+        
+        public void GetChest(Action<int> callback) {
+            m_dependencyContainer.GetService<IGetChestService>().Execute(callback);
+        }
+        
+        public void OpenChest(Action<List<ChestReward>,int> callback) {
+            m_dependencyContainer.GetService<IOpenChestService>().Execute(callback);
         }
         
         internal void SetGameId(string gameId) {
@@ -128,6 +153,9 @@ namespace BTS {
             m_dependencyContainer.AddService<IGetSettingService>(new GetSettingsService());
             m_dependencyContainer.AddService<IGetTutorialRewardService>(new GetTutorialRewardService());
             m_dependencyContainer.AddService<IGetTutorialStateService>(new GetTutorialStateService());
+            m_dependencyContainer.AddService<IGetChestService>(new GetChestService());
+            m_dependencyContainer.AddService<IAddChestService>(new AddChestService());
+            m_dependencyContainer.AddService<IOpenChestService>(new OpenChestService());
         }
         
         private void InitModels() {
@@ -155,7 +183,7 @@ namespace BTS {
             m_dependencyContainer.AddController<IStartCampaignController>(new StartCampaignController(), GetView(typeof(StartCampaignView)));
             m_dependencyContainer.AddController<IUpdateCampaignController>(new UpdateCampaignController(), GetView(typeof(UpdateCampaignView)));
             m_dependencyContainer.AddController<IGreetingController>(new GreetingController(), GetView(typeof(GreetingView)));
-            m_dependencyContainer.AddController<IPluginContentController>(new PluginContentController(), GetView(typeof(PluginContentView)));
+            m_dependencyContainer.AddController<IPluginContentController>(new PluginContentController(m_isStandaloneApp), GetView(typeof(PluginContentView)));
             m_dependencyContainer.AddController<IAddToHiveController>(new AddToHiveController(), GetView(typeof(AddToHiveView)));
             m_dependencyContainer.AddController<IBadgesController>(new BadgesController(), GetView(typeof(BadgesView)));
             m_dependencyContainer.AddController<ICampaignToolboxController>(new CampaignToolboxController(), GetView(typeof(CampaignToolboxView)));

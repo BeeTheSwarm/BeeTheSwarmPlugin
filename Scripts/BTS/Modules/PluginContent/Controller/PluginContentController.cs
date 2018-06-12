@@ -14,9 +14,8 @@ public class PluginContentController : BaseScreenController<IPluginContentView>,
     [Inject]
     private IRegistrationController m_registrationController;
 
-    public PluginContentController()
-    {
-        
+    public PluginContentController(bool standalone) {
+        IsStandalone = standalone;
     }
 
     public override void PostInject() {
@@ -28,18 +27,22 @@ public class PluginContentController : BaseScreenController<IPluginContentView>,
         m_signUpController.Show();
     }
 
+    protected override void PostSetView() {
+        base.PostSetView();
+        m_view.Setup(!IsStandalone, !IsStandalone);
+    }
+
     public override bool StoredInHistory {
         get {
             return false;
         }
     }
+    
+    public bool IsStandalone { get; set; }
+
     public override void Show() {
         base.Show();
-        if (m_userProfile.IsLoggedIn) {
-            m_view.Show();
-             
-        }
-        else {
+        if (!m_userProfile.IsLoggedIn) {
             m_signUpController.Show();
         }
     }
