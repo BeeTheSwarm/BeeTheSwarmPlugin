@@ -1,11 +1,4 @@
-MarblzGameProject/Library/
-MarblzGameProject/Assembly-CSharp.csproj
-MarblzGameProject/Assembly-CSharp-Editor.csproj
-MarblzGameProject/Assembly-CSharp-Editor-firstpass.csproj
-MarblzGameProject/Assembly-CSharp-firstpass.csproj
-MarblzGameProject/Assembly-UnityScript-firstpass.unityproj
-MarblzGameProject/MarblzGameProject.sln
-MarblzGameProject/MarblzGameProject.userprefs
-MarblzGameProject/Temp/
-MarblzGameProject/Assets/Plugins/Editor/JetBrains/Unity3DRider.cs
-MarblzGameProject/Assets/Plugins/Editor/JetBrains/Unity3DRider.cs.meta
+Temp/
+ProjectSettings/
+Library/
+.idea/
