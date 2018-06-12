@@ -42,8 +42,8 @@ namespace BTS {
             m_dependencyContainer.GetService<ISendPushIdService>().Execute(id);
         }
         
-        public void ProcessNotificationPushId(string id) {
-            m_dependencyContainer.GetService<ISendPushIdService>().Execute(id);
+        public void ProcessNotification() {
+            m_dependencyContainer.GetService<IUpdateNotificationsRealtime>().Execute();
         }
         
         internal void SetGameId(string gameId) {
@@ -141,8 +141,8 @@ namespace BTS {
             m_dependencyContainer.AddModel<IHiveModel>(new HiveModel());
             m_dependencyContainer.AddModel<ILocalDataModel>(new LocalDataModel());
             m_dependencyContainer.AddModel<IRequestsModel>(new RequestsModel());
-            m_dependencyContainer.AddModel<ISettingsModel>(new SettingsModel());;
-            m_dependencyContainer.AddModel<ITutorialModel>(new TutorialModel());;
+            m_dependencyContainer.AddModel<ISettingsModel>(new SettingsModel());
+            m_dependencyContainer.AddModel<ITutorialModel>(new TutorialModel());
         }
 
         private void InitControllers() {
