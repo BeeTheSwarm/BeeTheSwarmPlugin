@@ -26,6 +26,7 @@ namespace BTS {
         public UserProfileModel() {
             State = UserState.Unknown;
         }
+        
         public UserState State {
             get { return m_userState; }
             set
