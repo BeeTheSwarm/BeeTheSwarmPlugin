@@ -40,6 +40,6 @@ public class ClientGameMockup : MonoBehaviour {
 	private void InitClickHandler() {
 		BTSPlugin.Init("2082fb9894daf21853c3616d9c4b8f78", () => {
 			m_statusText.text = "Plugin inited";
-		});
+		}, true);
 	}
 }

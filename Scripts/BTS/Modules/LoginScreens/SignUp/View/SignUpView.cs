@@ -8,9 +8,23 @@ public class SignUpView : BaseControlledView<ISignUpViewListener>, ISignUpView
 {
     [SerializeField]
     private InputField m_emailInput;
+    [SerializeField]
+    private Button m_backButton;
+
+    private void Awake() {
+        m_backButton.onClick.AddListener(BackButtonClick);
+    }
+
+    private void BackButtonClick() {
+        m_controller.BackClicked();
+    }
 
     public void ClearInput() {
         m_emailInput.text = string.Empty;
+    }
+
+    public void Setup(bool isStandalone) {
+        m_backButton.gameObject.SetActive(!isStandalone);
     }
 
     public void OnSignInClicked()

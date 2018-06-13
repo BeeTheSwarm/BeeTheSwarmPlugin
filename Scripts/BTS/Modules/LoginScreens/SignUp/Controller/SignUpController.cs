@@ -10,10 +10,17 @@ public class SignUpController : BaseScreenController<ISignUpView>, ISignUpViewLi
     [Inject]
     private ISignInController m_signInController;
     [Inject]
+    private IPluginContentController m_pluginController;
+
+    [Inject]
     private IRegistrationController m_registrationController;
-    public SignUpController()
-    {
+
+    private bool m_isStandalone;
+
+    public SignUpController(bool IsStandalone) {
+        m_isStandalone = IsStandalone;
     }
+    
     public override void PostInject() {
         base.PostInject();
         m_userModel.OnUserStateChanged += UserStateChangedHandler;
@@ -37,7 +44,12 @@ public class SignUpController : BaseScreenController<ISignUpView>, ISignUpViewLi
             return false;
         }
     }
-    
+
+    public override void Show() {
+        base.Show();
+        m_view.Setup(m_isStandalone);
+    }
+
     public void OnSignInClick() {
         m_signInController.Show();
         Hide();
@@ -45,5 +57,9 @@ public class SignUpController : BaseScreenController<ISignUpView>, ISignUpViewLi
 
     public void OnSignUpClick(string email) {
         m_registrationController.ShowRegistrationPage(email);
+    }
+
+    public void BackClicked() {
+        m_pluginController.Hide();
     }
 }

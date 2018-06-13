@@ -35,8 +35,8 @@ namespace BTS {
                 BTSPluginContext contextOrigin = Resources.Load<BTSPluginContext>("BTS_Social");
                 s_context = GameObject.Instantiate(contextOrigin);
 #endif
-                s_context.SetGameId(gameId); 
-                s_context.StartPlugin(callback, standalone);
+                
+                s_context.StartPlugin(gameId, callback, standalone);
             }
             else {
                 callback();

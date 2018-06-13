@@ -6,4 +6,5 @@ public interface ISignUpViewListener : IViewEventListener
 {
     void OnSignInClick();
     void OnSignUpClick(string text);
+    void BackClicked();
 }
