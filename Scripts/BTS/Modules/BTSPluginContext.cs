@@ -19,10 +19,12 @@ namespace BTS {
 
         private bool m_isStandaloneApp;
         
-        internal void StartPlugin(Action callback, bool standalone = false) {
+        internal void StartPlugin(string gameid, Action callback, bool standalone = false) {
+            m_isStandaloneApp = standalone;
+            Init();
+            SetGameId(gameid); 
             m_dependencyContainer.GetModel<IUserProfileModel>().OnUserLoggedIn += UserLoggedInHandler;
             m_dependencyContainer.GetService<IStartupService>().Execute(callback);
-            m_isStandaloneApp = standalone;
         }
 
         private void UserLoggedInHandler() {
@@ -30,7 +32,7 @@ namespace BTS {
         }
 
         public bool InUserLoggedIn() {
-            var userProfile = m_dependencyContainer.GetModel<UserProfileModel>();
+            var userProfile = m_dependencyContainer.GetModel<IUserProfileModel>();
             if (userProfile == null) {
                 return false;
             }
@@ -70,15 +72,15 @@ namespace BTS {
         public void OpenChest(Action<List<ChestReward>,int> callback) {
             m_dependencyContainer.GetService<IOpenChestService>().Execute(callback);
         }
-        
-        internal void SetGameId(string gameId) {
+
+        private void SetGameId(string gameId) {
             INetworkService network = m_dependencyContainer.GetService<INetworkService>();
             network.SetGameId(gameId);
         }
 
         private void Awake() {
             DontDestroyOnLoad(gameObject);
-            Init();
+
         }
 
         private void Init() {
@@ -201,7 +203,7 @@ namespace BTS {
             m_dependencyContainer.AddController<IChestRevealController>(new ChestRevealController(), GetView(typeof(ChestRevealView)));
             m_dependencyContainer.AddController<IStoreController>(new StoreController(), GetView(typeof(StoreView)));
             m_dependencyContainer.AddController<ISignInController>(new SignInController(), GetView(typeof(SignInView)));
-            m_dependencyContainer.AddController<ISignUpController>(new SignUpController(), GetView(typeof(SignUpView)));
+            m_dependencyContainer.AddController<ISignUpController>(new SignUpController(m_isStandaloneApp), GetView(typeof(SignUpView)));
             m_dependencyContainer.AddController<IUpdatePostController>(new UpdatePostController(), GetView(typeof(UpdatePostView)));
             m_dependencyContainer.AddController<IRequestsScreenController>(new RequestsScreenController(), GetView(typeof(RequestsScreenView)));
             m_dependencyContainer.AddController<IAddPostController>(new AddPostController(), GetView(typeof(AddPostView)));

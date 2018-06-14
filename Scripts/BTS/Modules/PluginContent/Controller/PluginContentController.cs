@@ -37,8 +37,8 @@ public class PluginContentController : BaseScreenController<IPluginContentView>,
             return false;
         }
     }
-    
-    public bool IsStandalone { get; set; }
+
+    private bool IsStandalone { get; set; }
 
     public override void Show() {
         base.Show();
