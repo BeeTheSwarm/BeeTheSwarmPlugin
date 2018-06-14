@@ -13,6 +13,7 @@ public class PluginContentView : BaseControlledView<IPluginContentViewListener>,
     private Vector3 m_dragBeginPoint;
     
     private bool m_dragEnabled;
+    private bool m_swipeRecognized;
     private bool m_dragFailed;
     private bool m_animationEnabled;
     private bool m_swipeAnimationActive;
@@ -22,8 +23,13 @@ public class PluginContentView : BaseControlledView<IPluginContentViewListener>,
         if (!m_dragEnabled) {
             return;
         }
+
+        if (m_swipeAnimationActive) {
+            return;
+        }
         m_dragBeginPoint = Input.mousePosition;
         m_dragFailed = false;
+        m_swipeRecognized = false;
     }
     
     public void OnDrag(PointerEventData eventData)
@@ -32,6 +38,10 @@ public class PluginContentView : BaseControlledView<IPluginContentViewListener>,
             return;
         }
 
+        if (m_swipeRecognized) {
+            return;
+        }
+        
         if (m_swipeAnimationActive) {
             return;
         }
@@ -50,6 +60,7 @@ public class PluginContentView : BaseControlledView<IPluginContentViewListener>,
             return;
         }
         if (Mathf.Abs(point.x - m_dragBeginPoint.x) > Screen.width / 3f) {
+            m_swipeRecognized = true;
             SwipeHide();
         }
         else {
@@ -82,6 +93,7 @@ public class PluginContentView : BaseControlledView<IPluginContentViewListener>,
             yield return null;
         } while (Mathf.Abs(diff) > 0f); 
         m_swipeAnimationActive = false;
+
     }
 
     private void SwipeShow() {
@@ -119,6 +131,9 @@ public class PluginContentView : BaseControlledView<IPluginContentViewListener>,
         }
 
         if (m_swipeAnimationActive) {
+            return;
+        }
+        if (m_swipeRecognized) {
             return;
         }
         SwipeShow();
