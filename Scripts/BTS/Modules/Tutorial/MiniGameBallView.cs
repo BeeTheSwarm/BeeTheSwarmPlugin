@@ -51,7 +51,8 @@ public class MiniGameBallView : MonoBehaviour {
 	private void Update() {
 		if (m_gameActive) {
 			m_rigidbody.mass += 2f*Time.deltaTime;
-			m_gameTime += Time.deltaTime;
+			m_gameTime += Time.unscaledDeltaTime;
+			Debug.Log("m_gameTime " +m_gameTime );
 		}
 	}
 
@@ -95,8 +96,8 @@ public class MiniGameBallView : MonoBehaviour {
 		if (other.collider.tag == "Platform") {
 
 			m_eventTrigger.triggers.Clear();
-			OnGameOver();
 			GameTime = Mathf.CeilToInt(m_gameTime);
+			OnGameOver();
 			SetDefaults();
 		}
 	}

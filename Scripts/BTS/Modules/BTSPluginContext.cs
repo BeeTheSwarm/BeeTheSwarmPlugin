@@ -72,8 +72,8 @@ namespace BTS {
         public void OpenChest(Action<List<ChestReward>,int> callback) {
             m_dependencyContainer.GetService<IOpenChestService>().Execute(callback);
         }
-        
-        internal void SetGameId(string gameId) {
+
+        private void SetGameId(string gameId) {
             INetworkService network = m_dependencyContainer.GetService<INetworkService>();
             network.SetGameId(gameId);
         }
