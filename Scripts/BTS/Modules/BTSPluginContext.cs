@@ -9,6 +9,7 @@ namespace BTS {
     public class BTSPluginContext : MonoBehaviour, IContext {
         public event Action OnInited = delegate { };
         public event Action OnUserLoggedIn = delegate { };
+        public event Action OnUserLoggedOut = delegate { };
         private DependencyContainer m_dependencyContainer = new DependencyContainer();
 
         private string m_notificationsId;
@@ -24,7 +25,12 @@ namespace BTS {
             Init();
             SetGameId(gameid); 
             m_dependencyContainer.GetModel<IUserProfileModel>().OnUserLoggedIn += UserLoggedInHandler;
+            m_dependencyContainer.GetModel<IUserProfileModel>().OnUserLoggedOut += UserLoggedOutHandler;
             m_dependencyContainer.GetService<IStartupService>().Execute(callback);
+        }
+
+        private void UserLoggedOutHandler() {
+            OnUserLoggedOut.Invoke();
         }
 
         private void UserLoggedInHandler() {
@@ -246,6 +252,13 @@ namespace BTS {
             m_dependencyContainer.GetController<IPluginContentController>().Hide();
         }
 
-        
+
+        public void ShowBeesPopup() {
+            var userProfile = m_dependencyContainer.GetModel<IUserProfileModel>();
+            var user = userProfile.User;
+            if (user != null) {
+                m_dependencyContainer.GetModel<IPopupsModel>().AddPopup(new UserInfoPopupItemModel(user.Bees, user.Level));
+            }
+        }
     }
 }

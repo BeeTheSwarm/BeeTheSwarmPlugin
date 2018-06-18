@@ -25,6 +25,29 @@ namespace BTS {
                 }
             }
         }
+        
+        public static event Action OnUserLoggedOut
+        {
+            add
+            {
+                if (s_context != null) {
+                    s_context.OnUserLoggedOut += value;
+                }
+            }
+            remove
+            {
+                if (s_context != null) {
+                    s_context.OnUserLoggedOut -= value;
+                }
+            }
+        }
+
+        public static void ShowUserBeesCount() {
+            if (!IsInited) {
+                throw new Exception("BTS Plugin is not inited");
+            }
+            s_context.ShowBeesPopup();
+        }
 
         public static void Init(string gameId, Action callback, bool standalone = false) {
             if (!IsInited) {
