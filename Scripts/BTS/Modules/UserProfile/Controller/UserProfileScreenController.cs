@@ -123,9 +123,7 @@ namespace BTS {
         }
 
         public void OnAboutClick() {
-#if UNITY_EDITOR
             m_minigameController.Show();
-#endif
         }
 
         public void OnBadgesClick() {
