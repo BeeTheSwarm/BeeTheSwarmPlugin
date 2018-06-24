@@ -12,8 +12,6 @@ namespace BTS {
         [SerializeField]
         private Text m_impact;
         [SerializeField]
-        private Text m_rank;
-        [SerializeField]
         private Text m_notificationsCount;
         [SerializeField]
         private GameObject m_notificationsCounter;
@@ -43,23 +41,14 @@ namespace BTS {
             m_controller.OnRequestsClick();
         }
 
-        public void OnLeaderboardClick() {
-            m_controller.OnLeaderboardClick();
-        }
-
         public void OnAboutClick() {
             m_controller.OnAboutClick();
         }
 
-        public void OnQuestsClick() {
-            m_controller.OnQuestsClick();
-        }
         public void OnHiveClick() {
             m_controller.OnHiveClick();
         }
-        public void OnBadgesClick() {
-            m_controller.OnBadgesClick();
-        }
+
         public void OnOurGamesClick() {
             m_controller.OnOurGamesClick();
         }
@@ -101,7 +90,6 @@ namespace BTS {
         private void Subscribe() {
             if (m_viewModel != null) {
                 m_viewModel.Avatar.Subscribe(SetAvatar);
-                m_viewModel.Rank.Subscribe(SetRank);
                 m_viewModel.Impact.Subscribe(SetImpact);
                 m_viewModel.NotificationsCount.Subscribe(SetNotificationsCount);
                 m_viewModel.RequestsCount.Subscribe(SetRequestsCount);
@@ -121,7 +109,6 @@ namespace BTS {
         private void Unsubscribe() {
             if (m_viewModel != null) {
                 m_viewModel.Avatar.Unsubscribe(SetAvatar);
-                m_viewModel.Rank.Unsubscribe(SetRank);
                 m_viewModel.Impact.Unsubscribe(SetImpact);
                 m_viewModel.NotificationsCount.Unsubscribe(SetNotificationsCount);
                 m_viewModel.RequestsCount.Unsubscribe(SetRequestsCount);
@@ -131,11 +118,7 @@ namespace BTS {
         private void SetAvatar(Sprite sprite) {
             m_avatar.SetAvatar(sprite);
         }
-
-        private void SetRank(int rank) {
-            m_rank.text = "RANK #" + rank.ToString();
-        }
-
+        
         private void SetImpact(float impact) {
             CultureInfo ci = new CultureInfo("en-us");
             m_impact.text = impact.ToString("C", ci);

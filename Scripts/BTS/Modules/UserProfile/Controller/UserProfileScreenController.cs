@@ -12,7 +12,6 @@ namespace BTS {
         [Inject] private IUserProfileModel m_userModel;
         [Inject] private IFeedsService m_feedsService;
         [Inject] private IFeedsModel m_feedsModel;
-        [Inject] private IBadgeAwardPopupController m_badgeAwardPopupController;
         [Inject] private IStartCampaignController m_startCampaignController;
         [Inject] private IEditProfileController m_editProfileController;
         [Inject] private IHiveController m_hiveController;
@@ -20,7 +19,6 @@ namespace BTS {
         [Inject] private IHiveLeaderboardController m_hiveLeaderboardController;
         [Inject] private INotificationsController m_notificationsController;
         [Inject] private IOurGamesController m_ourGamesController;
-        [Inject] private IQuestsController m_questsController;
         [Inject] private IPopupsModel m_popupsModel;
         [Inject] private IViewCampaignController m_viewCampaignController;
         [Inject] private IYesNoPopupController m_yesNoController;
@@ -125,15 +123,7 @@ namespace BTS {
         public void OnAboutClick() {
             m_minigameController.Show();
         }
-
-        public void OnBadgesClick() {
-#if UNITY_EDITOR
-            m_badgeAwardPopupController.Show();
-#else
-        m_popupsModel.AddPopup(new ErrorPopupItemModel("Not implemented yet"));
-#endif
-        }
-
+        
         public void OnCreateCampaignClick() {
             m_startCampaignController.Show();
         }
@@ -159,15 +149,7 @@ namespace BTS {
         public void OnInviteFriendsClick() {
             m_inviteFriendsController.Show();
         }
-
-        public void OnLeaderboardClick() {
-#if UNITY_EDITOR
-            m_hiveLeaderboardController.Show();
-#else
-        m_popupsModel.AddPopup(new ErrorPopupItemModel("Not implemented yet"));
-#endif
-        }
-
+        
         public void OnNotificationsClick() {
             m_notificationsController.Show();
         }
@@ -175,15 +157,7 @@ namespace BTS {
         public void OnOurGamesClick() {
             m_ourGamesController.Show();
         }
-
-        public void OnQuestsClick() {
-#if UNITY_EDITOR
-            m_questsController.Show();
-#else
-        m_popupsModel.AddPopup(new ErrorPopupItemModel("Not implemented yet"));
-#endif
-        }
-
+        
         public void OnViewAllPostsClick() {
             m_viewCampaignController.Show(m_feedsModel.UserCampaign.GetPosts()[0].Campaign.Id);
         }

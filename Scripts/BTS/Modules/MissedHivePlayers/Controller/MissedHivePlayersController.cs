@@ -32,12 +32,7 @@ namespace BTS {
         }
 
         public void ViewAllClicked() {
-#if UNITY_EDITOR
             m_hiveLeaderboard.Show();
-#else
-        m_popupsModel.AddPopup(new ErrorPopupItemModel("Not implemented yet"));
-#endif
-
         }
 
         public void RefferedByFriendClicked() {

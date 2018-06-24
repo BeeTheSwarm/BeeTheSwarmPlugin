@@ -6,11 +6,8 @@ namespace BTS
     {
         void OnEditProfileClick();
         void OnNotificationsClick();
-        void OnLeaderboardClick();
         void OnAboutClick();
-        void OnQuestsClick();
         void OnHiveClick();
-        void OnBadgesClick();
         void OnOurGamesClick();
         void OnInviteFriendsClick();
         void OnDeleteCampaignClick();

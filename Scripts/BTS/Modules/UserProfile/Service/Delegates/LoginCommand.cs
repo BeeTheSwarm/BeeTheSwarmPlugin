@@ -8,7 +8,6 @@ namespace BTS {
     internal class LoginCommand : BaseNetworkService<LoginResponce>, ILoginService {
         [Inject] private IUserProfileModel m_userModel;
         [Inject] private IUserProfileService m_userService;
-        [Inject] private IRemoveUserService m_removeUserService;
         [Inject] private IPopupsModel m_popupsModel;
         [Inject] private ILocalDataModel m_localDataModel;
         [Inject] private ILoadInitDataService m_loadInitDataService;
@@ -24,11 +23,6 @@ namespace BTS {
         public override void OnError(BTS_Error error) {
             base.OnError(error);
             m_callback.Invoke(false);
-#if UNITY_EDITOR
-            if (error.Code == ApiErrors.WRONG_USER_PASSWORD) {
-                m_removeUserService.Execute(m_email);
-            }
-#endif
         }
 
         protected override void HandleSuccessResponse(LoginResponce data) {

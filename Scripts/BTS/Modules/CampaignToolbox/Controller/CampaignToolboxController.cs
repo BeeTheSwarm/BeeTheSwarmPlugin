@@ -58,10 +58,7 @@ public class CampaignToolboxController: TopPanelScreenController<ICampaignToolbo
 
     public void OnExplainClick()
     {
-        #if UNITY_EDITOR
         m_minigameController.Show();
-        #endif
-        m_popupsModel.AddPopup(new ErrorPopupItemModel("Not implemented yet"));
     }
 
     public void OnInviteClick()

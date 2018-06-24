@@ -2,10 +2,6 @@
 using System.Collections;
 using System;
 using System.Collections.Generic;
-#if UNITY_EDITOR
-using UnityEditor;
-
-#endif
 namespace BTS {
     public static class BTSPlugin {
         private static BTSPluginContext s_context;
@@ -52,13 +48,8 @@ namespace BTS {
         public static void Init(string gameId, Action callback, bool standalone = false) {
             if (!IsInited) {
                 Platform.Init();
-#if UNITY_EDITOR
-                s_context = (BTSPluginContext) PrefabUtility.InstantiatePrefab(Resources.Load<BTSPluginContext>("BTS_Social"));
-#else
                 BTSPluginContext contextOrigin = Resources.Load<BTSPluginContext>("BTS_Social");
-                s_context = GameObject.Instantiate(contextOrigin);
-#endif
-                
+                s_context = GameObject.Instantiate(contextOrigin);                
                 s_context.StartPlugin(gameId, callback, standalone);
             }
             else {

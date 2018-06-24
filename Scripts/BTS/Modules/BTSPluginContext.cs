@@ -146,7 +146,6 @@ namespace BTS {
             m_dependencyContainer.AddService<IGetRequestsCommand>(new GetRequestsCountCommand());
             m_dependencyContainer.AddService<ILoadRequestsCommand>(new LoadRequestsCommand());
             m_dependencyContainer.AddService<IDeletePostService>(new DeletePostCommand());
-            m_dependencyContainer.AddService<IRemoveUserService>(new RemoveUserCommand());
             m_dependencyContainer.AddService<IGetOurGamesService>(new GetOurGamesService());
             m_dependencyContainer.AddService<IStartupService>(new StartupService());
             m_dependencyContainer.AddService<ILoadInitDataService>(new LoadInitDataService());
@@ -193,19 +192,16 @@ namespace BTS {
             m_dependencyContainer.AddController<IGreetingController>(new GreetingController(), GetView(typeof(GreetingView)));
             m_dependencyContainer.AddController<IPluginContentController>(new PluginContentController(m_isStandaloneApp), GetView(typeof(PluginContentView)));
             m_dependencyContainer.AddController<IAddToHiveController>(new AddToHiveController(), GetView(typeof(AddToHiveView)));
-            m_dependencyContainer.AddController<IBadgesController>(new BadgesController(), GetView(typeof(BadgesView)));
             m_dependencyContainer.AddController<ICampaignToolboxController>(new CampaignToolboxController(), GetView(typeof(CampaignToolboxView)));
-            m_dependencyContainer. AddController<IHiveController>(new HiveController(), GetView(typeof(HiveView)));
+            m_dependencyContainer.AddController<IHiveController>(new HiveController(), GetView(typeof(HiveView)));
             m_dependencyContainer.AddController<ISameTypePostsController>(new SameTypePostsController(), GetView(typeof(SameTypePostsView)));
             m_dependencyContainer.AddController<IHiveLeaderboardController>(new HiveLeaderboardController(), GetView(typeof(HiveLeaderboardView)));
             m_dependencyContainer.AddController<IInviteFriendsController>(new InviteFriendsController(), GetView(typeof(InviteFriendsView)));
             m_dependencyContainer.AddController<INotificationsController>(new NotificationsController(), GetView(typeof(NotificationsView)));
             m_dependencyContainer.AddController<IOurGamesController>(new OurGamesController(), GetView(typeof(OurGamesView)));
-            m_dependencyContainer.AddController<IQuestsController>(new QuestsController(), GetView(typeof(QuestsView)));
             m_dependencyContainer.AddController<ISearchMissingHivePlayersController>(new SearchMissingHivePlayersController(), GetView(typeof(SearchMissingHivePlayersView)));
             m_dependencyContainer.AddController<ISearchReffererController>(new SearchReffererController(), GetView(typeof(SearchReffererView)));
             m_dependencyContainer.AddController<IViewCampaignController>(new ViewCampaignController(), GetView(typeof(ViewCampaignView)));
-            m_dependencyContainer.AddController<IBadgeAwardPopupController>(new BadgeAwardPopupController(), GetView(typeof(BadgeAwardPopupView)));
             m_dependencyContainer.AddController<IChestRevealController>(new ChestRevealController(), GetView(typeof(ChestRevealView)));
             m_dependencyContainer.AddController<IStoreController>(new StoreController(), GetView(typeof(StoreView)));
             m_dependencyContainer.AddController<ISignInController>(new SignInController(), GetView(typeof(SignInView)));

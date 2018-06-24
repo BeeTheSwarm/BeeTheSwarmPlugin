@@ -27,11 +27,7 @@ public class RegistrationController : BasePopupController<IRegistrationView>, IR
         base.PostSetView();
         m_view.SetViewModel(m_viewModel);
     }
-
-    public void OnChangeEmailClick() {
-        m_popupsModel.AddPopup(new ErrorPopupItemModel("Not implemented yet"));
-    }
-
+    
     public void OnCloseClick() {
         Hide();
     }
