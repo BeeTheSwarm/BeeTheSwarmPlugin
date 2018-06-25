@@ -16,7 +16,7 @@ namespace BTS {
         }
 
         public void Clear() {
-            RemovePosts(m_data);
+            RemovePosts(GetPosts());
         }
         
         public List<PostModel> GetPosts(int offset, int count) {

@@ -122,9 +122,9 @@ namespace BTS {
         }
 
         private void UpdateFeed() {
-            m_topPostsControllerDelegate.Update();
-            m_favoritePostsControllerDelegate.Update();
-            m_newPostsControllerDelegate.Update();
+            UpdateTopCampaigns();
+            UpdateFavoriteCampaign();
+            UpdateNewCampaign();
             m_getImpactService.Execute();
         }
 

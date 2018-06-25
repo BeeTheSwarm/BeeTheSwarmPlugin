@@ -194,9 +194,9 @@ namespace BTS {
         public void DeletePost(int postId) {
             if (m_postsCache.ContainsKey(postId)) {
                 m_postsCache.Remove(postId);
-                m_favoriteCampaignsList.RemovePost(postId);
-                m_topCampaignsList.RemovePost(postId);
-                m_campaignsList.RemovePost(postId);
+                m_favoriteCampaignsList.Clear();
+                m_topCampaignsList.Clear();
+                m_campaignsList.Clear();
                 m_userCampaign.RemovePost(postId);
                 OnPostDeleted.Invoke(postId);
             }
