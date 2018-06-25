@@ -77,8 +77,8 @@ namespace BTS {
             }
             s_context.OpenChest(callback);
         }
-        
-        internal static void AddBees(int count) {
+
+        public static void AddBees(int count) {
             if (!IsInited) {
                 Debug.Log("BTS Plugin not inited");
                 return;
@@ -111,7 +111,7 @@ namespace BTS {
             s_context.ProcessNotification();
         }
 
-        internal static void Event(string levelId, int score) {
+        public static void Event(string levelId, int score) {
             if (!IsInited) {
                 Debug.Log("BTS Plugin not inited");
                 return;
@@ -120,7 +120,7 @@ namespace BTS {
             s_context.Event(levelId, score);
         }
 
-        internal static void GetEvents(Action<List<EventModel>> callback) {
+        public static void GetEvents(Action<List<EventModel>> callback) {
             if (!IsInited) {
                 Debug.Log("BTS Plugin not inited");
                 return;
