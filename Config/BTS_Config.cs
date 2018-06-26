@@ -10,7 +10,7 @@ namespace BTS {
 		public const string WEBSITE_ROOT_URL 			= "https://campaign.beetheswarm.com/register";
 
 		//WebServer
-		public const string RELEASE_SERVER_URL 			= "api.beetheswarm.com/init";
+		public const string RELEASE_SERVER_URL 			= "api.beetheswarm.com/api/v2/init";
 		public const string TEST_SERVER_URL 			= "testapi.beetheswarm.com/api/v2/init";
 	}
 }

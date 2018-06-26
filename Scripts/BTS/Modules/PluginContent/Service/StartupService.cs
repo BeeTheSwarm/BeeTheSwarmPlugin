@@ -19,7 +19,7 @@ namespace BTS {
                     if (user != null) {
                         m_userModel.SetUserModel(user);
                         m_popupsModel.AddPopup(new UserLoginPopupItemModel(user.Name));
-                        m_popupsModel.AddPopup(new UserInfoPopupItemModel(user.Bees, user.Level));
+                        m_popupsModel.AddPopup(new UserInfoPopupItemModel(user.Bees, user.Level, user.Progress));
                         m_loadInitDataService.Execute(callback);
                     }
                     else {

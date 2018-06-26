@@ -51,8 +51,8 @@ namespace BTS {
             m_dependencyContainer.GetService<IAddBeesService>().Execute(count);
         }
 
-        internal void Event(string levelId, int score) {
-            m_dependencyContainer.GetService<ISendEventService>().Execute(levelId, score);
+        internal void Event(string levelId, int score, Action<int> callback) {
+            m_dependencyContainer.GetService<ISendEventService>().Execute(levelId, score, callback);
         }
 
         internal void GetEvents(Action<List<EventModel>> callback) {
@@ -253,7 +253,7 @@ namespace BTS {
             var userProfile = m_dependencyContainer.GetModel<IUserProfileModel>();
             var user = userProfile.User;
             if (user != null) {
-                m_dependencyContainer.GetModel<IPopupsModel>().AddPopup(new UserInfoPopupItemModel(user.Bees, user.Level));
+                m_dependencyContainer.GetModel<IPopupsModel>().AddPopup(new UserInfoPopupItemModel(user.Bees, user.Level, user.Progress));
             }
         }
     }

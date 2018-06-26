@@ -23,6 +23,7 @@ namespace BTS
         UserModel User { get; }
 
         void SetBees(int bees);
+        void SetLevel(int level, int progress);
         void SetImpact(float impact);
     }
 }

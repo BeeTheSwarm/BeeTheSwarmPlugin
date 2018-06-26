@@ -32,6 +32,7 @@ namespace BTS {
         protected override void HandleSuccessResponse(GetUserResponce data) {
             m_userModel.User.UpdateInfo(data.User);
             m_userModel.SetBees(data.User.Bees);
+            m_userModel.SetLevel(data.User.Level, data.User.Progress);
             m_callback.Invoke(string.Empty);
         }
     }

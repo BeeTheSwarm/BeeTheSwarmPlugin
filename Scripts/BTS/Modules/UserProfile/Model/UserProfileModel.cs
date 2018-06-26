@@ -62,6 +62,13 @@ namespace BTS {
             }
         }
 
+        public void SetLevel(int level, int progress) {
+            if (IsLoggedIn && User.Level != level) {
+                User.Level = level;
+                OnLevelUpdated.Invoke(level);
+            }
+        }
+
         public void SetBees(int bees) {
             if (IsLoggedIn) {
                 User.Bees = bees;

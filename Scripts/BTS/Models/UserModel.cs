@@ -22,6 +22,7 @@ namespace BTS {
         public event Action OnUserNameChanged = delegate {  };
         public event Action OnAvatarChanged = delegate {  };
         public event Action OnHiveIdChanged = delegate {  };
+        public event Action OnLevelChanged = delegate {  };
         
         public override void ParseJSON(Dictionary<string, object> responseData) {
             Id = int.Parse(responseData["id"].ToString());

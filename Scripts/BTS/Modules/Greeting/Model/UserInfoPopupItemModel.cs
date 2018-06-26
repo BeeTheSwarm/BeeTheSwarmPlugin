@@ -9,8 +9,10 @@ public class UserInfoPopupItemModel : PopupItemModel {
     }
     public int Bees { get; private set; }
     public int Level { get; private set; }
-    public UserInfoPopupItemModel(int bees, int level) {
+    public int Progress { get; private set; }
+    public UserInfoPopupItemModel(int bees, int level, int progress) {
         Bees = bees;
         Level = level;
+        Progress = progress;
     }
 }

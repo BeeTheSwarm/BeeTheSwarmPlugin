@@ -111,13 +111,13 @@ namespace BTS {
             s_context.ProcessNotification();
         }
 
-        public static void Event(string levelId, int score) {
+        public static void Event(string levelId, int score, Action<int> callback) {
             if (!IsInited) {
                 Debug.Log("BTS Plugin not inited");
                 return;
             }
 
-            s_context.Event(levelId, score);
+            s_context.Event(levelId, score, callback);
         }
 
         public static void GetEvents(Action<List<EventModel>> callback) {

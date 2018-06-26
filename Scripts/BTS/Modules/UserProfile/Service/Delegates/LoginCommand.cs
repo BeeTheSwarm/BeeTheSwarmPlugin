@@ -29,7 +29,7 @@ namespace BTS {
             m_networkService.AuthToken = data.AuthToken;
             m_userModel.SetUserModel(data.User);
             m_popupsModel.AddPopup(new UserLoginPopupItemModel(data.User.Name));
-            m_popupsModel.AddPopup(new UserInfoPopupItemModel(data.User.Bees, data.User.Level));
+            m_popupsModel.AddPopup(new UserInfoPopupItemModel(data.User.Bees, data.User.Level, data.User.Progress));
             m_localDataModel.SaveToken(data.AuthToken);
             m_localDataModel.SaveUserId(data.User.Id);
             m_loadInitDataService.Execute(() => {

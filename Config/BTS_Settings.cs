@@ -26,7 +26,7 @@ public class BTS_Settings : ScriptableObject {
 		TestServerUrl
 	};
 
-	private const ServerType SERVER_TYPE = ServerType.TestServerUrl;
+	private const ServerType SERVER_TYPE = ServerType.ReleaseServerUrl;
 
 	void Awake () {
 		_instance = Resources.Load<BTS_Settings> (SETTINGS_NAME);
@@ -34,7 +34,7 @@ public class BTS_Settings : ScriptableObject {
 
 	public static string GetServerUrl () {
 #if UNITY_EDITOR
-        return BTS_Config.TEST_SERVER_URL;
+        return BTS_Config.RELEASE_SERVER_URL;
 #endif
         switch (SERVER_TYPE) {
 

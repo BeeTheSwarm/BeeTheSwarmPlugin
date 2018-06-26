@@ -20,7 +20,7 @@ namespace BTS {
         private Vector3 m_dragBeginPoint;
         private PopupState m_popupState;
         private bool m_isDragging;
-
+        private BaseGreetingPopupView m_currentView;
         private void Awake() {
             m_animator.enabled = false;
             m_rectTransform = GetComponent<RectTransform>();
@@ -32,18 +32,22 @@ namespace BTS {
                 case PopupTypes.Error:
                     m_errorSubview.gameObject.SetActive(true);
                     m_errorSubview.Setup((ErrorPopupItemModel)item);
+                    m_currentView = m_errorSubview;
                     break;
                 case PopupTypes.UserInfo:
                     m_userInfoSubview.gameObject.SetActive(true);
                     m_userInfoSubview.Setup((UserInfoPopupItemModel)item);
+                    m_currentView = m_userInfoSubview;
                     break;
                 case PopupTypes.UserLogin:
                     m_userLoginSubview.gameObject.SetActive(true);
                     m_userLoginSubview.Setup((UserLoginPopupItemModel)item);
+                    m_currentView = m_userLoginSubview;
                     break;
                 case PopupTypes.NewRequests:
                     m_newRequestsSubview.SetActive(true);
-                    break;
+                    
+                  break;
                 default:
                     return;
             }
@@ -55,6 +59,7 @@ namespace BTS {
         
         
         private void HideAll() {
+            m_currentView = null;
             m_errorSubview.gameObject.SetActive(false);
             m_userLoginSubview.gameObject.SetActive(false);
             m_userInfoSubview.gameObject.SetActive(false);
@@ -72,7 +77,11 @@ namespace BTS {
         }
         
         private IEnumerator HidePopup() {
-            yield return new WaitForSecondsRealtime(1f);
+            if (m_currentView != null) {
+                yield return m_currentView.Animate();
+            } else {
+                yield return new WaitForSecondsRealtime(1f);
+            }
             yield return new WaitUntil(() => !m_isDragging);
             if (m_popupState == PopupState.Opened) {
                 m_animator.SetTrigger("Hide");

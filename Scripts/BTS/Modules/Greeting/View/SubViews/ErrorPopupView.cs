@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 namespace BTS {
-    public class ErrorPopupView : MonoBehaviour {
+    public class ErrorPopupView : BaseGreetingPopupView {
         [SerializeField]
         private Text m_text;
 

@@ -38,7 +38,6 @@ namespace BTS {
 
         public NetworkService(IContext context) {
             m_context = context;
-            m_gameID = BTS_Settings.GetGameID();
             m_requestUrl = "https://" + BTS_Settings.GetServerUrl();
             switch (Application.platform) {
                 case RuntimePlatform.Android:
