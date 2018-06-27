@@ -68,7 +68,7 @@ namespace BTS {
         }
 
         private IEnumerator SlideKeyboard(Rect rect) {
-            float delta;
+            float delta = 0f;
         #if UNITY_IOS
             yield return new WaitUntil(() => TouchScreenKeyboard.visible);
             yield return new WaitUntil(() => TouchScreenKeyboard.area.height > 0);
@@ -79,12 +79,15 @@ namespace BTS {
             if (!TouchScreenKeyboard.visible) {
                 yield break;
             }
-        #endif
-            
+#else 
+            yield break;
+#endif
+
             if (delta  > rect.y) {
                 m_rectTransform.anchorMin = new Vector2(m_minAchors.x, delta - rect.y);
                 m_rectTransform.anchorMax = new Vector2(m_maxAchors.x, delta - rect.y + 1);
             }
+
         }
     }
 }
