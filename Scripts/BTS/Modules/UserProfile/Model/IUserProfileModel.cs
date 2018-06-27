@@ -10,7 +10,7 @@ namespace BTS
         UserState State { get; set;}
         event Action<UserState> OnUserStateChanged;
         event Action<int> OnLevelUpdated;
-        event Action<int> OnBeesCountUpdated;
+        event Action<int, int> OnBeesCountUpdated;
         event Action<float> OnImpactChanged;
         event Action OnUserLoggedIn;
         event Action OnUserLoggedOut;

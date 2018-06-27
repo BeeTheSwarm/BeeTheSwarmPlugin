@@ -11,16 +11,15 @@ public class EditorPlatformAdapter : IPlatformAdapter {
 
     private List<ContactInfo> GetMockupContactList() {
         List<ContactInfo> result = new List<ContactInfo>();
-        ContactInfo contactInfo = new ContactInfo();
-        contactInfo.Name = "Test name";
-        contactInfo.Email = "mailaddress@mailprovider.com";
-        contactInfo.Phone = "+380671122335";
-        result.Add(contactInfo);
-        contactInfo = new ContactInfo();
-        contactInfo.Name = "Test name 2";
-        contactInfo.Email = "anothermailaddress@mailprovider.com";
-        contactInfo.Phone = "+380671122334";
-        result.Add(contactInfo);
+        ContactInfo contactInfo;
+
+        for (var i = 0; i < 100 ; i++) {
+            contactInfo = new ContactInfo();
+            contactInfo.Name = string.Format("Test name {0}", i);
+            contactInfo.Email = string.Format("mail{0}@mailprovider.com", i);
+            contactInfo.Phone = string.Format("+380671122{0}", i.ToString("D3"));
+            result.Add(contactInfo);
+        }
         return result;
     }
 

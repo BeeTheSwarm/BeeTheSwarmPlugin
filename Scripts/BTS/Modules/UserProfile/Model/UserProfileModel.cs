@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace BTS {
     public class UserProfileModel : IUserProfileModel {
         public event Action<int> OnLevelUpdated = delegate { };
-        public event Action<int> OnBeesCountUpdated = delegate { };
+        public event Action<int, int> OnBeesCountUpdated = delegate { };
         public event Action<float> OnImpactChanged = delegate {  };
         public event Action OnUserUpdated = delegate { };
         public event Action OnUserLoggedIn = delegate { };
@@ -63,16 +63,20 @@ namespace BTS {
         }
 
         public void SetLevel(int level, int progress) {
-            if (IsLoggedIn && User.Level != level) {
+            if (IsLoggedIn) {
                 User.Level = level;
+                User.Progress = progress;
                 OnLevelUpdated.Invoke(level);
             }
         }
 
         public void SetBees(int bees) {
             if (IsLoggedIn) {
+                var diff = bees - User.Bees;
                 User.Bees = bees;
-                OnBeesCountUpdated.Invoke(bees);
+                if (diff != 0) {
+                    OnBeesCountUpdated.Invoke(bees, diff);
+                }
             }
         }
 

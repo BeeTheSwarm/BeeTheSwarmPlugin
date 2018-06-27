@@ -107,7 +107,11 @@ namespace BTS {
             }
             m_isDragging = false;
         }
-        
+
+        public void ClearUserStat() {
+            m_userInfoSubview.Clear();
+        }
+
         private enum PopupState {
             Hidden,
             Opening,

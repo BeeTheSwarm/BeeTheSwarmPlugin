@@ -14,8 +14,8 @@ namespace BTS {
         }
 
         protected override void HandleSuccessResponse(AddBeesResponse data) {
-            m_userModel.SetBees(data.User.Bees);
             m_userModel.SetLevel(data.User.Level, data.User.Progress);
+            m_userModel.SetBees(data.User.Bees);
         }
     }
 }

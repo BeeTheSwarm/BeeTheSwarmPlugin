@@ -21,6 +21,23 @@ public class GreetingController: BaseScreenController<IGreetingView>, IGreetingV
     public override void PostInject() {
         base.PostInject();
         m_popupsModel.PopupAdded += PopupAddedHandler;
+        m_userModel.OnUserLoggedIn += AddBeeListener;
+        m_userModel.OnUserLoggedOut += RemoveBeeListener;
+    }
+
+    private void AddBeeListener() {
+        m_userModel.OnBeesCountUpdated += AddBeesPopup;
+    }
+
+    private void AddBeesPopup(int obj, int diff) {
+        if (diff > 0) {
+            m_popupsModel.AddPopup(new UserInfoPopupItemModel(m_userModel.User.Bees, m_userModel.User.Level, m_userModel.User.Progress));
+        }
+    }
+
+    private void RemoveBeeListener() {
+        m_userModel.OnBeesCountUpdated -= AddBeesPopup;
+        m_view.ClearUserStat();
     }
 
     private void PopupAddedHandler() {

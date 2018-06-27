@@ -52,7 +52,6 @@ public class MiniGameBallView : MonoBehaviour {
 		if (m_gameActive) {
 			m_rigidbody.mass += 2f*Time.deltaTime;
 			m_gameTime += Time.unscaledDeltaTime;
-			Debug.Log("m_gameTime " +m_gameTime );
 		}
 	}
 

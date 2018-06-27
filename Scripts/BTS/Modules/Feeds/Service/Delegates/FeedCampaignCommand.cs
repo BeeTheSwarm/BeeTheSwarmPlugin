@@ -20,8 +20,8 @@ namespace BTS {
 
         protected override void HandleSuccessResponse(FeedCampaignResponce data) {
             m_model.UpdatePostUserFed(data.Post);
-            m_userModel.SetBees(data.User.Bees);
             m_userModel.SetLevel(data.User.Level, data.User.Progress);
+            m_userModel.SetBees(data.User.Bees);
             m_userModel.SetImpact(data.User.Impact);
         }
     }

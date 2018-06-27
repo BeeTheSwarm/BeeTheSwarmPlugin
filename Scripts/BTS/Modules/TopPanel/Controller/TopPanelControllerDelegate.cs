@@ -24,7 +24,9 @@ namespace BTS {
         
         public void PostInject() {
             m_userProfileModel.OnLevelUpdated += m_viewModel.Level.Set;
-            m_userProfileModel.OnBeesCountUpdated += m_viewModel.Bees.Set;
+            m_userProfileModel.OnBeesCountUpdated += (newValue, diff) => {
+                m_viewModel.Bees.Set(newValue);
+            };
             if (m_userProfileModel.IsLoggedIn) {
                 OnGotUserInfo();
             }
