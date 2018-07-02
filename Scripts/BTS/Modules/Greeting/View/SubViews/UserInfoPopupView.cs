@@ -63,7 +63,6 @@ namespace BTS {
 
         private void SetShineAlpha(float alpha) {
             Color c = m_shine.color;
-            Debug.Log("alpha" + alpha);
             c.a = alpha;
             m_shine.color = c;
         }

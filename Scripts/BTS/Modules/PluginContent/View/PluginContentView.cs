@@ -87,7 +87,7 @@ public class PluginContentView : BaseControlledView<IPluginContentViewListener>,
                 nextMinAnchorX = m_transform.anchorMin.x + Math.Min(2f * Time.unscaledDeltaTime, diff);
             }
             else {
-                nextMinAnchorX = m_transform.anchorMin.x - Math.Min(2f * Time.unscaledDeltaTime, -diff);
+                nextMinAnchorX = m_transform.anchorMin.x - Math.Min(4f * Time.unscaledDeltaTime, -diff);
             }
             SetAnchorMinX(nextMinAnchorX);
             yield return null;

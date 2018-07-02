@@ -22,12 +22,16 @@ public class ClientGameMockup : MonoBehaviour {
 	}
 
 	private void GetChestClickHandler() {
-		Debug.LogError("GetChest is not implemented");
-	}
+        BTSPlugin.GetChest(count => {
+            Debug.Log("Get chest count callback " + count);
+        });
+    }
 
 	private void AddChestClickHandler() {
-		Debug.LogError("AddChest is not implemented");
-	}
+        BTSPlugin.AddChest(count => {
+            Debug.Log("Add chest count callback " + count);
+        });
+    }
 
 	private void AddBeesClickHandler() {
 		BTSPlugin.AddBees(10);
