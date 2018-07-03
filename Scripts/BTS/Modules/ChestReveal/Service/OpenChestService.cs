@@ -12,7 +12,7 @@ namespace BTS  {
 
         protected override void HandleSuccessResponse(OpenChestResponse data) {
             m_callback.Invoke(data.Rewards, data.RewardId);
-            m_userProfileModel.User.Bees = data.User.Bees;
+            m_userProfileModel.SetBees(data.User.Bees);
             m_userProfileModel.User.UpdateInfo(data.User);
         }
     }
