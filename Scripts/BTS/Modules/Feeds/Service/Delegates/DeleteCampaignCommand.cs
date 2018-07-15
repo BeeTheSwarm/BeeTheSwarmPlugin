@@ -11,8 +11,7 @@ namespace BTS {
         private IUserProfileModel m_userModel;
         [Inject]
         private IFeedsModel m_feedModel;
-        [Inject]
-        private IUserProfileService m_userService;
+
         private Action<bool> m_callback; 
 
         public DeleteCampaignCommand() {

@@ -23,8 +23,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		[SerializeField]
 		private int hiddenValue;
 
-		[SerializeField]
-		private int fakeValue;
 
 		[SerializeField]
 		private bool inited;
@@ -33,7 +31,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		{
 			currentCryptoKey = cryptoKey;
 			hiddenValue = value;
-			fakeValue = 0;
 			inited = true;
 		}
 
@@ -122,10 +119,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		{
 			inited = true;
 			hiddenValue = encrypted;
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				fakeValue = InternalDecrypt();
-			}
 		}
 
 		private int InternalDecrypt()
@@ -134,7 +127,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			{
 				currentCryptoKey = cryptoKey;
 				hiddenValue = Encrypt(0);
-				fakeValue = 0;
 				inited = true;
 			}
 
@@ -147,12 +139,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 
 			int decrypted = Decrypt(hiddenValue, key);
 
-			if (Detectors.ObscuredCheatingDetector.isRunning && fakeValue != 0 && decrypted != fakeValue)
-			{
-				/*Debug.LogWarning("decrypted = " + decrypted);
-				Debug.LogWarning("fakeValue = " + fakeValue);*/
-				Detectors.ObscuredCheatingDetector.Instance.OnCheatingDetected();
-			}
 
 			return decrypted;
 		}
@@ -162,10 +148,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		public static implicit operator ObscuredInt(int value)
 		{
 			ObscuredInt obscured = new ObscuredInt(Encrypt(value));
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				obscured.fakeValue = value;
-			}
 			return obscured;
 		}
 
@@ -179,10 +161,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			int decrypted = input.InternalDecrypt() + 1;
 			input.hiddenValue = Encrypt(decrypted, input.currentCryptoKey);
 
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				input.fakeValue = decrypted;
-			}
 			return input;
 		}
 
@@ -191,10 +169,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			int decrypted = input.InternalDecrypt() - 1;
 			input.hiddenValue = Encrypt(decrypted, input.currentCryptoKey);
 
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				input.fakeValue = decrypted;
-			}
 			return input;
 		}
 

@@ -19,14 +19,12 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 
 		private long currentCryptoKey;
 		private byte[] hiddenValue;
-		private double fakeValue;
 		private bool inited;
 
 		private ObscuredDouble(byte[] value)
 		{
 			currentCryptoKey = cryptoKey;
 			hiddenValue = value;
-			fakeValue = 0;
 			inited = true;
 		}
 
@@ -144,10 +142,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 
 			hiddenValue = new[] { union.b1, union.b2, union.b3, union.b4, union.b5, union.b6, union.b7, union.b8 };
 
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				fakeValue = InternalDecrypt();
-			}
 		}
 
 		private double InternalDecrypt()
@@ -156,7 +150,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			{
 				currentCryptoKey = cryptoKey;
 				hiddenValue = InternalEncrypt(0);
-				fakeValue = 0;
 				inited = true;
 			}
 
@@ -180,11 +173,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			union.l = union.l ^ key;
 
 			double decrypted = union.d;
-
-			if (Detectors.ObscuredCheatingDetector.isRunning && fakeValue != 0 && Math.Abs(decrypted - fakeValue) > 0.000001d)
-			{
-				Detectors.ObscuredCheatingDetector.Instance.OnCheatingDetected();
-			}
 
 			return decrypted;
 		}
@@ -228,10 +216,7 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		public static implicit operator ObscuredDouble(double value)
 		{
 			ObscuredDouble obscured = new ObscuredDouble(InternalEncrypt(value));
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				obscured.fakeValue = value;
-			}
+			
 			return obscured;
 		}
 
@@ -245,10 +230,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			double decrypted = input.InternalDecrypt() + 1d;
 			input.hiddenValue = InternalEncrypt(decrypted, input.currentCryptoKey);
 
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				input.fakeValue = decrypted;
-			}
 
 			return input;
 		}
@@ -258,10 +239,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			double decrypted = input.InternalDecrypt() - 1d;
 			input.hiddenValue = InternalEncrypt(decrypted, input.currentCryptoKey);
 
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				input.fakeValue = decrypted;
-			}
 			return input;
 		}
 

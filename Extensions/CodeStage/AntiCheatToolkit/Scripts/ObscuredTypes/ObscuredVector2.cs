@@ -13,10 +13,10 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 	{
 		private static int cryptoKey = 120206;
 		private static readonly Vector2 initialFakeValue = Vector2.zero;
-
+        private const float vector2Epsilon = 0.1f;
 #if UNITY_EDITOR
-		// For internal Editor usage only (may be useful for drawers).
-		public static int cryptoKeyEditor = cryptoKey;
+        // For internal Editor usage only (may be useful for drawers).
+        public static int cryptoKeyEditor = cryptoKey;
 #endif
 
 		[SerializeField]
@@ -25,8 +25,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		[SerializeField]
 		private RawEncryptedVector2 hiddenValue;
 
-		[SerializeField]
-		private Vector2 fakeValue;
 
 		[SerializeField]
 		private bool inited;
@@ -35,7 +33,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		{
 			currentCryptoKey = cryptoKey;
 			hiddenValue = value;
-			fakeValue = initialFakeValue;
 			inited = true;
 		}
 
@@ -44,21 +41,13 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			get
 			{
 				float decrypted = InternalDecryptField(hiddenValue.x);
-				if (Detectors.ObscuredCheatingDetector.isRunning && !fakeValue.Equals(initialFakeValue) && Math.Abs(decrypted - fakeValue.x) > Detectors.ObscuredCheatingDetector.Instance.vector2Epsilon)
-				{
-					Detectors.ObscuredCheatingDetector.Instance.OnCheatingDetected();
-				}
+				
 				return decrypted;
 			}
 
-			set
-			{
-				hiddenValue.x = InternalEncryptField(value);
-				if (Detectors.ObscuredCheatingDetector.isRunning)
-				{
-					fakeValue.x = value;
-				}
-			}
+			set {
+                hiddenValue.x = InternalEncryptField(value);
+            }
 		}
 
 		public float y
@@ -66,20 +55,14 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			get
 			{
 				float decrypted = InternalDecryptField(hiddenValue.y);
-				if (Detectors.ObscuredCheatingDetector.isRunning && !fakeValue.Equals(initialFakeValue) && Math.Abs(decrypted - fakeValue.y) > Detectors.ObscuredCheatingDetector.Instance.vector2Epsilon)
-				{
-					Detectors.ObscuredCheatingDetector.Instance.OnCheatingDetected();
-				}
+				
 				return decrypted;
 			}
 
 			set
 			{
 				hiddenValue.y = InternalEncryptField(value);
-				if (Detectors.ObscuredCheatingDetector.isRunning)
-				{
-					fakeValue.y = value;
-				}
+				
 			}
 		}
 
@@ -204,10 +187,7 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		{
 			inited = true;
 			hiddenValue = encrypted;
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				fakeValue = InternalDecrypt();
-			}
+			
 		}
 
 		private Vector2 InternalDecrypt()
@@ -216,7 +196,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			{
 				currentCryptoKey = cryptoKey;
 				hiddenValue = Encrypt(initialFakeValue);
-				fakeValue = initialFakeValue;
 				inited = true;
 			}
 
@@ -232,17 +211,14 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			value.x = ObscuredFloat.Decrypt(hiddenValue.x, key);
 			value.y = ObscuredFloat.Decrypt(hiddenValue.y, key);
 
-			if (Detectors.ObscuredCheatingDetector.isRunning && !fakeValue.Equals(initialFakeValue) && !CompareVectorsWithTolerance(value, fakeValue))
-			{
-				Detectors.ObscuredCheatingDetector.Instance.OnCheatingDetected();
-			}
+			
 
 			return value;
 		}
 
 		private bool CompareVectorsWithTolerance(Vector2 vector1, Vector2 vector2)
 		{
-			float epsilon = Detectors.ObscuredCheatingDetector.Instance.vector2Epsilon;
+			float epsilon = vector2Epsilon;
 			return Math.Abs(vector1.x - vector2.x) < epsilon &&
 				   Math.Abs(vector1.y - vector2.y) < epsilon;
 		}
@@ -271,10 +247,7 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		public static implicit operator ObscuredVector2(Vector2 value)
 		{
 			ObscuredVector2 obscured = new ObscuredVector2(Encrypt(value));
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				obscured.fakeValue = value;
-			}
+			
 			return obscured;
 		}
 

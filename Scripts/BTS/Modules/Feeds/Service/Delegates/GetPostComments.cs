@@ -11,8 +11,6 @@ namespace BTS {
         private IUserProfileModel m_userModel;
         [Inject]
         private IFeedsModel m_model;
-        [Inject]
-        private IUserProfileService m_userService;
         private Action<List<CommentModel>, int> m_callback; 
 
         public GetPostComments() {

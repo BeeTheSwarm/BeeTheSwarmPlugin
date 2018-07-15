@@ -4,18 +4,19 @@ using System.Runtime.InteropServices;
 
 namespace CodeStage.AntiCheat.ObscuredTypes
 {
-	/// <summary>
-	/// Use it instead of regular <c>float</c> for any cheating-sensitive variables.
-	/// </summary>
-	/// <strong><em>Regular type is faster and memory wiser comparing to the obscured one!</em></strong>
-	[Serializable]
+
+    /// <summary>
+    /// Use it instead of regular <c>float</c> for any cheating-sensitive variables.
+    /// </summary>
+    /// <strong><em>Regular type is faster and memory wiser comparing to the obscured one!</em></strong>
+    [Serializable]
 	public struct ObscuredFloat : IEquatable<ObscuredFloat>, IFormattable
 	{
 		private static int cryptoKey = 230887;
-
+        private const float floatEpsilon = 0.0001f;
 #if UNITY_EDITOR
-		// For internal Editor usage only (may be useful for drawers).
-		public static int cryptoKeyEditor = cryptoKey;
+        // For internal Editor usage only (may be useful for drawers).
+        public static int cryptoKeyEditor = cryptoKey;
 #endif
 
 		[SerializeField]
@@ -24,8 +25,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		[SerializeField]
 		private byte[] hiddenValue;
 
-		[SerializeField]
-		private float fakeValue;
 
 		[SerializeField]
 		private bool inited;
@@ -34,7 +33,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		{
 			currentCryptoKey = cryptoKey;
 			hiddenValue = value;
-			fakeValue = 0;
 			inited = true;
 		}
 
@@ -148,10 +146,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 
 			hiddenValue = new[] { union.b1, union.b2, union.b3, union.b4 };
 
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				fakeValue = InternalDecrypt();
-			}
 		}
 
 		private float InternalDecrypt()
@@ -160,7 +154,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			{
 				currentCryptoKey = cryptoKey;
 				hiddenValue = InternalEncrypt(0);
-				fakeValue = 0;
 				inited = true;
 			}
 
@@ -181,10 +174,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 
 			float decrypted = union.f;
 
-			if (Detectors.ObscuredCheatingDetector.isRunning && fakeValue != 0 && Math.Abs(decrypted - fakeValue) > Detectors.ObscuredCheatingDetector.Instance.floatEpsilon)
-			{
-				Detectors.ObscuredCheatingDetector.Instance.OnCheatingDetected();
-			}
 
 			return decrypted;
 		}
@@ -216,10 +205,7 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		public static implicit operator ObscuredFloat(float value)
 		{
 			ObscuredFloat obscured = new ObscuredFloat(InternalEncrypt(value));
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				obscured.fakeValue = value;
-			}
+			
 			return obscured;
 		}
 
@@ -233,10 +219,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			float decrypted = input.InternalDecrypt() + 1f;
 			input.hiddenValue = InternalEncrypt(decrypted, input.currentCryptoKey);
 
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				input.fakeValue = decrypted;
-			}
 
 			return input;
 		}
@@ -246,10 +228,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			float decrypted = input.InternalDecrypt() - 1f;
 			input.hiddenValue = InternalEncrypt(decrypted, input.currentCryptoKey);
 
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				input.fakeValue = decrypted;
-			}
 
 			return input;
 		}

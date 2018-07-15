@@ -18,14 +18,12 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 
 		private uint currentCryptoKey;
 		private uint hiddenValue;
-		private uint fakeValue;
 		private bool inited;
 
 		private ObscuredUInt(uint value)
 		{
 			currentCryptoKey = cryptoKey;
 			hiddenValue = value;
-			fakeValue = 0;
 			inited = true;
 		}
 
@@ -115,10 +113,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		{
 			inited = true;
 			hiddenValue = encrypted;
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				fakeValue = InternalDecrypt();
-			}
 		}
 
 		private uint InternalDecrypt()
@@ -127,7 +121,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			{
 				currentCryptoKey = cryptoKey;
 				hiddenValue = Encrypt(0);
-				fakeValue = 0;
 				inited = true;
 			}
 
@@ -140,10 +133,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 
 			uint decrypted = Decrypt(hiddenValue, key);
 
-			if (Detectors.ObscuredCheatingDetector.isRunning && fakeValue != 0 && decrypted != fakeValue)
-			{
-				Detectors.ObscuredCheatingDetector.Instance.OnCheatingDetected();
-			}
 
 			return decrypted;
 		}
@@ -153,10 +142,7 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		public static implicit operator ObscuredUInt(uint value)
 		{
 			ObscuredUInt obscured = new ObscuredUInt(Encrypt(value));
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				obscured.fakeValue = value;
-			}
+			
 			return obscured;
 		}
 
@@ -170,10 +156,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			uint decrypted = input.InternalDecrypt() + 1;
 			input.hiddenValue = Encrypt(decrypted, input.currentCryptoKey);
 
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				input.fakeValue = decrypted;
-			}
 			return input;
 		}
 
@@ -182,10 +164,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			uint decrypted = input.InternalDecrypt() - 1;
 			input.hiddenValue = Encrypt(decrypted, input.currentCryptoKey);
 
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				input.fakeValue = decrypted;
-			}
 			return input;
 		}
 

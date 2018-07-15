@@ -19,14 +19,12 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 
 		private long currentCryptoKey;
 		private byte[] hiddenValue;
-		private decimal fakeValue;
 		private bool inited;
 
 		private ObscuredDecimal(byte[] value)
 		{
 			currentCryptoKey = cryptoKey;
 			hiddenValue = value;
-			fakeValue = 0m;
 			inited = true;
 		}
 
@@ -164,10 +162,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 				union.b9, union.b10, union.b11, union.b12, union.b13, union.b14, union.b15, union.b16
 			};
 
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				fakeValue = InternalDecrypt();
-			}
 		}
 
 		private decimal InternalDecrypt()
@@ -176,7 +170,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			{
 				currentCryptoKey = cryptoKey;
 				hiddenValue = InternalEncrypt(0m);
-				fakeValue = 0m;
 				inited = true;
 			}
 
@@ -210,10 +203,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 
 			decimal decrypted = union.d;
 
-			if (Detectors.ObscuredCheatingDetector.isRunning && fakeValue != 0 && decrypted != fakeValue)
-			{
-				Detectors.ObscuredCheatingDetector.Instance.OnCheatingDetected();
-			}
 
 			return decrypted;
 		}
@@ -284,10 +273,7 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		public static implicit operator ObscuredDecimal(decimal value)
 		{
 			ObscuredDecimal obscured = new ObscuredDecimal(InternalEncrypt(value));
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				obscured.fakeValue = value;
-			}
+			
 			return obscured;
 		}
 
@@ -300,12 +286,7 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		{
 			decimal decrypted = input.InternalDecrypt() + 1m;
 			input.hiddenValue = InternalEncrypt(decrypted, input.currentCryptoKey);
-
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				input.fakeValue = decrypted;
-			}
-
+            
 			return input;
 		}
 
@@ -314,10 +295,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			decimal decrypted = input.InternalDecrypt() - 1m;
 			input.hiddenValue = InternalEncrypt(decrypted, input.currentCryptoKey);
 
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				input.fakeValue = decrypted;
-			}
 			return input;
 		}
 

@@ -7,16 +7,13 @@ using System.Collections.Generic;
 namespace BTS {
     internal class LoginCommand : BaseNetworkService<LoginResponce>, ILoginService {
         [Inject] private IUserProfileModel m_userModel;
-        [Inject] private IUserProfileService m_userService;
         [Inject] private IPopupsModel m_popupsModel;
         [Inject] private ILocalDataModel m_localDataModel;
         [Inject] private ILoadInitDataService m_loadInitDataService;
         private Action<bool> m_callback;
-        private string m_email;
 
         public void Execute(string email, string password, Action<bool> callback) {
             m_callback = callback;
-            m_email = email;
             SendPackage(new BTS_Login(email, password));
         }
 

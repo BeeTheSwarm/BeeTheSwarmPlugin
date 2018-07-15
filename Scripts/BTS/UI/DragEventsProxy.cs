@@ -7,7 +7,7 @@ public class DragEventsProxy : MonoBehaviour, IDragHandler, IBeginDragHandler, I
     public void OnDrag(PointerEventData eventData) {
         var handlers = GetComponentsInParent<IDragHandler>();
         foreach (var handler in handlers) {
-            if (handler == this) {
+            if ((Object)handler == this) {
                 continue;
             }
 
@@ -18,7 +18,7 @@ public class DragEventsProxy : MonoBehaviour, IDragHandler, IBeginDragHandler, I
     public void OnBeginDrag(PointerEventData eventData) {
         var handlers = GetComponentsInParent<IBeginDragHandler>();
         foreach (var handler in handlers) {
-            if (handler == this) {
+            if ((Object)handler == this) {
                 continue;
             }
 
@@ -29,7 +29,7 @@ public class DragEventsProxy : MonoBehaviour, IDragHandler, IBeginDragHandler, I
     public void OnEndDrag(PointerEventData eventData) {
         var handlers = GetComponentsInParent<IEndDragHandler>();
         foreach (var handler in handlers) {
-            if (handler == this) {
+            if ((Object)handler == this) {
                 continue;
             }
 

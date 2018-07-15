@@ -9,8 +9,6 @@ namespace BTS {
         [Inject]
         private IUserProfileModel m_userModel;
         [Inject]
-        private IUserProfileService m_userService;
-        [Inject]
         private ILocalDataModel m_localDataModel;
         private Action<bool> m_callback;
         [Inject]

@@ -18,14 +18,12 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 
 		private short currentCryptoKey;
 		private short hiddenValue;
-		private short fakeValue;
 		private bool inited;
 
 		private ObscuredShort(short value)
 		{
 			currentCryptoKey = cryptoKey;
 			hiddenValue = value;
-			fakeValue = 0;
 			inited = true;
 		}
 
@@ -93,10 +91,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		{
 			inited = true;
 			hiddenValue = encrypted;
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				fakeValue = InternalDecrypt();
-			}
 		}
 
 		private short InternalDecrypt()
@@ -105,7 +99,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			{
 				currentCryptoKey = cryptoKey;
 				hiddenValue = EncryptDecrypt(0);
-				fakeValue = 0;
 				inited = true;
 			}
 
@@ -118,11 +111,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 
 			short decrypted = EncryptDecrypt(hiddenValue, key);
 
-			if (Detectors.ObscuredCheatingDetector.isRunning && fakeValue != 0 && decrypted != fakeValue)
-			{
-				Detectors.ObscuredCheatingDetector.Instance.OnCheatingDetected();
-			}
-
 			return decrypted;
 		}
 
@@ -131,10 +119,7 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		public static implicit operator ObscuredShort(short value)
 		{
 			ObscuredShort obscured = new ObscuredShort(EncryptDecrypt(value));
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				obscured.fakeValue = value;
-			}
+			
 			return obscured;
 		}
 
@@ -148,10 +133,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			short decrypted = (short)(input.InternalDecrypt() + 1);
 			input.hiddenValue = EncryptDecrypt(decrypted);
 
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				input.fakeValue = decrypted;
-			}
 			return input;
 		}
 
@@ -160,10 +141,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			short decrypted = (short)(input.InternalDecrypt() - 1);
 			input.hiddenValue = EncryptDecrypt(decrypted);
 
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				input.fakeValue = decrypted;
-			}
 			return input;
 		}
 

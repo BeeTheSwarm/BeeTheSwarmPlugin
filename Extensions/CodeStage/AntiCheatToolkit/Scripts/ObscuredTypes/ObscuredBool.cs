@@ -23,11 +23,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		[SerializeField]
 		private int hiddenValue;
 
-		[SerializeField]
-		private bool fakeValue;
-
-		[SerializeField]
-		private bool fakeValueChanged;
 
 		[SerializeField]
 		private bool inited;
@@ -36,8 +31,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		{
 			currentCryptoKey = cryptoKey;
 			hiddenValue = value;
-			fakeValue = false;
-			fakeValueChanged = false;
 			inited = true;
 		}
 
@@ -130,11 +123,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		{
 			inited = true;
 			hiddenValue = encrypted;
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				fakeValue = InternalDecrypt();
-				fakeValueChanged = true;
-			}
 		}
 
 		private bool InternalDecrypt()
@@ -143,8 +131,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			{
 				currentCryptoKey = cryptoKey;
 				hiddenValue = Encrypt(false);
-				fakeValue = false;
-				fakeValueChanged = true;
 				inited = true;
 			}
 
@@ -159,12 +145,7 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			value ^= key;
 
 			bool decrypted = value != 181;
-
-			if (Detectors.ObscuredCheatingDetector.isRunning && fakeValueChanged && decrypted != fakeValue)
-			{
-				Detectors.ObscuredCheatingDetector.Instance.OnCheatingDetected();
-			}
-
+            
 			return decrypted;
 		}
 
@@ -173,12 +154,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		public static implicit operator ObscuredBool(bool value)
 		{
 			ObscuredBool obscured = new ObscuredBool(Encrypt(value));
-
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				obscured.fakeValue = value;
-				obscured.fakeValueChanged = true;
-			}
 
 			return obscured;
 		}

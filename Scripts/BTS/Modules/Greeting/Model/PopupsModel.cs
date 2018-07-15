@@ -7,7 +7,7 @@ namespace BTS {
     public class PopupsModel : IPopupsModel {
         public event Action PopupAdded = delegate { };
         private List<PopupItemModel> m_queue = new List<PopupItemModel>();
-
+        private bool m_popupsEnabled = true;
         public PopupItemModel GetNextPopup() {
             if (m_queue.Count > 0) {
                 var popup = m_queue[0];
@@ -21,6 +21,9 @@ namespace BTS {
         }
 
         public void AddPopup(PopupItemModel item) {
+            if (!m_popupsEnabled) {
+                return;
+            }
             if (m_queue.Count > 0) {
                 if (m_queue[m_queue.Count-1].Equals(item)) {
                     return;
@@ -28,6 +31,14 @@ namespace BTS {
             }
             m_queue.Add(item);
             PopupAdded.Invoke();
+        }
+
+        public void DisablePopups() {
+            m_popupsEnabled = false;
+        }
+
+        public void EnablePopups() {
+            m_popupsEnabled = true;
         }
     }
 }

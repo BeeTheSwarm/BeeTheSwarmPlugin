@@ -7,7 +7,6 @@ namespace BTS {
         [Inject] private INotificationsModel m_notificationsModel;
         [Inject] private ITopPanelController m_topPanelControllerDelegate;
         [Inject] private IPostListControllerDelegate m_postListControllerDelegate;
-        [Inject] private IUserProfileService m_userProfileService;
         [Inject] private IImagesService m_imagesService;
         [Inject] private IUserProfileModel m_userModel;
         [Inject] private IFeedsService m_feedsService;

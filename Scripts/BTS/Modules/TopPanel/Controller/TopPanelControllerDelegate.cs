@@ -8,8 +8,7 @@ namespace BTS {
         private IUserProfileModel m_userProfileModel;
         [Inject]
         private INotificationsModel m_notificationsModel;
-        [Inject]
-        private IUserProfileService m_userProfileService;
+
         [Inject]
         private IImagesService m_imagesService;
         private TopPanelViewModel m_viewModel;

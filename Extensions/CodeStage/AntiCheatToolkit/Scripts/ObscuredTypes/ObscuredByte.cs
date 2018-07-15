@@ -18,14 +18,12 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 
 		private byte currentCryptoKey;
 		private byte hiddenValue;
-		private byte fakeValue;
 		private bool inited;
 
 		private ObscuredByte(byte value)
 		{
 			currentCryptoKey = cryptoKey;
 			hiddenValue = value;
-			fakeValue = 0;
 			inited = true;
 		}
 
@@ -92,10 +90,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		{
 			inited = true;
 			hiddenValue = encrypted;
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				fakeValue = InternalDecrypt();
-			}
 		}
 
 		private byte InternalDecrypt()
@@ -104,7 +98,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			{
 				currentCryptoKey = cryptoKey;
 				hiddenValue = EncryptDecrypt(0);
-				fakeValue = 0;
 				inited = true;
 			}
 
@@ -117,10 +110,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 
 			byte decrypted = EncryptDecrypt(hiddenValue, key);
 
-			if (Detectors.ObscuredCheatingDetector.isRunning && fakeValue != 0 && decrypted != fakeValue)
-			{
-				Detectors.ObscuredCheatingDetector.Instance.OnCheatingDetected();
-			}
 
 			return decrypted;
 		}
@@ -130,10 +119,7 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		public static implicit operator ObscuredByte(byte value)
 		{
 			ObscuredByte obscured = new ObscuredByte(EncryptDecrypt(value));
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				obscured.fakeValue = value;
-			}
+			
 			return obscured;
 		}
 
@@ -147,10 +133,7 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			byte decrypted = (byte)(input.InternalDecrypt() + 1);
 			input.hiddenValue = EncryptDecrypt(decrypted, input.currentCryptoKey);
 
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				input.fakeValue = decrypted;
-			}
+			
 			return input;
 		}
 
@@ -159,10 +142,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			byte decrypted = (byte)(input.InternalDecrypt() - 1);
 			input.hiddenValue = EncryptDecrypt(decrypted, input.currentCryptoKey);
 
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				input.fakeValue = decrypted;
-			}
 			return input;
 		}
 

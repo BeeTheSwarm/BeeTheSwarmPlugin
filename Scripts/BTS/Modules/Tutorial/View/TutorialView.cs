@@ -16,8 +16,6 @@ namespace BTS {
         [SerializeField] private TutorialGameView m_gameView;
 
         private ScrollRect m_scrollRect;
-        private bool m_swarmTutorialPassed = false;
-        private bool m_miniGamePassed = false;
         private const int CAMPAIGN_PAGE = 7;
         private const int GAME_PAGE = 4;
 
@@ -56,7 +54,6 @@ namespace BTS {
         }
 
         public void HideGame() {
-            m_miniGamePassed = true;
             m_gameView.gameObject.SetActive(false);
             m_scrollSnap.ChangePage(GAME_PAGE+1);
         }

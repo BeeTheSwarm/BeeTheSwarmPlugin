@@ -9,8 +9,7 @@ namespace BTS {
 
     [Inject]
         private IFeedsModel m_model;
-   [Inject]
-         private IUserProfileService m_userService;
+
 
 
     public GetCampaingLevelsCommand() {

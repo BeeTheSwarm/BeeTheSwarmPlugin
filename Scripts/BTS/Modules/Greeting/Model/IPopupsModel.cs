@@ -10,5 +10,7 @@ namespace BTS
         PopupItemModel GetNextPopup();
         void AddPopup(PopupItemModel item);
         void PopupShown(PopupItemModel m_currentItem);
+        void DisablePopups();
+        void EnablePopups();
     }
 }

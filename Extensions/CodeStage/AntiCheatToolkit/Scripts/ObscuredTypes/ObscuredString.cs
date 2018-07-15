@@ -24,8 +24,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		[SerializeField]
 		private byte[] hiddenValue;
 
-		[SerializeField]
-		private string fakeValue;
 
 		[SerializeField]
 		private bool inited;
@@ -37,7 +35,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		{
 			currentCryptoKey = cryptoKey;
 			hiddenValue = value;
-			fakeValue = null;
 			inited = true;
 		}
 
@@ -119,10 +116,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		{
 			inited = true;
 			hiddenValue = GetBytes(encrypted);
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				fakeValue = InternalDecrypt();
-			}
 		}
 
 		private static byte[] InternalEncrypt(string value)
@@ -136,7 +129,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			{
 				currentCryptoKey = cryptoKey;
 				hiddenValue = InternalEncrypt("");
-				fakeValue = "";
 				inited = true;
 			}
 
@@ -154,10 +146,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 
 			string result = EncryptDecrypt(GetString(hiddenValue), key);
 
-			if (Detectors.ObscuredCheatingDetector.isRunning && !string.IsNullOrEmpty(fakeValue) && result != fakeValue)
-			{
-				Detectors.ObscuredCheatingDetector.Instance.OnCheatingDetected();
-			}
 
 			return result;
 		}
@@ -172,10 +160,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			}
 
 			ObscuredString obscured = new ObscuredString(InternalEncrypt(value));
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				obscured.fakeValue = value;
-			}
 			return obscured;
 		}
 

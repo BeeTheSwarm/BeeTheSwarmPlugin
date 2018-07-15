@@ -19,14 +19,12 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 
 		private long currentCryptoKey;
 		private long hiddenValue;
-		private long fakeValue;
 		private bool inited;
 
 		private ObscuredLong(long value)
 		{
 			currentCryptoKey = cryptoKey;
 			hiddenValue = value;
-			fakeValue = 0;
 			inited = true;
 		}
 
@@ -107,21 +105,15 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			return hiddenValue;
 		}
 
-		/// <summary>
-		/// Allows to explicitly set current obscured value.
-		/// </summary>
-		/// Use it in conjunction with GetEncrypted().<br/>
-		/// Useful for loading data stored in obscured state.
-		public void SetEncrypted(long encrypted)
-		{
-			inited = true;
-			hiddenValue = encrypted;
-
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				fakeValue = InternalDecrypt();
-			}
-		}
+        /// <summary>
+        /// Allows to explicitly set current obscured value.
+        /// </summary>
+        /// Use it in conjunction with GetEncrypted().<br/>
+        /// Useful for loading data stored in obscured state.
+        public void SetEncrypted(long encrypted) {
+            inited = true;
+            hiddenValue = encrypted;
+        }
 
 		private long InternalDecrypt()
 		{
@@ -129,7 +121,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			{
 				currentCryptoKey = cryptoKey;
 				hiddenValue = Encrypt(0);
-				fakeValue = 0;
 				inited = true;
 			}
 
@@ -142,11 +133,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 
 			long decrypted = Decrypt(hiddenValue, key);
 
-			if (Detectors.ObscuredCheatingDetector.isRunning && fakeValue != 0 && decrypted != fakeValue)
-			{
-				Detectors.ObscuredCheatingDetector.Instance.OnCheatingDetected();
-			}
-
 			return decrypted;
 		}
 
@@ -155,10 +141,7 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		public static implicit operator ObscuredLong(long value)
 		{
 			ObscuredLong obscured = new ObscuredLong(Encrypt(value));
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				obscured.fakeValue = value;
-			}
+			
 			return obscured;
 		}
 
@@ -172,10 +155,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			long decrypted = input.InternalDecrypt() + 1L;
 			input.hiddenValue = Encrypt(decrypted, input.currentCryptoKey);
 
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				input.fakeValue = decrypted;
-			}
 			return input;
 		}
 
@@ -184,10 +163,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			long decrypted = input.InternalDecrypt() - 1L;
 			input.hiddenValue = Encrypt(decrypted, input.currentCryptoKey);
 
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				input.fakeValue = decrypted;
-			}
 			return input;
 		}
 

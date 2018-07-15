@@ -14,9 +14,14 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		private static int cryptoKey = 120205;
 		private static readonly Quaternion initialFakeValue = Quaternion.identity;
 
+
+        /// <summary>
+        /// Max allowed difference between encrypted and fake values in ObscuredQuaternion. Increase in case of false positives.
+        /// </summary> 
+        private const float quaternionEpsilon = 0.1f;
 #if UNITY_EDITOR
-		// For internal Editor usage only (may be useful for drawers).
-		public static int cryptoKeyEditor = cryptoKey;
+        // For internal Editor usage only (may be useful for drawers).
+        public static int cryptoKeyEditor = cryptoKey;
 #endif
 		[SerializeField]
 		private int currentCryptoKey;
@@ -24,8 +29,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		[SerializeField]
 		private RawEncryptedQuaternion hiddenValue;
 
-		[SerializeField]
-		private Quaternion fakeValue;
 
 		[SerializeField]
 		private bool inited;
@@ -34,7 +37,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		{
 			currentCryptoKey = cryptoKey;
 			hiddenValue = value;
-			fakeValue = initialFakeValue;
 			inited = true;
 		}
 
@@ -133,10 +135,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		{
 			inited = true;
 			hiddenValue = encrypted;
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				fakeValue = InternalDecrypt();
-			}
 		}
 
 		private Quaternion InternalDecrypt()
@@ -145,7 +143,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			{
 				currentCryptoKey = cryptoKey;
 				hiddenValue = Encrypt(initialFakeValue);
-				fakeValue = initialFakeValue;
 				inited = true;
 			}
 
@@ -163,17 +160,13 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			value.z = ObscuredFloat.Decrypt(hiddenValue.z, key);
 			value.w = ObscuredFloat.Decrypt(hiddenValue.w, key);
 
-			if (Detectors.ObscuredCheatingDetector.isRunning && !fakeValue.Equals(initialFakeValue) && !CompareQuaternionsWithTolerance(value, fakeValue))
-			{
-				Detectors.ObscuredCheatingDetector.Instance.OnCheatingDetected();
-			}
 
 			return value;
 		}
 
 		private bool CompareQuaternionsWithTolerance(Quaternion q1, Quaternion q2)
 		{
-			float epsilon = Detectors.ObscuredCheatingDetector.Instance.quaternionEpsilon;
+			float epsilon = quaternionEpsilon;
 			return Math.Abs(q1.x - q2.x) < epsilon &&
 				   Math.Abs(q1.y - q2.y) < epsilon &&
 				   Math.Abs(q1.z - q2.z) < epsilon &&
@@ -185,10 +178,7 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		public static implicit operator ObscuredQuaternion(Quaternion value)
 		{
 			ObscuredQuaternion obscured = new ObscuredQuaternion(Encrypt(value));
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				obscured.fakeValue = value;
-			}
+			
 			return obscured;
 		}
 

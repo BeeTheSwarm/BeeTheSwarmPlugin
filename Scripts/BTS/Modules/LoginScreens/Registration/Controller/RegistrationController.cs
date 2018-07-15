@@ -6,7 +6,7 @@ using System.Net.Mail;
 using UnityEngine;
 
 public class RegistrationController : BasePopupController<IRegistrationView>, IRegistrationViewListener, IRegistrationController {
-    [Inject] private IUserProfileService m_userService;
+
     [Inject] private IFeedsController m_feedsController;
     [Inject] private ISignInController m_signInController;
     [Inject] private IPopupsModel m_popupsModel;
@@ -33,14 +33,16 @@ public class RegistrationController : BasePopupController<IRegistrationView>, IR
     }
 
     private bool CorrectMail(string mail) {
+        MailAddress mailAddress;
         try {
-            MailAddress mailAddress = new MailAddress(mail);
+            mailAddress = new MailAddress(mail);
         }
         catch (FormatException exception) {
+            Debug.Log("email is invalid" + exception.Message);
             return false;
         }
 
-        return true;
+        return mailAddress != null;
     }
 
     public void OnRegisterClick(string email, string password, string repeatPassword, string name, string referal) {

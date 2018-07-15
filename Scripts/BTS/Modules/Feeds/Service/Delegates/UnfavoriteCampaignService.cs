@@ -9,8 +9,7 @@ namespace BTS {
         private IUserProfileModel m_userModel;
         [Inject]
         private IFeedsModel m_feedModel;
-        [Inject]
-        private IUserProfileService m_userService;
+
         private CampaignModel campaign;
         
         public void Execute(int postId) {

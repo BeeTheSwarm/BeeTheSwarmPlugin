@@ -18,14 +18,12 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 
 		private char currentCryptoKey;
 		private char hiddenValue;
-		private char fakeValue;
 		private bool inited;
 
 		private ObscuredChar(char value)
 		{
 			currentCryptoKey = cryptoKey;
 			hiddenValue = value;
-			fakeValue = '\0';
 			inited = true;
 		}
 
@@ -92,10 +90,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		{
 			inited = true;
 			hiddenValue = encrypted;
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				fakeValue = InternalDecrypt();
-			}
 		}
 
 		private char InternalDecrypt()
@@ -104,7 +98,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			{
 				currentCryptoKey = cryptoKey;
 				hiddenValue = EncryptDecrypt('\0');
-				fakeValue = '\0';
 				inited = true;
 			}
 
@@ -117,11 +110,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 
 			char decrypted = EncryptDecrypt(hiddenValue, key);
 
-			if (Detectors.ObscuredCheatingDetector.isRunning && fakeValue != '\0' && decrypted != fakeValue)
-			{
-				Detectors.ObscuredCheatingDetector.Instance.OnCheatingDetected();
-			}
-
 			return decrypted;
 		}
 
@@ -130,10 +118,7 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		public static implicit operator ObscuredChar(char value)
 		{
 			ObscuredChar obscured = new ObscuredChar(EncryptDecrypt(value));
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				obscured.fakeValue = value;
-			}
+			
 			return obscured;
 		}
 
@@ -147,10 +132,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			char decrypted = (char)(input.InternalDecrypt() + 1);
 			input.hiddenValue = EncryptDecrypt(decrypted, input.currentCryptoKey);
 
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				input.fakeValue = decrypted;
-			}
 			return input;
 		}
 
@@ -159,10 +140,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			char decrypted = (char)(input.InternalDecrypt() - 1);
 			input.hiddenValue = EncryptDecrypt(decrypted, input.currentCryptoKey);
 
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				input.fakeValue = decrypted;
-			}
 			return input;
 		}
 

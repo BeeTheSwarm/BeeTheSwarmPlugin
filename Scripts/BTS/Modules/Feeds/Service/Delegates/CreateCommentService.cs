@@ -11,8 +11,7 @@ namespace BTS {
         private IFeedsModel m_model;
         [Inject]
         private IUserProfileModel m_userModel;
-        [Inject]
-        private IUserProfileService m_userService;
+
         [Inject]
         private IPopupsModel m_popupsModel;
         private Action<bool> m_callback;

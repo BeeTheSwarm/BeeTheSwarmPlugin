@@ -13,10 +13,11 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 	{
 		private static int cryptoKey = 120207;
 		private static readonly Vector3 initialFakeValue = Vector3.zero;
+        private const float vector3Epsilon = 0.1f;
 
 #if UNITY_EDITOR
-		// For internal Editor usage only (may be useful for drawers).
-		public static int cryptoKeyEditor = cryptoKey;
+        // For internal Editor usage only (may be useful for drawers).
+        public static int cryptoKeyEditor = cryptoKey;
 #endif
 
 		[SerializeField]
@@ -26,16 +27,12 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		private RawEncryptedVector3 hiddenValue;
 
 		[SerializeField]
-		private Vector3 fakeValue;
-
-		[SerializeField]
 		private bool inited;
 
 		private ObscuredVector3(RawEncryptedVector3 encrypted)
 		{
 			currentCryptoKey = cryptoKey;
 			hiddenValue = encrypted;
-			fakeValue = initialFakeValue;
 			inited = true;
 		}
 
@@ -44,20 +41,14 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			get
 			{
 				float decrypted = InternalDecryptField(hiddenValue.x);
-				if (Detectors.ObscuredCheatingDetector.isRunning && !fakeValue.Equals(initialFakeValue) && Math.Abs(decrypted - fakeValue.x) > Detectors.ObscuredCheatingDetector.Instance.vector3Epsilon)
-				{
-					Detectors.ObscuredCheatingDetector.Instance.OnCheatingDetected();
-				}
+				
 				return decrypted;
 			}
 
 			set
 			{
 				hiddenValue.x = InternalEncryptField(value);
-				if (Detectors.ObscuredCheatingDetector.isRunning)
-				{
-					fakeValue.x = value;
-				}
+				
 			}
 		}
 
@@ -66,20 +57,14 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			get
 			{
 				float decrypted = InternalDecryptField(hiddenValue.y);
-				if (Detectors.ObscuredCheatingDetector.isRunning && !fakeValue.Equals(initialFakeValue) && Math.Abs(decrypted - fakeValue.y) > Detectors.ObscuredCheatingDetector.Instance.vector3Epsilon)
-				{
-					Detectors.ObscuredCheatingDetector.Instance.OnCheatingDetected();
-				}
+				
 				return decrypted;
 			}
 
 			set
 			{
 				hiddenValue.y = InternalEncryptField(value);
-				if (Detectors.ObscuredCheatingDetector.isRunning)
-				{
-					fakeValue.y = value;
-				}
+				
 			}
 		}
 
@@ -88,20 +73,14 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			get
 			{
 				float decrypted = InternalDecryptField(hiddenValue.z);
-				if (Detectors.ObscuredCheatingDetector.isRunning && !fakeValue.Equals(initialFakeValue) && Math.Abs(decrypted - fakeValue.z) > Detectors.ObscuredCheatingDetector.Instance.vector3Epsilon)
-				{
-					Detectors.ObscuredCheatingDetector.Instance.OnCheatingDetected();
-				}
+				
 				return decrypted;
 			}
 
 			set
 			{
 				hiddenValue.z = InternalEncryptField(value);
-				if (Detectors.ObscuredCheatingDetector.isRunning)
-				{
-					fakeValue.z = value;
-				}
+				
 			}
 		}
 
@@ -233,10 +212,7 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		{
 			inited = true;
 			hiddenValue = encrypted;
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				fakeValue = InternalDecrypt();
-			}
+			
 		}
 
 		private Vector3 InternalDecrypt()
@@ -245,7 +221,6 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			{
 				currentCryptoKey = cryptoKey;
 				hiddenValue = Encrypt(initialFakeValue, cryptoKey);
-				fakeValue = initialFakeValue;
 				inited = true;
 			}
 
@@ -262,17 +237,16 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 			value.y = ObscuredFloat.Decrypt(hiddenValue.y, key);
 			value.z = ObscuredFloat.Decrypt(hiddenValue.z, key);
 
-			if (Detectors.ObscuredCheatingDetector.isRunning && !fakeValue.Equals(Vector3.zero) && !CompareVectorsWithTolerance(value, fakeValue))
-			{
-				Detectors.ObscuredCheatingDetector.Instance.OnCheatingDetected();
-			}
 
 			return value;
 		}
 
-		private bool CompareVectorsWithTolerance(Vector3 vector1, Vector3 vector2)
+
+
+
+        private bool CompareVectorsWithTolerance(Vector3 vector1, Vector3 vector2)
 		{
-			float epsilon = Detectors.ObscuredCheatingDetector.Instance.vector3Epsilon;
+			float epsilon = vector3Epsilon;
 			return Math.Abs(vector1.x - vector2.x) < epsilon &&
 				   Math.Abs(vector1.y - vector2.y) < epsilon &&
 				   Math.Abs(vector1.z - vector2.z) < epsilon;
@@ -302,10 +276,7 @@ namespace CodeStage.AntiCheat.ObscuredTypes
 		public static implicit operator ObscuredVector3(Vector3 value)
 		{
 			ObscuredVector3 obscured = new ObscuredVector3(Encrypt(value, cryptoKey));
-			if (Detectors.ObscuredCheatingDetector.isRunning)
-			{
-				obscured.fakeValue = value;
-			}
+			
 			return obscured;
 		}
 

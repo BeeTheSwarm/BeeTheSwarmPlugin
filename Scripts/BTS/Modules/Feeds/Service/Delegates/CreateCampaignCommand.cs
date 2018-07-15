@@ -8,7 +8,6 @@ namespace BTS {
     internal class CreateCampaignCommand : BaseNetworkService<GetPostsResponse>, ICreateCampaignService {
         [Inject] private IFeedsModel m_feedModel;
         [Inject] private IUserProfileModel m_userModel;
-        [Inject] private IUserProfileService m_userService;
 
         private Action<bool> m_callback;
         

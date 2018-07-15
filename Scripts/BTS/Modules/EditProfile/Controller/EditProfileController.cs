@@ -5,8 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EditProfileController : TopPanelScreenController<IEditProfileView>, IEditProfileViewListener, IEditProfileController {
-    [Inject]
-    private IUserProfileService m_userProfileService;
+
     [Inject]
     private IUserProfileModel m_userModel;
     [Inject]

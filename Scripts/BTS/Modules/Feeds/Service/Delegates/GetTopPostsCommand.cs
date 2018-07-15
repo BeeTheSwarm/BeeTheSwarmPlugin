@@ -9,8 +9,6 @@ namespace BTS {
         [Inject]
 
         private IFeedsModel m_model;
-        [Inject]
-        private IUserProfileService m_userService;
         private int m_offset;
         private int m_limit;
         private Action<List<PostModel>> m_callback;

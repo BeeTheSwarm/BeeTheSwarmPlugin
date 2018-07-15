@@ -8,7 +8,6 @@ namespace BTS {
     internal class GetUserCommand : BaseNetworkService<GetUserResponce>, IGetUserService {
 
         [Inject] private IUserProfileModel m_userModel;
-        [Inject] private IUserProfileService m_userService;
         private Action<UserModel> m_callback;
 
         

@@ -63,7 +63,7 @@ namespace BTS {
             }
         }
 
-        private void GetHiveHandler(List<UserModel> users, int members, UserModel refferer) {
+        private void GetHiveHandler(List<UserModel> users, int members, UserModel refferer, int totalImpact) {
             m_loader.Hide();
             float topTenImpact = 0;
             users.ForEach(user => {
@@ -73,10 +73,10 @@ namespace BTS {
                 m_viewModel.MembersList.Add(vm);
             });
             m_viewModel.Members.Set(members);
+            m_viewModel.Impact.Set(totalImpact);
             if (users.Count > 0 ) {
-                m_viewModel.Impact.Set(users[0].HiveImpact);
                 if (members > USERS_ON_SCREEN) {
-                    m_viewModel.MembersList.Add(new HiveMemberViewModel("Others", -1, users[0].HiveImpact - topTenImpact));
+                    m_viewModel.MembersList.Add(new HiveMemberViewModel("Others", -1, totalImpact - topTenImpact));
                 }
             } 
             if (refferer != null) {

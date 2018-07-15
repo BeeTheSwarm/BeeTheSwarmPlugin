@@ -13,7 +13,7 @@ namespace BTS {
         private Text m_title;
         [SerializeField]
         private Text m_notificationText;
-        private NotificationViewModel m_viewModel;
+
 
         protected void SetDate(int date) {
             m_date.text = GetNotificationDate(date);
@@ -32,7 +32,7 @@ namespace BTS {
         }
 
         internal virtual void SetViewModel(NotificationViewModel obj) {
-            m_viewModel = obj;
+
             SetDate(obj.Date);
         }
 

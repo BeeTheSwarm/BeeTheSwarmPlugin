@@ -9,8 +9,7 @@ namespace BTS {
 
         [Inject]
         private IUserProfileModel m_userModel;
-        [Inject]
-        private IUserProfileService m_userService;
+
         [Inject] private ILocalDataModel m_localDataModel;
         [Inject] private IPopupsModel m_popupsModel;
 

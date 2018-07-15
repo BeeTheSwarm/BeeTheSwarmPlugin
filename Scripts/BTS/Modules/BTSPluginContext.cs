@@ -11,13 +11,7 @@ namespace BTS {
         public event Action OnUserLoggedIn = delegate { };
         public event Action OnUserLoggedOut = delegate { };
         private DependencyContainer m_dependencyContainer = new DependencyContainer();
-
-        private string m_notificationsId;
-        internal void SetNotificationsId(string id)
-        {
-            m_notificationsId = id;
-        }
-
+        
         private bool m_isStandaloneApp;
         
         internal void StartPlugin(string gameid, Action callback, bool standalone = false) {
@@ -100,7 +94,6 @@ namespace BTS {
         
         private void InitServices() {
             m_dependencyContainer.AddService<INetworkService>(new NetworkService(this));
-            m_dependencyContainer.AddService<IUserProfileService>(new UserProfileService());
             m_dependencyContainer.AddService<IFeedsService>(new FeedsService());
             m_dependencyContainer.AddService<IImagesService>(new ImagesService(this));
             m_dependencyContainer. AddService<IHistoryService>(new HistoryService());

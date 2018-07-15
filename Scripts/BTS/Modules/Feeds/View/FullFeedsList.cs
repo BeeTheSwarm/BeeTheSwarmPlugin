@@ -6,6 +6,6 @@ namespace BTS
 {
     public class FullFeedsList : BaseFeedsList
     {
-        private List<FeedsListItem> m_feedsItems = new List<FeedsListItem>();
+
     }
 }

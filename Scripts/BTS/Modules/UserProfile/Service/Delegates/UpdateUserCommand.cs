@@ -8,8 +8,6 @@ namespace BTS {
     internal class UpdateUserCommand : BaseNetworkService<GetUserResponce>, IUpdateUserService {
         [Inject]
         private IUserProfileModel m_userModel;
-        [Inject]
-        private IUserProfileService m_userService;
         private Action<string> m_callback;
         private string m_email;
         [Inject]

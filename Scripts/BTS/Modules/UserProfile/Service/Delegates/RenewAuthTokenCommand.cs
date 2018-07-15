@@ -10,8 +10,7 @@ namespace BTS {
         private IUserProfileModel m_userModel;
         [Inject]
         private ILocalDataModel m_localDataModel;
-        [Inject]
-        private IUserProfileService m_userService;
+
         public RenewAuthTokenCommand() {
 
         }

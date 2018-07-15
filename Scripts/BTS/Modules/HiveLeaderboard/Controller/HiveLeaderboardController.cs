@@ -35,7 +35,7 @@ namespace BTS {
             m_getHiveService.Execute(hiveId, OnHiveReceived);
         }
 
-        private void OnHiveReceived(List<UserModel> list, int members, UserModel parent) {
+        private void OnHiveReceived(List<UserModel> list, int members, UserModel parent, int totalImpact) {
             m_hiveMembers = members;
             list.ForEach(item => {
                 m_viewModel.MembersList.Add(new HiveLeaderboaderItemViewModel(item.Name, item.Impact));

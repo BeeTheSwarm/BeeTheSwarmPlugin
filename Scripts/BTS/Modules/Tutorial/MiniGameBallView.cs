@@ -15,9 +15,7 @@ public class MiniGameBallView : MonoBehaviour {
 	private Rigidbody2D m_rigidbody;
 	private EventTrigger m_eventTrigger;
 	private Button m_button;
-	
-	private float minForce = 1.5f;
-	private float maxForce = 5f;
+
 	public int GameTime { get; private set; }
 	[SerializeField]
 	private float m_gravityScale = 50f;
