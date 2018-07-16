@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using System.Collections.Generic;
 
 namespace BTS {
     public class UserProfileScreenController : BaseScreenController<IUserProfileScreen>, IUserProfileController, IUserProfileScreenListener {
@@ -14,6 +15,7 @@ namespace BTS {
         [Inject] private IStartCampaignController m_startCampaignController;
         [Inject] private IEditProfileController m_editProfileController;
         [Inject] private IHiveController m_hiveController;
+        [Inject] private IGetHiveService m_getHiveService;
         [Inject] private IInviteFriendsController m_inviteFriendsController;
         [Inject] private IHiveLeaderboardController m_hiveLeaderboardController;
         [Inject] private INotificationsController m_notificationsController;
@@ -56,7 +58,6 @@ namespace BTS {
             m_notificationsModel.NotificationsCountUpdated += m_viewModel.NotificationsCount.Set;
             m_feedsModel.OnCampaignCreated += CampaignCreatedHandler;
             m_requestsModel.RequestsCountUpdated += m_viewModel.RequestsCount.Set;
-            m_userModel.OnImpactChanged += ImpactChangedHandler;
             m_userModel.OnUserStateChanged += UserStateChangedHandler;
         }
         
@@ -65,6 +66,11 @@ namespace BTS {
                 case UserState.LoggedIn:
                     AddListeners();
                     m_userModel.User.OnAvatarChanged += OnAvatarChange;
+                    if (m_userModel.User.HiveId == 0) {
+                        m_userModel.User.OnHiveIdChanged += HiveIdChangedHandler;
+                    } else {
+                        m_userModel.OnImpactChanged += ImpactChangedHandler;
+                    }
                     break;
                 default:
                     LogoutHandler();
@@ -110,8 +116,21 @@ namespace BTS {
             base.Show();
             m_imagesService.GetImage(m_userModel.User.Avatar, m_viewModel.Avatar.Set);
             m_viewModel.RequestsCount.Set(m_requestsModel.NewRequests); 
-            m_viewModel.Impact.Set(m_userModel.User.Impact);
+            if (m_userModel.User.HiveId == 0) {
+                m_viewModel.Impact.Set(m_userModel.User.Impact);
+            } else {
+                m_getHiveService.Execute(m_userModel.User.HiveId, GetHiveHandler, 0 , 1);
+            }
             m_postListControllerDelegate.Update();
+        }
+
+        private void HiveIdChangedHandler() {
+            m_userModel.OnImpactChanged -= ImpactChangedHandler;
+            m_getHiveService.Execute(m_userModel.User.HiveId, GetHiveHandler, 0, 1);
+        }
+
+        private void GetHiveHandler(List<UserModel> arg1, int arg2, UserModel arg3, int totalHiveImpact) {
+            m_viewModel.Impact.Set(totalHiveImpact);
         }
 
         private void OnAvatarChange() {
