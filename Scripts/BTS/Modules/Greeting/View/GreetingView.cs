@@ -16,6 +16,8 @@ namespace BTS {
         private UserInfoPopupView m_userInfoSubview;
         [SerializeField]
         private GameObject m_newRequestsSubview;
+        [SerializeField]
+        private Canvas m_canvas;
         private RectTransform m_rectTransform;
         private Vector3 m_dragBeginPoint;
         private PopupState m_popupState;
@@ -24,10 +26,12 @@ namespace BTS {
         private void Awake() {
             m_animator.enabled = false;
             m_rectTransform = GetComponent<RectTransform>();
+            m_canvas.enabled = false;
         }
 
         public void ShowPopup(PopupItemModel item) {
             HideAll();
+            m_canvas.enabled = true;
             switch (item.Type) {
                 case PopupTypes.Error:
                     m_errorSubview.gameObject.SetActive(true);
@@ -73,6 +77,8 @@ namespace BTS {
 
         private void OnPopupHidden() {
             m_popupState = PopupState.Hidden;
+            m_canvas.enabled = false;
+
             m_controller.OnPopupShown();
         }
         

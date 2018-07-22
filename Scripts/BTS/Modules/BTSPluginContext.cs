@@ -195,8 +195,6 @@ namespace BTS {
             m_dependencyContainer.AddController<ISearchMissingHivePlayersController>(new SearchMissingHivePlayersController(), GetView(typeof(SearchMissingHivePlayersView)));
             m_dependencyContainer.AddController<ISearchReffererController>(new SearchReffererController(), GetView(typeof(SearchReffererView)));
             m_dependencyContainer.AddController<IViewCampaignController>(new ViewCampaignController(), GetView(typeof(ViewCampaignView)));
-            m_dependencyContainer.AddController<IChestRevealController>(new ChestRevealController(), GetView(typeof(ChestRevealView)));
-            m_dependencyContainer.AddController<IStoreController>(new StoreController(), GetView(typeof(StoreView)));
             m_dependencyContainer.AddController<ISignInController>(new SignInController(), GetView(typeof(SignInView)));
             m_dependencyContainer.AddController<ISignUpController>(new SignUpController(m_isStandaloneApp), GetView(typeof(SignUpView)));
             m_dependencyContainer.AddController<IUpdatePostController>(new UpdatePostController(), GetView(typeof(UpdatePostView)));

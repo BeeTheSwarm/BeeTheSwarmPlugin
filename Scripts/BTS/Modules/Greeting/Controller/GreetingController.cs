@@ -52,7 +52,7 @@ public class GreetingController: BaseScreenController<IGreetingView>, IGreetingV
         if (m_currentItem != null) {
             m_waitingAnimation = true;
             m_view.ShowPopup(m_currentItem);
-        }
+        } 
     }
 
     public void OnPopupShown() {
