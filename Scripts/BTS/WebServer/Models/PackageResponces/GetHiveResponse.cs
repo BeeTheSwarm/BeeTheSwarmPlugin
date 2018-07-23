@@ -19,7 +19,9 @@ namespace BTS {
                 Parent.ParseJSON((Dictionary<string, object>)data["hive_parent"]);
             }
             MembersCount = int.Parse(data["hive_count"].ToString());
-            TotalImpact = int.Parse(data["hive_total"].ToString());
+            if (data.ContainsKey("hive_total")) {
+                TotalImpact = int.Parse(data["hive_total"].ToString());
+            }
         }
     }
 
