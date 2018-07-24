@@ -10,6 +10,9 @@ namespace BTS {
         public event Action OnInited = delegate { };
         public event Action OnUserLoggedIn = delegate { };
         public event Action OnUserLoggedOut = delegate { };
+        public event Action OnShown = delegate { };
+        public event Action OnHidingFinished = delegate { };
+        public event Action OnHidingStarted = delegate { };
         private DependencyContainer m_dependencyContainer = new DependencyContainer();
         
         private bool m_isStandaloneApp;
@@ -183,7 +186,18 @@ namespace BTS {
             m_dependencyContainer.AddController<IStartCampaignController>(new StartCampaignController(), GetView(typeof(StartCampaignView)));
             m_dependencyContainer.AddController<IUpdateCampaignController>(new UpdateCampaignController(), GetView(typeof(UpdateCampaignView)));
             m_dependencyContainer.AddController<IGreetingController>(new GreetingController(), GetView(typeof(GreetingView)));
-            m_dependencyContainer.AddController<IPluginContentController>(new PluginContentController(m_isStandaloneApp), GetView(typeof(PluginContentView)));
+
+            var pluginViewController = new PluginContentController(m_isStandaloneApp);
+            pluginViewController.OnShown += () => {
+                OnShown.Invoke();
+            };
+            pluginViewController.OnHideFinished += () => {
+                OnHidingFinished.Invoke();
+            };
+            pluginViewController.OnHideStarted += () => {
+                OnHidingStarted.Invoke();
+            };
+            m_dependencyContainer.AddController<IPluginContentController>(pluginViewController, GetView(typeof(PluginContentView)));
             m_dependencyContainer.AddController<IAddToHiveController>(new AddToHiveController(), GetView(typeof(AddToHiveView)));
             m_dependencyContainer.AddController<ICampaignToolboxController>(new CampaignToolboxController(), GetView(typeof(CampaignToolboxView)));
             m_dependencyContainer.AddController<IHiveController>(new HiveController(), GetView(typeof(HiveView)));

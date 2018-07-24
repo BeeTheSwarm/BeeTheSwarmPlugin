@@ -9,6 +9,12 @@ public class PluginContentView : BaseControlledView<IPluginContentViewListener>,
 {
     [SerializeField]
     private RectTransform m_transform;
+    [SerializeField]
+    private Button m_hideButton;
+
+    public event Action OnHideStarted = delegate { };
+    public event Action OnHideFinished = delegate { };
+    public event Action OnShown = delegate { };
 
     private Vector3 m_dragBeginPoint;
     
@@ -17,6 +23,18 @@ public class PluginContentView : BaseControlledView<IPluginContentViewListener>,
     private bool m_dragFailed;
     private bool m_animationEnabled;
     private bool m_swipeAnimationActive;
+
+    private void Awake() {
+        m_hideButton.onClick.AddListener(HideClickhandler);
+    }
+
+    private void HideClickhandler() {
+        if (m_swipeAnimationActive) {
+            return;
+        }
+        OnHideStarted();
+        SwipeHide();
+    }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -59,7 +77,7 @@ public class PluginContentView : BaseControlledView<IPluginContentViewListener>,
             SetAnchorMinX(0f);
             return;
         }
-        if (Mathf.Abs(point.x - m_dragBeginPoint.x) > Screen.width / 3f) {
+        if (Mathf.Abs(point.x - m_dragBeginPoint.x) > Screen.width / 2f) {
             m_swipeRecognized = true;
             SwipeHide();
         }
@@ -74,6 +92,7 @@ public class PluginContentView : BaseControlledView<IPluginContentViewListener>,
     }
 
     private void SwipeHide() {
+        OnHideStarted.Invoke();
         StartCoroutine(Animate(1f));
     }
 
@@ -93,7 +112,11 @@ public class PluginContentView : BaseControlledView<IPluginContentViewListener>,
             yield return null;
         } while (Mathf.Abs(diff) > 0f); 
         m_swipeAnimationActive = false;
-
+        if (Mathf.Approximately(targetMinAnchor, 1f)) {
+            OnHideFinished.Invoke();
+        } else {
+            OnShown.Invoke();
+        }
     }
 
     private void SwipeShow() {
@@ -123,6 +146,7 @@ public class PluginContentView : BaseControlledView<IPluginContentViewListener>,
     public void Setup(bool animationEnabled, bool dragEnabled) {
         m_dragEnabled = dragEnabled;
         m_animationEnabled = animationEnabled;
+        m_hideButton.gameObject.SetActive(animationEnabled);
     }
 
     public void OnEndDrag(PointerEventData eventData) {

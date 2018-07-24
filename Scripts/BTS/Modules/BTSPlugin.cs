@@ -38,6 +38,42 @@ namespace BTS {
             }
         }
 
+        public static event Action OnViewShown {
+            add {
+                if (s_context != null) {
+                    s_context.OnShown += value;
+                }
+            }
+            remove {
+                if (s_context != null) {
+                    s_context.OnShown -= value;
+                }
+            }
+        }
+        public static event Action OnHideStarted {
+            add {
+                if (s_context != null) {
+                    s_context.OnHidingStarted += value;
+                }
+            }
+            remove {
+                if (s_context != null) {
+                    s_context.OnHidingStarted -= value;
+                }
+            }
+        }
+        public static event Action OnHideFinished {
+            add {
+                if (s_context != null) {
+                    s_context.OnHidingFinished += value;
+                }
+            }
+            remove {
+                if (s_context != null) {
+                    s_context.OnHidingFinished -= value;
+                }
+            }
+        }
         public static void ShowUserBeesCount() {
             if (!IsInited) {
                 throw new Exception("BTS Plugin is not inited");
@@ -57,6 +93,8 @@ namespace BTS {
             }
         }
         
+
+
         public static void AddChest(Action<int> callback) {
             if (!IsInited) {
                 throw new Exception("BTS Plugin is not inited");

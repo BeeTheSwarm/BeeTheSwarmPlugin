@@ -14,6 +14,10 @@ public class PluginContentController : BaseScreenController<IPluginContentView>,
     [Inject]
     private IRegistrationController m_registrationController;
 
+    public event Action OnHideStarted = delegate { };
+    public event Action OnHideFinished = delegate { };
+    public event Action OnShown = delegate { };
+
     public PluginContentController(bool standalone) {
         IsStandalone = standalone;
     }
