@@ -34,6 +34,9 @@ public class PluginContentController : BaseScreenController<IPluginContentView>,
     protected override void PostSetView() {
         base.PostSetView();
         m_view.Setup(!IsStandalone, !IsStandalone);
+        m_view.OnHideStarted += () => { OnHideStarted.Invoke(); };
+        m_view.OnHideFinished += () => { OnHideFinished.Invoke(); };
+        m_view.OnShown += () => { OnShown.Invoke(); };
     }
 
     public override bool StoredInHistory {
