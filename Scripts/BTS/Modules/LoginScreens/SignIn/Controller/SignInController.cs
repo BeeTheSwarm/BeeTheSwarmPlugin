@@ -7,6 +7,7 @@ using UnityEngine;
 public class SignInController : BaseScreenController<ISignInView>, ISignInViewListener, ISignInController {
     [Inject] private IUserProfileModel m_userModel;
     [Inject] private IPopupsModel m_popupModel;
+    [Inject] private ISignUpController m_signupController;
     [Inject] private IRegistrationController m_registrationController;
     [Inject] private IFeedsController m_feedsController;
     [Inject] private ILoginService m_loginService;
@@ -73,5 +74,10 @@ public class SignInController : BaseScreenController<ISignInView>, ISignInViewLi
                 }
             }
         });
+    }
+
+    public void OnBackClick() {
+        Hide();
+        m_signupController.Show();
     }
 }

@@ -10,10 +10,18 @@ public class SignInView : BaseControlledView<ISignInViewListener>, ISignInView
     private InputField m_emailInput;
     [SerializeField]
     private InputField m_passwordInput;
-    
+    [SerializeField] private Button m_backButton;
+
+    private void Awake() {
+        m_backButton.onClick.AddListener(OnBackClickHandler);
+    }
+
+    private void OnBackClickHandler() { 
+        m_controller.OnBackClick();
+    }
+
     public void onSignInClicked()
     {
-        Debug.Log("onSignInClicked");
         m_controller.OnSignInClick(m_emailInput.text, m_passwordInput.text);
     }
 

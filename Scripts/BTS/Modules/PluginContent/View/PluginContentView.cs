@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class PluginContentView : BaseControlledView<IPluginContentViewListener>, IPluginContentView, IDragHandler, IBeginDragHandler, IEndDragHandler
+public class PluginContentView : BaseControlledView<IPluginContentViewListener>, IPluginContentView
 {
     [SerializeField]
     private RectTransform m_transform;
@@ -16,11 +16,6 @@ public class PluginContentView : BaseControlledView<IPluginContentViewListener>,
     public event Action OnHideFinished = delegate { };
     public event Action OnShown = delegate { };
 
-    private Vector3 m_dragBeginPoint;
-    
-    private bool m_dragEnabled;
-    private bool m_swipeRecognized;
-    private bool m_dragFailed;
     private bool m_animationEnabled;
     private bool m_swipeAnimationActive;
 
@@ -36,55 +31,6 @@ public class PluginContentView : BaseControlledView<IPluginContentViewListener>,
         SwipeHide();
     }
 
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        if (!m_dragEnabled) {
-            return;
-        }
-
-        if (m_swipeAnimationActive) {
-            return;
-        }
-        m_dragBeginPoint = Input.mousePosition;
-        m_dragFailed = false;
-        m_swipeRecognized = false;
-    }
-    
-    public void OnDrag(PointerEventData eventData)
-    {
-        if (!m_dragEnabled) {
-            return;
-        }
-
-        if (m_swipeRecognized) {
-            return;
-        }
-        
-        if (m_swipeAnimationActive) {
-            return;
-        }
-        if (m_dragFailed) {
-            return;
-        }
-        var point = Input.mousePosition;
-        if (Mathf.Abs(point.y - m_dragBeginPoint.y) > 50) {
-            m_dragFailed = true;
-            SwipeShow();
-            return;
-        }
-
-        if (point.x < m_dragBeginPoint.x) {
-            SetAnchorMinX(0f);
-            return;
-        }
-        if (Mathf.Abs(point.x - m_dragBeginPoint.x) > Screen.width / 2f) {
-            m_swipeRecognized = true;
-            SwipeHide();
-        }
-        else {
-            SetAnchorMinX((point.x - m_dragBeginPoint.x) / Screen.width);
-        }
-    }
 
     private void SetAnchorMinX(float value) {
         m_transform.anchorMax = new Vector2(value + 1f, 1f);
@@ -143,24 +89,9 @@ public class PluginContentView : BaseControlledView<IPluginContentViewListener>,
         }
     }
     
-    public void Setup(bool animationEnabled, bool dragEnabled) {
-        m_dragEnabled = dragEnabled;
+    public void Setup(bool animationEnabled) {
         m_animationEnabled = animationEnabled;
         m_hideButton.gameObject.SetActive(animationEnabled);
     }
 
-    public void OnEndDrag(PointerEventData eventData) {
-        if (!m_dragEnabled) {
-            return;
-        }
-
-        if (m_swipeAnimationActive) {
-            return;
-        }
-        if (m_swipeRecognized) {
-            return;
-        }
-        SwipeShow();
-        
-    }
 }
