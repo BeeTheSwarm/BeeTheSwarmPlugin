@@ -12,7 +12,6 @@ public class ResizableInputField : MonoBehaviour {
     private TextGenerator m_textGenerator;
 
     private void Awake() {
-        m_textGenerator = new TextGenerator();
     }
 
     protected void Start() {
@@ -22,6 +21,9 @@ public class ResizableInputField : MonoBehaviour {
     }
 
     private void ResizeInput(string text) {
+        if (m_textGenerator == null) {
+            m_textGenerator = new TextGenerator();
+        }
         var fullText = m_inputField.text;
 
         Vector2 extents = m_inputField.textComponent.rectTransform.rect.size;

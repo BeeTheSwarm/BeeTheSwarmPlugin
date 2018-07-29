@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
-using System.Collections.Generic;
-using System.Reflection;
+using System.Collections.Generic; 
 using BTS.Base.DependencyInjection;
+using UnityEngine.UI;
 
 namespace BTS {
     public class BTSPluginContext : MonoBehaviour, IContext {
+        [SerializeField]
+        private CanvasScaler m_canvasScaler;
         public event Action OnInited = delegate { };
         public event Action OnUserLoggedIn = delegate { };
         public event Action OnUserLoggedOut = delegate { };
@@ -14,7 +16,14 @@ namespace BTS {
         public event Action OnHidingFinished = delegate { };
         public event Action OnHidingStarted = delegate { };
         private DependencyContainer m_dependencyContainer = new DependencyContainer();
-        
+
+        private void Start() {
+            if ((float)Screen.width / Screen.height > 1 ) {
+                m_canvasScaler.matchWidthOrHeight = 1;
+            } else {
+                m_canvasScaler.matchWidthOrHeight = 0;
+            }
+        }
         private bool m_isStandaloneApp;
         
         internal void StartPlugin(string gameid, Action callback, bool standalone = false) {
