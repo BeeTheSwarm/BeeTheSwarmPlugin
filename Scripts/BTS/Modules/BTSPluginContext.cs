@@ -61,7 +61,7 @@ namespace BTS {
             m_dependencyContainer.GetService<ISendEventService>().Execute(levelId, score, callback);
         }
 
-        internal void GetEvents(Action<List<EventModel>> callback) {
+        internal void GetEvents(Action<List<EventModel>, List<ProgressModel>> callback) {
             m_dependencyContainer.GetService<IGetEventsService>().Execute(callback);
         }
 

@@ -2,6 +2,9 @@
 using System.Collections;
 using System;
 using System.Collections.Generic;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 namespace BTS {
     public static class BTSPlugin {
         private static BTSPluginContext s_context;
@@ -158,7 +161,7 @@ namespace BTS {
             s_context.Event(levelId, score, callback);
         }
 
-        public static void GetEvents(Action<List<EventModel>> callback) {
+        public static void GetEvents(Action<List<EventModel>, List<ProgressModel>> callback) {
             if (!IsInited) {
                 Debug.Log("BTS Plugin not inited");
                 return;
