@@ -40,9 +40,6 @@ public class IOSCamera : SA.Common.Pattern.Singleton<IOSCamera> {
 
 
 	[DllImport ("__Internal")]
-	private static extern void _ISN_GetVideoPathFromAlbum();
-
-	[DllImport ("__Internal")]
 	private static extern void _ISN_PickImage(int source);
 
 	
@@ -85,11 +82,6 @@ public class IOSCamera : SA.Common.Pattern.Singleton<IOSCamera> {
 		StartCoroutine(SaveScreenshot());
 	}
 
-	public void GetVideoPathFromAlbum() {
-		#if (UNITY_IPHONE && !UNITY_EDITOR && CAMERA_API) || SA_DEBUG_MODE
-		_ISN_GetVideoPathFromAlbum();
-		#endif
-	}
 
 	[Obsolete("GetImageFromAlbum is deprecated, please use PickImage(ISN_ImageSource.Album) ")]
 	public void GetImageFromAlbum() {
