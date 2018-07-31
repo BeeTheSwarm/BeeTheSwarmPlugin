@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using SA.IOSNative.Contacts;
 
+
+
 public class IosPlatformAdapter : IPlatformAdapter {
     public void GetAddressBookEmails(Action<List<ContactInfo>> callback) {
         new EmailLoader().Load(callback);
@@ -18,6 +20,7 @@ public class IosPlatformAdapter : IPlatformAdapter {
     }
 
     public void SendMessages(string message, List<string> phones, Action<bool> callback) {
+
         IOSSocialManager.Instance.SendTextMessage(message, phones, (TextMessageComposeResult result) => {
             callback.Invoke(result == TextMessageComposeResult.Sent);
         });

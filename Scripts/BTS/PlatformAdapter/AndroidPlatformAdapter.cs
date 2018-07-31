@@ -17,10 +17,21 @@ public class AndroidPlatformAdapter : IPlatformAdapter {
     }
 
     public void SendEmail(string title, string message, List<string> mails, Action<bool> callback) {
+        
         AndroidSocialGate.OnShareIntentCallback += (success, data) => {
             callback.Invoke(success);
         };
-        UM_ShareUtility.SendMail(title, message, JoinTargets(mails));
+
+        string mailsStr = string.Empty;
+        foreach(var m in mails) {
+            mailsStr += m + ",";
+        }
+
+        if(mailsStr.Length > 1) {
+            mailsStr = mailsStr.Remove(mailsStr.Length - 1);
+        }
+        AndroidSocialGate.SendMail(title, message, title, mailsStr);
+      
     }
 
     private string JoinTargets(List<string> targetList) {
@@ -63,7 +74,7 @@ public class AndroidPlatformAdapter : IPlatformAdapter {
 
         protected abstract List<ContactInfo> FilterContacts(List<AndroidContactInfo> contacts);
     }
-
+    
     private class EmailLoader : ContactLoader {
         protected override List<ContactInfo> FilterContacts(List<AndroidContactInfo> contacts) {
             var result = new List<ContactInfo>();
@@ -88,7 +99,7 @@ public class AndroidPlatformAdapter : IPlatformAdapter {
             return result;
         }
     }
-
+    
     private class PhoneLoader : ContactLoader {
         protected override List<ContactInfo> FilterContacts(List<AndroidContactInfo> contacts) {
             var result = new List<ContactInfo>();
@@ -108,11 +119,12 @@ public class AndroidPlatformAdapter : IPlatformAdapter {
     private class ImageLoader {
         private Action<Texture2D> m_callback;
         public void Load(Action<Texture2D> callback) {
+            
             m_callback = callback;
             AndroidCamera.Instance.OnImagePicked += OnImagePicked;
             AndroidCamera.Instance.GetImageFromGallery();
         }
-
+        
         private void OnImagePicked(AndroidImagePickResult obj) {
             AndroidCamera.Instance.OnImagePicked -= OnImagePicked;
             if (obj.IsSucceeded) {

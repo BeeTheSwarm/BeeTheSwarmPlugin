@@ -31,7 +31,8 @@ public class CampaignToolboxController: TopPanelScreenController<ICampaignToolbo
 
     public void OnAnnonceFacebookClick()
     {
-        UM_ShareUtility.FacebookShare(SHARE_TEXT);
+        //TODO use platfroms
+       // UM_ShareUtility.FacebookShare(SHARE_TEXT);
     }
 
     public void OnAnnounceEmailClick()
