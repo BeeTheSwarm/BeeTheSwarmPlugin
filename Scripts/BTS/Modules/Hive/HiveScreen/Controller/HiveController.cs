@@ -63,7 +63,7 @@ namespace BTS {
             }
         }
 
-        private void GetHiveHandler(List<UserModel> users, int members, UserModel refferer, int totalImpact) {
+        private void GetHiveHandler(List<UserModel> users, int members, UserModel refferer, float totalImpact) {
             m_loader.Hide();
             float topTenImpact = 0;
             users.ForEach(user => {

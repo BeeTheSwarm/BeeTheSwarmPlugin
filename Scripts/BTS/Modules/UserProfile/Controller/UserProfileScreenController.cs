@@ -129,7 +129,7 @@ namespace BTS {
             m_getHiveService.Execute(m_userModel.User.HiveId, GetHiveHandler, 0, 1);
         }
 
-        private void GetHiveHandler(List<UserModel> arg1, int arg2, UserModel arg3, int totalHiveImpact) {
+        private void GetHiveHandler(List<UserModel> arg1, int arg2, UserModel arg3, float totalHiveImpact) {
             m_viewModel.Impact.Set(totalHiveImpact);
         }
 

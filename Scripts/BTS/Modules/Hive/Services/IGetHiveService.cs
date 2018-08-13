@@ -6,6 +6,6 @@ using System.Collections.Generic;
 
 namespace BTS {
     internal interface IGetHiveService : IService {
-        void Execute(int hiveId, Action<List<UserModel>, int, UserModel, int> callback, int offset = 0, int limit = 0);
+        void Execute(int hiveId, Action<List<UserModel>, int, UserModel, float> callback, int offset = 0, int limit = 0);
     }
 }
